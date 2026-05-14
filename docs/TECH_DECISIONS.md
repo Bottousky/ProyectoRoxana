@@ -21,3 +21,11 @@
 Phaser no renderiza dialogos ni bitacora. Las escenas emiten eventos tipados y React decide que UI mostrar.
 
 El Event Bus vive en `src/game/systems/eventBus.ts` y es la frontera explicita entre runtime jugable y UI.
+
+## SDD
+
+El desarrollo sigue Spec Driven Development. Las specs viven en `specs/` y deben existir antes de features nuevas.
+
+## Material IA
+
+Los PDFs locales de IA no son parte del runtime ni del repo. Sus aprendizajes se integran como docs derivados para direccion creativa, prompting, pixel art y assets.

@@ -33,5 +33,19 @@ npm run build
 - `src/store`: estado global liviano de UI con Zustand.
 - `src/content`: dialogos y bitacora en JSON.
 - `docs`: decisiones tecnicas y reglas del vertical slice.
+- `specs`: specs SDD que guian cada feature.
 
 Phaser no renderiza dialogos ni bitacora. La comunicacion con React pasa por el Event Bus tipado en `src/game/systems/eventBus.ts`.
+
+## SDD e IA
+
+El proyecto usa Spec Driven Development. Antes de agregar features o assets, crear o actualizar una spec en `specs/`.
+
+La IA se usa como herramienta de direccion creativa bajo reglas versionadas:
+
+- `docs/AI_SOURCE_REVIEW.md`
+- `docs/AI_CREATIVE_PIPELINE.md`
+- `docs/AI_PROMPTING_RULES.md`
+- `docs/PIXEL_ART_AI_RULES.md`
+
+Los PDFs fuente locales quedan fuera del repo.

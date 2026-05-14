@@ -17,3 +17,9 @@
 - No hardcodear textos explicativos dentro de escenas.
 - Las pistas narrativas viven en JSON de dialogo.
 - Las explicaciones formales viven en JSON de bitacora.
+
+## IA
+
+Los materiales analizados sobre IA sirven para producir referencias visuales, personajes, assets y escenas, pero no reemplazan el diseno pedagogico del puzzle.
+
+Cada puzzle necesita su propia spec con regla jugable, feedback, criterios de aceptacion y prueba de lectura.

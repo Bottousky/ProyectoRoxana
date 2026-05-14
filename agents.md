@@ -123,6 +123,38 @@ Antes de agregar nuevas features, validar que
 - el codigo esta tipado
 - el contenido narrativo esta separado de la logica
 
+## Spec Driven Development
+
+Antes de implementar una feature nueva, crear o actualizar una spec en `specs/`.
+
+Cada spec debe declarar:
+
+- objetivo
+- alcance
+- fuera de alcance
+- decisiones tecnicas
+- reglas narrativas si aplica
+- eventos Phaser <-> React si aplica
+- criterios de aceptacion
+- QA esperado
+
+El codigo debe implementarse contra la spec, no contra ideas sueltas.
+
+## Uso de IA en produccion creativa
+
+Los PDFs fuente sobre IA son material local y no deben versionarse en el repo.
+
+Las reglas derivadas viven en:
+
+- `docs/AI_SOURCE_REVIEW.md`
+- `docs/AI_CREATIVE_PIPELINE.md`
+- `docs/AI_PROMPTING_RULES.md`
+- `docs/PIXEL_ART_AI_RULES.md`
+
+La IA puede ayudar a explorar, documentar, producir variantes y preparar assets, pero no reemplaza la spec ni la direccion del proyecto.
+
+No agregar assets finales generados con IA si la spec vigente solo permite placeholders.
+
 ## Prohibiciones
 
 No construir backend todavia.
