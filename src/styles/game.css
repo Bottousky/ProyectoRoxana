@@ -1,0 +1,10 @@
+.roxana-game-frame canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.roxana-control-button {
+  touch-action: none;
+  user-select: none;
+}

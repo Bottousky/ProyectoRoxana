@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "../styles/game.css";
+
+:root {
+  --background: #10141f;
+  --foreground: #f5efe4;
+  --roxana-bg: #10141f;
+  --roxana-panel: #1d2330;
+  --roxana-panel-strong: #2b3445;
+  --roxana-text: #f5efe4;
+  --roxana-muted: #c7bda9;
+  --roxana-accent: #69d2c8;
+  --roxana-warm: #f0b25a;
+  --roxana-danger: #ef6f6c;
+  --roxana-border: rgba(245, 239, 228, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button {
+  font: inherit;
+}
