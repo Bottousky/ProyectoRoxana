@@ -127,6 +127,18 @@ Antes de agregar nuevas features, validar que
 
 Antes de implementar una feature nueva, crear o actualizar una spec en `specs/`.
 
+GitHub Spec Kit esta instalado en `.specify/` y sus skills Codex viven en `.agents/skills/`.
+
+Para nuevas features activas, preferir el flujo:
+
+- `$speckit-specify`
+- `$speckit-clarify`
+- `$speckit-plan`
+- `$speckit-tasks`
+- `$speckit-implement`
+
+La constitucion del proyecto vive en `.specify/memory/constitution.md`.
+
 Cada spec debe declarar:
 
 - objetivo
@@ -164,3 +176,8 @@ No construir los 4 mundos todavia.
 No meter explicaciones educativas directas en dialogos.
 No hardcodear dialogos dentro de escenas Phaser.
 No acoplar puzzles a UI React salvo mediante eventos.
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+<!-- SPECKIT END -->

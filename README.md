@@ -41,6 +41,8 @@ Phaser no renderiza dialogos ni bitacora. La comunicacion con React pasa por el 
 
 El proyecto usa Spec Driven Development. Antes de agregar features o assets, crear o actualizar una spec en `specs/`.
 
+GitHub Spec Kit esta instalado en `.specify/` con skills Codex en `.agents/skills/`. Ver `docs/SPECKIT_ADOPTION.md`.
+
 La IA se usa como herramienta de direccion creativa bajo reglas versionadas:
 
 - `docs/AI_SOURCE_REVIEW.md`

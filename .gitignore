@@ -42,3 +42,8 @@ next-env.d.ts
 
 # local source material
 /PDFS/
+
+# local agent artifacts; keep project skills versioned
+/.agents/*
+!/.agents/skills/
+!/.agents/skills/**
