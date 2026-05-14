@@ -5,6 +5,12 @@
       "title": "La biblioteca central",
       "scope": "central",
       "body": "Roxana parece ligada al Hub. La bitacora central registrara observaciones formales, patrones descubiertos y pistas recuperadas de cada mundo."
+    },
+    {
+      "id": "central_hub_libreria",
+      "title": "Despacho de Roxana",
+      "scope": "central",
+      "body": "Este despacho funciona como nucleo de observacion. Todo lo que entendamos del Hub y de Ohmdal debe quedar asentado aqui antes de avanzar."
     }
   ]
 }

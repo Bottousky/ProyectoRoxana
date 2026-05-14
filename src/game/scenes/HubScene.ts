@@ -1,8 +1,15 @@
 import * as Phaser from "phaser";
+import hubMapRaw from "@/content/maps/roxana-library-hub.map.json";
 import { GAME_HEIGHT, GAME_WIDTH, TILE_SIZE } from "@/game/constants";
 import { Player } from "@/game/entities/Player";
 import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
 import { gameEvents } from "@/game/systems/eventBus";
+import type {
+  BoundsRect,
+  HubInteractable,
+  HubMapData,
+  HubSolid,
+} from "@/game/types/hubMap";
 import type { DirectionVector } from "@/game/types/events";
 
 type WasdKeys = {
@@ -16,13 +23,17 @@ type WasdKeys = {
 };
 
 export class HubScene extends Phaser.Scene {
+  private readonly mapData = hubMapRaw as HubMapData;
   private player?: Player;
-  private roxana?: RoxanaNpc;
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
   private keys?: WasdKeys;
+  private solids: HubSolid[] = [];
+  private interactables: HubInteractable[] = [];
   private movementLocked = false;
+  private uiLocked = false;
+  private suppressInteractUntil = 0;
   private virtualDirection: DirectionVector = { x: 0, y: 0 };
-  private promptVisible = false;
+  private activePromptId: string | null = null;
   private cleanupEventHandlers: Array<() => void> = [];
 
   constructor() {
@@ -30,10 +41,16 @@ export class HubScene extends Phaser.Scene {
   }
 
   create() {
-    this.drawPlaceholderRoom();
+    this.solids = this.mapData.solids;
+    this.interactables = this.mapData.interactables;
+    this.drawHubRoom();
 
-    this.player = new Player(this, 96, 112);
-    this.roxana = new RoxanaNpc(this, 248, 108);
+    this.player = new Player(this, this.mapData.spawn.x, this.mapData.spawn.y);
+    new RoxanaNpc(
+      this,
+      this.mapData.entities.roxana.x,
+      this.mapData.entities.roxana.y,
+    );
 
     this.cursors = this.input.keyboard?.createCursorKeys();
     this.keys = this.input.keyboard?.addKeys(
@@ -43,63 +60,97 @@ export class HubScene extends Phaser.Scene {
     this.cleanupEventHandlers = [
       gameEvents.on("dialogue:complete", () => {
         this.movementLocked = false;
+        this.suppressInteractionBriefly();
       }),
       gameEvents.on("input:virtual-direction", (direction) => {
         this.virtualDirection = direction;
       }),
       gameEvents.on("input:interact", () => {
-        this.tryStartRoxanaDialogue();
+        this.tryInteract(this.findNearbyInteractable());
+      }),
+      gameEvents.on("ui:controls-lock", ({ locked }) => {
+        this.uiLocked = locked;
+        if (locked) {
+          this.clearPrompt();
+          this.virtualDirection = { x: 0, y: 0 };
+        } else {
+          this.suppressInteractionBriefly();
+        }
       }),
     ];
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.cleanupEventHandlers.forEach((cleanup) => cleanup());
       this.cleanupEventHandlers = [];
-      gameEvents.emit("hud:prompt", null);
+      this.clearPrompt();
     });
 
     gameEvents.emit("scene:ready", { scene: "hub" });
   }
 
   update(_time: number, delta: number) {
-    if (!this.player || !this.roxana) {
+    if (!this.player) {
       return;
     }
 
-    this.updateInteractionPrompt();
+    const nearbyInteractable = this.findNearbyInteractable();
+    this.updateInteractionPrompt(nearbyInteractable);
 
-    if (this.movementLocked) {
+    if (this.movementLocked || this.uiLocked) {
       return;
     }
 
     if (this.wasInteractionPressed()) {
-      this.tryStartRoxanaDialogue();
+      this.tryInteract(nearbyInteractable);
     }
 
     const direction = this.readMovementDirection();
-    this.player.move(direction.x, direction.y, delta);
+    this.player.move(direction.x, direction.y, delta, (x, y) =>
+      this.canOccupyPlayerAt(x, y),
+    );
   }
 
-  private drawPlaceholderRoom() {
+  private drawHubRoom() {
     this.cameras.main.setBackgroundColor("#10141f");
 
-    const floor = this.add.graphics();
-    floor.fillStyle(0x182032, 1);
-    floor.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    const graphics = this.add.graphics();
+    graphics.fillStyle(0x182032, 1);
+    graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    floor.lineStyle(1, 0x263247, 0.55);
+    graphics.lineStyle(1, 0x263247, 0.45);
     for (let x = 0; x <= GAME_WIDTH; x += TILE_SIZE) {
-      floor.lineBetween(x, 0, x, GAME_HEIGHT);
+      graphics.lineBetween(x, 0, x, GAME_HEIGHT);
     }
     for (let y = 0; y <= GAME_HEIGHT; y += TILE_SIZE) {
-      floor.lineBetween(0, y, GAME_WIDTH, y);
+      graphics.lineBetween(0, y, GAME_WIDTH, y);
     }
 
-    floor.lineStyle(2, 0x5c6b85, 1);
-    floor.strokeRect(8, 8, GAME_WIDTH - 16, GAME_HEIGHT - 16);
+    for (const decoration of this.mapData.decorations) {
+      graphics.fillStyle(this.colorFromHex(decoration.fill), 1);
+      graphics.fillRect(
+        decoration.x,
+        decoration.y,
+        decoration.width,
+        decoration.height,
+      );
 
-    this.add.rectangle(192, 34, 136, 16, 0x2b3445);
-    this.add.rectangle(192, 182, 220, 10, 0x2b3445);
+      if (decoration.stroke) {
+        graphics.lineStyle(1, this.colorFromHex(decoration.stroke), 0.9);
+        graphics.strokeRect(
+          decoration.x,
+          decoration.y,
+          decoration.width,
+          decoration.height,
+        );
+      }
+    }
+
+    for (const solid of this.solids) {
+      graphics.fillStyle(this.styleColorForSolid(solid.style), 1);
+      graphics.fillRect(solid.x, solid.y, solid.width, solid.height);
+      graphics.lineStyle(1, 0x0f1420, 0.8);
+      graphics.strokeRect(solid.x, solid.y, solid.width, solid.height);
+    }
   }
 
   private readMovementDirection(): DirectionVector {
@@ -116,24 +167,29 @@ export class HubScene extends Phaser.Scene {
     };
   }
 
-  private updateInteractionPrompt() {
-    const isNearRoxana = this.isPlayerNearRoxana();
-
-    if (isNearRoxana && !this.promptVisible && !this.movementLocked) {
-      this.promptVisible = true;
-      gameEvents.emit("hud:prompt", {
-        message: "Hablar con Roxana",
-      });
+  private updateInteractionPrompt(interactable: HubInteractable | null) {
+    if (this.movementLocked || this.uiLocked) {
+      this.clearPrompt();
+      return;
     }
 
-    if ((!isNearRoxana || this.movementLocked) && this.promptVisible) {
-      this.promptVisible = false;
-      gameEvents.emit("hud:prompt", null);
+    if (!interactable) {
+      this.clearPrompt();
+      return;
+    }
+
+    if (this.activePromptId !== interactable.id) {
+      this.activePromptId = interactable.id;
+      gameEvents.emit("hud:prompt", { message: interactable.prompt });
     }
   }
 
   private wasInteractionPressed() {
     if (!this.keys) {
+      return false;
+    }
+
+    if (this.isInteractionSuppressed()) {
       return false;
     }
 
@@ -144,32 +200,177 @@ export class HubScene extends Phaser.Scene {
     );
   }
 
-  private tryStartRoxanaDialogue() {
-    if (!this.isPlayerNearRoxana() || this.movementLocked) {
+  private tryInteract(interactable: HubInteractable | null) {
+    const target = interactable ?? this.findNearbyInteractable();
+
+    if (
+      !target ||
+      this.movementLocked ||
+      this.uiLocked ||
+      this.isInteractionSuppressed()
+    ) {
       return;
     }
 
-    this.movementLocked = true;
-    this.promptVisible = false;
-    gameEvents.emit("hud:prompt", null);
-    gameEvents.emit("dialogue:start", {
-      dialogueId: "roxana_intro",
-      speakerId: "roxana",
+    gameEvents.emit("interaction:start", {
+      id: target.id,
+      kind: target.kind,
     });
+
+    switch (target.kind) {
+      case "dialogue": {
+        const dialogueId = target.payload?.dialogueId;
+        const speakerId = target.payload?.speakerId ?? "roxana";
+        if (!dialogueId) {
+          return;
+        }
+
+        this.movementLocked = true;
+        this.clearPrompt();
+        gameEvents.emit("dialogue:start", { dialogueId, speakerId });
+        break;
+      }
+      case "journal": {
+        gameEvents.emit("journal:open", {
+          entryId: target.payload?.journalEntryId,
+        });
+        break;
+      }
+      case "blocked_gate":
+      case "inspect": {
+        const messageId = target.payload?.messageId;
+        if (!messageId) {
+          return;
+        }
+
+        gameEvents.emit("message:show", { messageId });
+        break;
+      }
+      default:
+        break;
+    }
   }
 
-  private isPlayerNearRoxana() {
-    if (!this.player || !this.roxana) {
+  private findNearbyInteractable() {
+    if (!this.player) {
+      return null;
+    }
+
+    let nearest: HubInteractable | null = null;
+    let bestDistance = Number.POSITIVE_INFINITY;
+
+    for (const interactable of this.interactables) {
+      if (!this.isPlayerNearBounds(interactable.bounds, 18)) {
+        continue;
+      }
+
+      const centerX = interactable.bounds.x + interactable.bounds.width / 2;
+      const centerY = interactable.bounds.y + interactable.bounds.height / 2;
+      const distance = Phaser.Math.Distance.Between(
+        this.player.x,
+        this.player.y,
+        centerX,
+        centerY,
+      );
+
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        nearest = interactable;
+      }
+    }
+
+    return nearest;
+  }
+
+  private isPlayerNearBounds(bounds: BoundsRect, range: number) {
+    if (!this.player) {
       return false;
     }
+
+    const closestX = Phaser.Math.Clamp(
+      this.player.x,
+      bounds.x,
+      bounds.x + bounds.width,
+    );
+    const closestY = Phaser.Math.Clamp(
+      this.player.y,
+      bounds.y,
+      bounds.y + bounds.height,
+    );
 
     return (
       Phaser.Math.Distance.Between(
         this.player.x,
         this.player.y,
-        this.roxana.x,
-        this.roxana.y,
-      ) < 36
+        closestX,
+        closestY,
+      ) <= range
     );
+  }
+
+  private canOccupyPlayerAt(x: number, y: number) {
+    if (!this.player) {
+      return true;
+    }
+
+    const playerRect: BoundsRect = {
+      x: x - this.player.halfWidth,
+      y: y - this.player.halfHeight,
+      width: this.player.halfWidth * 2,
+      height: this.player.halfHeight * 2,
+    };
+
+    for (const solid of this.solids) {
+      if (this.rectsOverlap(playerRect, solid)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private rectsOverlap(a: BoundsRect, b: BoundsRect) {
+    return (
+      a.x < b.x + b.width &&
+      a.x + a.width > b.x &&
+      a.y < b.y + b.height &&
+      a.y + a.height > b.y
+    );
+  }
+
+  private clearPrompt() {
+    if (!this.activePromptId) {
+      return;
+    }
+
+    this.activePromptId = null;
+    gameEvents.emit("hud:prompt", null);
+  }
+
+  private colorFromHex(hexColor: string) {
+    return Phaser.Display.Color.HexStringToColor(hexColor).color;
+  }
+
+  private styleColorForSolid(style: HubSolid["style"]) {
+    switch (style) {
+      case "wall":
+        return 0x2f3d54;
+      case "shelf":
+        return 0x4f3d2f;
+      case "furniture":
+        return 0x645341;
+      case "gate":
+        return 0x2e4a52;
+      default:
+        return 0x3b4455;
+    }
+  }
+
+  private suppressInteractionBriefly() {
+    this.suppressInteractUntil = this.time.now + 180;
+  }
+
+  private isInteractionSuppressed() {
+    return this.time.now < this.suppressInteractUntil;
   }
 }

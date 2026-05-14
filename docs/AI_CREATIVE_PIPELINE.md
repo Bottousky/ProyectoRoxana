@@ -43,6 +43,9 @@ La IA no decide la direccion del proyecto. La spec, la biblia visual y los crite
 9. **QA visual**
    Revisar legibilidad, continuidad, escala 384x216, coherencia con Roxana y funcionamiento dentro del gameplay.
 
+10. **Contrato de asset**
+   Ninguna imagen entra al runtime solo por verse bien. Tilesets, spritesheets, atlas de objetos e icon sheets deben tener manifest JSON que declare recortes, ids, escala, categorias, colisiones e interacciones cuando correspondan.
+
 ## Criterios de aceptacion para assets IA
 
 - Tiene una funcion concreta en gameplay, UI, narrativa o documentacion.
@@ -52,6 +55,7 @@ La IA no decide la direccion del proyecto. La spec, la biblia visual y los crite
 - Tiene nombre y ubicacion coherente.
 - No reemplaza una decision de diseno que aun no fue especificada.
 - No entra al repo como asset final si la spec solo permite placeholders.
+- Tiene manifest si se va a usar en Phaser o React como asset recortable.
 
 ## Material fuera de alcance actual
 

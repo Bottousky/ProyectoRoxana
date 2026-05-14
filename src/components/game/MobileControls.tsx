@@ -34,6 +34,14 @@ export function MobileControls() {
         <DirectionButton direction="down" />
         <span />
       </div>
+      <button
+        type="button"
+        aria-label="Atras"
+        className="roxana-control-button pointer-events-auto h-11 w-11 rounded-md border border-[var(--roxana-border)] bg-[var(--roxana-panel)]/85 text-lg font-bold text-[var(--roxana-muted)] shadow-lg backdrop-blur active:bg-[var(--roxana-panel-strong)]"
+        onPointerDown={() => gameEvents.emit("input:back")}
+      >
+        B
+      </button>
     </div>
   );
 }

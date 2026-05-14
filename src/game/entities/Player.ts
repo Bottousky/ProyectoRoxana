@@ -18,23 +18,41 @@ export class Player {
     return this.body.y;
   }
 
-  move(directionX: number, directionY: number, delta: number) {
+  get halfWidth() {
+    return this.body.width / 2;
+  }
+
+  get halfHeight() {
+    return this.body.height / 2;
+  }
+
+  move(
+    directionX: number,
+    directionY: number,
+    delta: number,
+    canOccupy?: (x: number, y: number) => boolean,
+  ) {
     if (directionX === 0 && directionY === 0) {
       return;
     }
 
     const vector = new Phaser.Math.Vector2(directionX, directionY).normalize();
     const distance = this.speed * (delta / 1000);
+    const deltaX = vector.x * distance;
+    const deltaY = vector.y * distance;
 
-    this.body.x = Phaser.Math.Clamp(
-      this.body.x + vector.x * distance,
-      8,
-      GAME_WIDTH - 8,
-    );
-    this.body.y = Phaser.Math.Clamp(
-      this.body.y + vector.y * distance,
+    const candidateX = Phaser.Math.Clamp(this.body.x + deltaX, 8, GAME_WIDTH - 8);
+    if (!canOccupy || canOccupy(candidateX, this.body.y)) {
+      this.body.x = candidateX;
+    }
+
+    const candidateY = Phaser.Math.Clamp(
+      this.body.y + deltaY,
       10,
       GAME_HEIGHT - 10,
     );
+    if (!canOccupy || canOccupy(this.body.x, candidateY)) {
+      this.body.y = candidateY;
+    }
   }
 }

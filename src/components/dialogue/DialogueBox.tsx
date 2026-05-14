@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import roxanaIntro from "@/content/dialogues/roxana-intro.json";
 import { gameEvents } from "@/game/systems/eventBus";
 import type { DialogueContent } from "@/game/types/dialogue";
@@ -22,16 +22,14 @@ export function DialogueBox() {
     return activeDialogueId ? dialogueLibrary[activeDialogueId] : null;
   }, [activeDialogueId]);
 
-  if (!dialogue) {
-    return null;
-  }
-
   const lineIndex =
-    progress.dialogueId === activeDialogueId ? progress.lineIndex : 0;
-  const line = dialogue.lines[lineIndex];
-  const isLastLine = lineIndex >= dialogue.lines.length - 1;
+    dialogue && progress.dialogueId === activeDialogueId
+      ? progress.lineIndex
+      : 0;
+  const line = dialogue?.lines[lineIndex] ?? "";
+  const isLastLine = dialogue ? lineIndex >= dialogue.lines.length - 1 : false;
 
-  function closeDialogue() {
+  const closeDialogue = useCallback(() => {
     if (!dialogue) {
       return;
     }
@@ -39,6 +37,60 @@ export function DialogueBox() {
     completeDialogue();
     setProgress({ dialogueId: null, lineIndex: 0 });
     gameEvents.emit("dialogue:complete", { dialogueId: dialogue.id });
+  }, [completeDialogue, dialogue]);
+
+  const advanceDialogue = useCallback(() => {
+    if (!dialogue) {
+      return;
+    }
+
+    if (isLastLine) {
+      closeDialogue();
+      return;
+    }
+
+    setProgress({
+      dialogueId: dialogue.id,
+      lineIndex: lineIndex + 1,
+    });
+  }, [closeDialogue, dialogue, isLastLine, lineIndex]);
+
+  useEffect(() => {
+    if (!dialogue) {
+      return;
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      const isAdvanceKey =
+        event.key === "Enter" ||
+        event.key === " " ||
+        event.key.toLowerCase() === "e";
+      const isBackKey = event.key === "Escape" || event.key === "Backspace";
+
+      if (isAdvanceKey) {
+        event.preventDefault();
+        advanceDialogue();
+      }
+
+      if (isBackKey) {
+        event.preventDefault();
+        closeDialogue();
+      }
+    }
+
+    const offInteract = gameEvents.on("input:interact", advanceDialogue);
+    const offBack = gameEvents.on("input:back", closeDialogue);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      offInteract();
+      offBack();
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [advanceDialogue, closeDialogue, dialogue]);
+
+  if (!dialogue) {
+    return null;
   }
 
   return (
@@ -70,17 +122,7 @@ export function DialogueBox() {
         <button
           type="button"
           className="rounded-md bg-[var(--roxana-accent)] px-4 py-2 text-sm font-bold text-[#102126] transition hover:brightness-110"
-          onClick={() => {
-            if (isLastLine) {
-              closeDialogue();
-              return;
-            }
-
-            setProgress({
-              dialogueId: dialogue.id,
-              lineIndex: lineIndex + 1,
-            });
-          }}
+          onClick={advanceDialogue}
         >
           {isLastLine ? "Terminar" : "Continuar"}
         </button>

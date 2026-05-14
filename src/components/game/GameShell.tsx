@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { DialogueBox } from "@/components/dialogue/DialogueBox";
 import { HudOverlay } from "@/components/hud/HudOverlay";
+import { MessagePanel } from "@/components/hud/MessagePanel";
 import { JournalPanel } from "@/components/journal/JournalPanel";
 import { gameEvents } from "@/game/systems/eventBus";
 import { useGameStore } from "@/store/useGameStore";
@@ -10,8 +11,13 @@ import { MobileControls } from "./MobileControls";
 import { PhaserGame } from "./PhaserGame";
 
 export function GameShell() {
+  const activeDialogueId = useGameStore((state) => state.activeDialogueId);
+  const activeMessageId = useGameStore((state) => state.activeMessageId);
+  const journalOpen = useGameStore((state) => state.journalOpen);
   const startDialogue = useGameStore((state) => state.startDialogue);
   const setPrompt = useGameStore((state) => state.setPrompt);
+  const openJournal = useGameStore((state) => state.openJournal);
+  const showMessage = useGameStore((state) => state.showMessage);
 
   useEffect(() => {
     const offDialogue = gameEvents.on("dialogue:start", (payload) => {
@@ -22,11 +28,27 @@ export function GameShell() {
       setPrompt(payload?.message ?? null);
     });
 
+    const offJournalOpen = gameEvents.on("journal:open", (payload) => {
+      openJournal(payload.entryId);
+    });
+
+    const offMessageShow = gameEvents.on("message:show", (payload) => {
+      showMessage(payload.messageId);
+    });
+
     return () => {
       offDialogue();
       offPrompt();
+      offJournalOpen();
+      offMessageShow();
     };
-  }, [setPrompt, startDialogue]);
+  }, [openJournal, setPrompt, showMessage, startDialogue]);
+
+  useEffect(() => {
+    gameEvents.emit("ui:controls-lock", {
+      locked: Boolean(activeDialogueId || activeMessageId || journalOpen),
+    });
+  }, [activeDialogueId, activeMessageId, journalOpen]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 py-5 sm:px-6">
@@ -50,6 +72,7 @@ export function GameShell() {
           <MobileControls />
           <DialogueBox />
           <JournalPanel />
+          <MessagePanel />
         </div>
       </section>
     </div>

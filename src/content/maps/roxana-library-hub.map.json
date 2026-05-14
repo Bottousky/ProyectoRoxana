@@ -1,0 +1,158 @@
+{
+  "id": "roxana_library_hub",
+  "tileSize": 16,
+  "size": {
+    "width": 384,
+    "height": 216
+  },
+  "spawn": {
+    "x": 64,
+    "y": 168
+  },
+  "entities": {
+    "roxana": {
+      "id": "roxana",
+      "x": 194,
+      "y": 104
+    }
+  },
+  "solids": [
+    {
+      "id": "north_wall",
+      "x": 8,
+      "y": 8,
+      "width": 368,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "south_wall",
+      "x": 8,
+      "y": 196,
+      "width": 368,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "west_wall",
+      "x": 8,
+      "y": 8,
+      "width": 12,
+      "height": 200,
+      "style": "wall"
+    },
+    {
+      "id": "east_wall",
+      "x": 364,
+      "y": 8,
+      "width": 12,
+      "height": 200,
+      "style": "wall"
+    },
+    {
+      "id": "shelf_north_left",
+      "x": 40,
+      "y": 24,
+      "width": 88,
+      "height": 16,
+      "style": "shelf"
+    },
+    {
+      "id": "shelf_north_right",
+      "x": 256,
+      "y": 24,
+      "width": 88,
+      "height": 16,
+      "style": "shelf"
+    },
+    {
+      "id": "shelf_west",
+      "x": 24,
+      "y": 56,
+      "width": 16,
+      "height": 112,
+      "style": "shelf"
+    },
+    {
+      "id": "desk_central",
+      "x": 164,
+      "y": 62,
+      "width": 60,
+      "height": 20,
+      "style": "furniture"
+    },
+    {
+      "id": "ohmdal_gate",
+      "x": 320,
+      "y": 90,
+      "width": 28,
+      "height": 48,
+      "style": "gate"
+    }
+  ],
+  "decorations": [
+    {
+      "id": "reading_rug",
+      "x": 128,
+      "y": 118,
+      "width": 128,
+      "height": 48,
+      "fill": "#3a2f46",
+      "stroke": "#7f6a9b"
+    },
+    {
+      "id": "roxana_zone",
+      "x": 156,
+      "y": 88,
+      "width": 76,
+      "height": 54,
+      "fill": "#1f3040",
+      "stroke": "#5f98b5"
+    }
+  ],
+  "interactables": [
+    {
+      "id": "roxana",
+      "kind": "dialogue",
+      "bounds": {
+        "x": 182,
+        "y": 90,
+        "width": 24,
+        "height": 28
+      },
+      "prompt": "Hablar con Roxana",
+      "payload": {
+        "dialogueId": "roxana_intro",
+        "speakerId": "roxana"
+      }
+    },
+    {
+      "id": "desk_journal",
+      "kind": "journal",
+      "bounds": {
+        "x": 164,
+        "y": 62,
+        "width": 60,
+        "height": 20
+      },
+      "prompt": "Abrir bitacora",
+      "payload": {
+        "journalEntryId": "central_hub_libreria"
+      }
+    },
+    {
+      "id": "ohmdal_gate",
+      "kind": "blocked_gate",
+      "bounds": {
+        "x": 320,
+        "y": 90,
+        "width": 28,
+        "height": 48
+      },
+      "prompt": "Inspeccionar portal",
+      "payload": {
+        "messageId": "ohmdal_gate_unstable"
+      }
+    }
+  ]
+}

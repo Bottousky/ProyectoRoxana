@@ -61,6 +61,7 @@ El jugador debe entender, sin explicacion larga, que Roxana vive o permanece all
 - React renderiza paneles, dialogos, bitacora y cualquier texto largo.
 - Phaser emite eventos para interaccion y prompts.
 - Zustand mantiene estado liviano de UI.
+- Si se usan assets visuales generados por IA, deben seguir `Spec 009 - Asset Contract Pipeline`: PNG normalizado + manifest JSON + mapa semantico o Tiled.
 
 ## Layout propuesto
 
