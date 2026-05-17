@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "roxana-icons-v1",
+  "kind": "uiIconSheet",
+  "image": "/assets/ui/icons/roxana-icons.normalized.png",
+  "conceptImage": "/assets/ui/icons/roxana-icons.concept.png",
+  "source": {
+    "type": "ai-assisted-and-normalized",
+    "status": "normalized",
+    "notes": "Concept generated with imagegen, normalized into 32x32 UI icons."
+  },
+  "pixelArt": {
+    "iconSize": 32,
+    "requiresPixelatedRendering": true,
+    "allowsNonIntegerScale": false
+  },
+  "grid": {
+    "unit": 32,
+    "columns": 8,
+    "rows": 2
+  },
+  "icons": [
+    { "id": "journal_closed", "rect": { "x": 0, "y": 0, "w": 32, "h": 32 }, "tags": ["journal", "ui"] },
+    { "id": "journal_open", "rect": { "x": 32, "y": 0, "w": 32, "h": 32 }, "tags": ["journal", "ui"] },
+    { "id": "dialogue_bubble", "rect": { "x": 64, "y": 0, "w": 32, "h": 32 }, "tags": ["dialogue", "ui"] },
+    { "id": "inspect_cross", "rect": { "x": 96, "y": 0, "w": 32, "h": 32 }, "tags": ["inspect", "ui"] },
+    { "id": "interact_hand", "rect": { "x": 128, "y": 0, "w": 32, "h": 32 }, "tags": ["interact", "ui"] },
+    { "id": "back_arrow", "rect": { "x": 160, "y": 0, "w": 32, "h": 32 }, "tags": ["back", "ui"] },
+    { "id": "settings_gear", "rect": { "x": 192, "y": 0, "w": 32, "h": 32 }, "tags": ["settings", "ui"] },
+    { "id": "inventory_bag", "rect": { "x": 224, "y": 0, "w": 32, "h": 32 }, "tags": ["inventory", "ui"] },
+    { "id": "key_ring", "rect": { "x": 0, "y": 32, "w": 32, "h": 32 }, "tags": ["key", "ui"] },
+    { "id": "puzzle_piece", "rect": { "x": 32, "y": 32, "w": 32, "h": 32 }, "tags": ["puzzle", "ui"] },
+    { "id": "energy_bolt", "rect": { "x": 64, "y": 32, "w": 32, "h": 32 }, "tags": ["energy", "ui"] },
+    { "id": "cyan_magic_symbol", "rect": { "x": 96, "y": 32, "w": 32, "h": 32 }, "tags": ["magic-tech", "ui"] },
+    { "id": "ohmdal_portal_glyph", "rect": { "x": 128, "y": 32, "w": 32, "h": 32 }, "tags": ["ohmdal", "portal", "ui"] },
+    { "id": "candle_lit", "rect": { "x": 160, "y": 32, "w": 32, "h": 32 }, "tags": ["candle", "ui"] },
+    { "id": "book_stack", "rect": { "x": 192, "y": 32, "w": 32, "h": 32 }, "tags": ["book", "ui"] },
+    { "id": "save_crystal", "rect": { "x": 224, "y": 32, "w": 32, "h": 32 }, "tags": ["save", "ui"] }
+  ]
+}

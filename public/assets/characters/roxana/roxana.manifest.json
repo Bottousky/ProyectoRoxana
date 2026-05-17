@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "roxana-character-v1",
+  "kind": "spritesheet",
+  "image": "/assets/characters/roxana/roxana.normalized.png",
+  "conceptImage": "/assets/characters/roxana/roxana.concept.png",
+  "source": {
+    "type": "ai-assisted-and-normalized",
+    "status": "normalized",
+    "notes": "Concept generated with imagegen, normalized into 32x48 frames."
+  },
+  "frame": {
+    "w": 32,
+    "h": 48
+  },
+  "anchor": {
+    "x": 0.5,
+    "y": 1
+  },
+  "animations": {
+    "idle_down": { "row": 0, "frames": [0, 1], "frameRate": 2, "repeat": -1 },
+    "idle_up": { "row": 1, "frames": [0, 1], "frameRate": 2, "repeat": -1 },
+    "idle_left": { "row": 2, "frames": [0, 1], "frameRate": 2, "repeat": -1 },
+    "idle_right": { "row": 3, "frames": [0, 1], "frameRate": 2, "repeat": -1 },
+    "walk_down": { "row": 4, "frames": [0, 1, 2, 3], "frameRate": 8, "repeat": -1 },
+    "walk_up": { "row": 5, "frames": [0, 1, 2, 3], "frameRate": 8, "repeat": -1 },
+    "walk_left": { "row": 6, "frames": [0, 1, 2, 3], "frameRate": 8, "repeat": -1 },
+    "walk_right": { "row": 7, "frames": [0, 1, 2, 3], "frameRate": 8, "repeat": -1 },
+    "reading_interact": { "row": 8, "frames": [0, 1, 2, 3], "frameRate": 4, "repeat": -1 }
+  }
+}

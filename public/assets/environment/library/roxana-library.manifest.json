@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "id": "roxana-library-v1",
+  "kind": "objectAtlas",
+  "image": "/assets/environment/library/roxana-library.normalized.png",
+  "conceptImage": "/assets/environment/library/roxana-library.concept.png",
+  "source": {
+    "type": "ai-assisted-and-normalized",
+    "status": "normalized",
+    "notes": "Concept generated with imagegen, normalized into exact rects for Phaser."
+  },
+  "pixelArt": {
+    "tileSize": 16,
+    "requiresPixelatedRendering": true,
+    "allowsNonIntegerScale": false
+  },
+  "grid": {
+    "unit": 16,
+    "columns": 16,
+    "rows": 8
+  },
+  "entries": [
+    {
+      "id": "wood_floor_clean",
+      "kind": "tile",
+      "category": "floor",
+      "rect": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["wood", "floor", "library", "clean"]
+    },
+    {
+      "id": "wood_floor_dusty",
+      "kind": "tile",
+      "category": "floor",
+      "rect": { "x": 16, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["wood", "floor", "library", "dusty"]
+    },
+    {
+      "id": "wood_floor_cracked",
+      "kind": "tile",
+      "category": "floor",
+      "rect": { "x": 32, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["wood", "floor", "library", "cracked"]
+    },
+    {
+      "id": "wood_floor_broken",
+      "kind": "tile",
+      "category": "floor",
+      "rect": { "x": 48, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["wood", "floor", "library", "broken"]
+    },
+    {
+      "id": "stone_floor_dark",
+      "kind": "tile",
+      "category": "floor",
+      "rect": { "x": 64, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["stone", "floor", "library"]
+    },
+    {
+      "id": "stone_floor_mosaic",
+      "kind": "tile",
+      "category": "floor",
+      "rect": { "x": 80, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["stone", "floor", "mosaic"]
+    },
+    {
+      "id": "rug_blue_center",
+      "kind": "tile",
+      "category": "rug",
+      "rect": { "x": 96, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["rug", "blue", "library"]
+    },
+    {
+      "id": "rug_red_center",
+      "kind": "tile",
+      "category": "rug",
+      "rect": { "x": 112, "y": 0, "w": 16, "h": 16 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["rug", "red", "library"]
+    },
+    {
+      "id": "wall_plain",
+      "kind": "tile",
+      "category": "wall",
+      "rect": { "x": 0, "y": 16, "w": 16, "h": 16 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 0, "w": 16, "h": 16 }],
+      "tags": ["wall", "library", "solid"]
+    },
+    {
+      "id": "wall_cracked",
+      "kind": "tile",
+      "category": "wall",
+      "rect": { "x": 16, "y": 16, "w": 16, "h": 16 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 0, "w": 16, "h": 16 }],
+      "tags": ["wall", "cracked", "solid"]
+    },
+    {
+      "id": "wall_repaired",
+      "kind": "tile",
+      "category": "wall",
+      "rect": { "x": 32, "y": 16, "w": 16, "h": 16 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 0, "w": 16, "h": 16 }],
+      "tags": ["wall", "repaired", "solid"]
+    },
+    {
+      "id": "wood_trim",
+      "kind": "tile",
+      "category": "trim",
+      "rect": { "x": 48, "y": 16, "w": 16, "h": 16 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 8, "w": 16, "h": 8 }],
+      "tags": ["wood", "trim", "solid"]
+    },
+    {
+      "id": "baseboard",
+      "kind": "tile",
+      "category": "trim",
+      "rect": { "x": 64, "y": 16, "w": 16, "h": 16 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 10, "w": 16, "h": 6 }],
+      "tags": ["wood", "baseboard", "solid"]
+    },
+    {
+      "id": "bookshelf_full_wide",
+      "kind": "prop",
+      "category": "shelf",
+      "rect": { "x": 0, "y": 40, "w": 32, "h": 24 },
+      "footprint": { "w": 2, "h": 1 },
+      "anchor": { "x": 0.5, "y": 1 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 14, "w": 32, "h": 10 }],
+      "tags": ["bookshelf", "library", "solid", "full"]
+    },
+    {
+      "id": "bookshelf_damaged_wide",
+      "kind": "prop",
+      "category": "shelf",
+      "rect": { "x": 32, "y": 40, "w": 32, "h": 24 },
+      "footprint": { "w": 2, "h": 1 },
+      "anchor": { "x": 0.5, "y": 1 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 14, "w": 32, "h": 10 }],
+      "tags": ["bookshelf", "damaged", "solid"]
+    },
+    {
+      "id": "bookshelf_repaired_wide",
+      "kind": "prop",
+      "category": "shelf",
+      "rect": { "x": 64, "y": 40, "w": 32, "h": 24 },
+      "footprint": { "w": 2, "h": 1 },
+      "anchor": { "x": 0.5, "y": 1 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 14, "w": 32, "h": 10 }],
+      "tags": ["bookshelf", "repaired", "solid"]
+    },
+    {
+      "id": "book_stack",
+      "kind": "prop",
+      "category": "book",
+      "rect": { "x": 0, "y": 72, "w": 16, "h": 16 },
+      "footprint": { "w": 1, "h": 1 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["book", "small", "library"]
+    },
+    {
+      "id": "open_book",
+      "kind": "prop",
+      "category": "book",
+      "rect": { "x": 16, "y": 72, "w": 16, "h": 16 },
+      "footprint": { "w": 1, "h": 1 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["book", "readable", "library"]
+    },
+    {
+      "id": "candle_lit",
+      "kind": "prop",
+      "category": "light",
+      "rect": { "x": 32, "y": 72, "w": 16, "h": 16 },
+      "footprint": { "w": 1, "h": 1 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["candle", "light", "warm"]
+    },
+    {
+      "id": "ink_bottle",
+      "kind": "prop",
+      "category": "desk",
+      "rect": { "x": 48, "y": 72, "w": 16, "h": 16 },
+      "footprint": { "w": 1, "h": 1 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["ink", "desk", "library"]
+    },
+    {
+      "id": "small_crate",
+      "kind": "prop",
+      "category": "storage",
+      "rect": { "x": 64, "y": 72, "w": 16, "h": 16 },
+      "footprint": { "w": 1, "h": 1 },
+      "walkable": false,
+      "collision": [{ "x": 2, "y": 8, "w": 12, "h": 8 }],
+      "tags": ["crate", "solid"]
+    },
+    {
+      "id": "key_ring",
+      "kind": "prop",
+      "category": "item",
+      "rect": { "x": 80, "y": 72, "w": 16, "h": 16 },
+      "footprint": { "w": 1, "h": 1 },
+      "walkable": true,
+      "collision": [],
+      "tags": ["key", "item"]
+    },
+    {
+      "id": "ohmdal_gate_inactive",
+      "kind": "interactable",
+      "category": "gate",
+      "rect": { "x": 96, "y": 64, "w": 32, "h": 48 },
+      "footprint": { "w": 2, "h": 2 },
+      "anchor": { "x": 0.5, "y": 1 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 32, "w": 32, "h": 16 }],
+      "interaction": { "kind": "blocked_gate", "messageId": "ohmdal_gate_unstable" },
+      "tags": ["ohmdal", "gate", "blocked", "cyan-tech"]
+    },
+    {
+      "id": "roxana_desk_repaired",
+      "kind": "interactable",
+      "category": "desk",
+      "rect": { "x": 136, "y": 72, "w": 32, "h": 24 },
+      "footprint": { "w": 2, "h": 1 },
+      "anchor": { "x": 0.5, "y": 1 },
+      "walkable": false,
+      "collision": [{ "x": 0, "y": 14, "w": 32, "h": 10 }],
+      "interaction": { "kind": "journal", "journalEntryId": "central_hub_libreria" },
+      "tags": ["desk", "journal", "library", "solid"]
+    }
+  ]
+}
