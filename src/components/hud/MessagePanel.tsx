@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
+import electronicsClassroomMessages from "@/content/messages/electronics-classroom.json";
 import hubMessages from "@/content/messages/hub.json";
+import ohmdalMessages from "@/content/messages/ohmdal.json";
 import { gameEvents } from "@/game/systems/eventBus";
 import type { MessageContent } from "@/game/types/message";
 import { useGameStore } from "@/store/useGameStore";
@@ -10,7 +12,13 @@ type MessageCollection = {
   messages: MessageContent[];
 };
 
-const messageData = hubMessages as MessageCollection;
+const messageData = {
+  messages: [
+    ...(hubMessages as MessageCollection).messages,
+    ...(electronicsClassroomMessages as MessageCollection).messages,
+    ...(ohmdalMessages as MessageCollection).messages,
+  ],
+};
 
 export function MessagePanel() {
   const activeMessageId = useGameStore((state) => state.activeMessageId);

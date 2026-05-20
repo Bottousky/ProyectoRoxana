@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "id": "electronics_classroom_return",
+      "title": "Puerta al vestibulo",
+      "body": "La escuela queda detras de esa puerta. El aire de esta aula pesa distinto, como si hubiera cruzado polvo con metal."
+    },
+    {
+      "id": "electronics_classroom_workbench",
+      "title": "Banco de trabajo",
+      "body": "Herramientas quietas, bobinas opacas y marcas de cobre sobre la madera. No parece abandono: parece una pausa demasiado larga."
+    },
+    {
+      "id": "electronics_classroom_portal_preview",
+      "title": "Umbral de Ohmdal",
+      "body": "Del otro lado se adivinan torres de bronce y una luz verde que parpadea sin ritmo. Algo intenta despertar, pero no encuentra por donde volver."
+    },
+    {
+      "id": "electronics_classroom_portal_ready",
+      "title": "Umbral de Ohmdal",
+      "body": "El brillo se ordena apenas. No abre como una puerta: respira como un mecanismo antiguo."
+    },
+    {
+      "id": "electronics_classroom_ohm_revisit",
+      "title": "Automata de Ohmdal",
+      "body": "El automata baja apenas la cabeza. Sus lentes siguen clavados en el umbral, como si esperara escuchar un pulso del otro lado."
+    }
+  ]
+}

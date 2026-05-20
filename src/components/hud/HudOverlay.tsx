@@ -5,12 +5,15 @@ import { useGameStore } from "@/store/useGameStore";
 export function HudOverlay() {
   const prompt = useGameStore((state) => state.prompt);
   const journalOpen = useGameStore((state) => state.journalOpen);
+  const currentRoomLabel = useGameStore((state) => state.currentRoomLabel);
   const toggleJournal = useGameStore((state) => state.toggleJournal);
 
   return (
     <div className="pointer-events-none absolute inset-0 z-10">
       <div className="absolute left-3 top-3 rounded-md border border-[var(--roxana-border)] bg-[var(--roxana-panel)]/82 px-3 py-2 text-xs leading-5 text-[var(--roxana-muted)] shadow-lg backdrop-blur">
-        <div className="font-semibold text-[var(--roxana-text)]">Hub</div>
+        <div className="font-semibold text-[var(--roxana-text)]">
+          {currentRoomLabel}
+        </div>
         <div className="hidden sm:block">WASD / Flechas para moverte</div>
         <div className="hidden sm:block">E / Enter / Espacio para interactuar</div>
       </div>

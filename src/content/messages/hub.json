@@ -1,9 +1,24 @@
 {
   "messages": [
     {
+      "id": "central_archive_counter",
+      "title": "Archivos del vestibulo",
+      "body": "Entre polvo, fichas y libros vencidos, aun se distinguen nombres de materias. Alguien intento ordenar este lugar para volver siempre al centro."
+    },
+    {
+      "id": "world_room_sealed",
+      "title": "Sala sellada",
+      "body": "La puerta cede apenas unos milimetros. Del otro lado no hay silencio: hay una espera antigua."
+    },
+    {
       "id": "ohmdal_gate_unstable",
-      "title": "Portal de Ohmdal",
-      "body": "El marco vibra como si recordara otro lugar, pero todavia no encuentra la forma de abrirse."
+      "title": "Sala de Ohmdal",
+      "body": "El marco conserva un brillo debil, como un metal que recuerda haber conducido algo. Todavia no encuentra la forma de abrirse."
+    },
+    {
+      "id": "ohmdal_gate_needs_bitacora",
+      "title": "Sala de Ohmdal",
+      "body": "La puerta vibra, pero no te reconoce. Quizas convenga encontrar primero aquello que registra lo que la escuela todavia recuerda."
     }
   ]
 }

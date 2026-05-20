@@ -1,0 +1,50 @@
+{
+  "id": "closed_circuit_001",
+  "worldId": "ohmdal",
+  "type": "closed_circuit",
+  "title": "El circuito dormido",
+  "conceptIds": ["closed_circuit"],
+  "components": [
+    {
+      "id": "source",
+      "type": "source",
+      "x": 72,
+      "y": 82,
+      "connections": [{ "from": "source", "to": "switch" }]
+    },
+    {
+      "id": "switch",
+      "type": "switch",
+      "state": "open",
+      "x": 154,
+      "y": 128,
+      "connections": [{ "from": "switch", "to": "load" }]
+    },
+    {
+      "id": "load",
+      "type": "load",
+      "state": "unpowered",
+      "x": 318,
+      "y": 112,
+      "connections": []
+    }
+  ],
+  "initialState": "idle",
+  "allowedActions": ["toggle_switch", "test_mechanism"],
+  "feedbackRules": [
+    {
+      "state": "incomplete",
+      "messageId": "ohmdal_circuit_open"
+    },
+    {
+      "state": "complete",
+      "messageId": "ohmdal_mechanism_awake"
+    }
+  ],
+  "successCondition": {
+    "type": "closed_path",
+    "sourceId": "source",
+    "loadId": "load"
+  },
+  "unlockedJournalEntryIds": ["ohmdal_closed_circuit"]
+}

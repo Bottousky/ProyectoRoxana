@@ -1,0 +1,20 @@
+{
+  "id": "ohmdal_preview",
+  "title": "El brillo que no vuelve",
+  "skippable": true,
+  "onCompleteBeatId": "ohmdal_preview_memory_seen",
+  "panels": [
+    {
+      "id": "ohmdal_preview_01",
+      "imageId": "ohmdal_bronze_towers_placeholder",
+      "tone": "sepia_bronze",
+      "caption": "Del otro lado, las torres de bronce siguen en pie. Pero ninguna luz completa su camino."
+    },
+    {
+      "id": "ohmdal_preview_02",
+      "imageId": "ohmdal_silent_bridge_placeholder",
+      "tone": "green_copper",
+      "caption": "Un puente intenta despertar. La chispa aparece, golpea el metal... y se apaga antes de volver."
+    }
+  ]
+}

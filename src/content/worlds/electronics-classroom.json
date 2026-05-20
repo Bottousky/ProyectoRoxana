@@ -1,0 +1,29 @@
+{
+  "id": "electronics_classroom",
+  "worldId": "ohmdal",
+  "displayName": "Aula de Electronica",
+  "previewBeatId": "ohmdal_preview_first_wound",
+  "portalInteractableId": "ohmdal_portal_preview",
+  "moodCues": [
+    {
+      "type": "palette",
+      "description": "Verde profundo, cobre y bronce envejecido separan el aula del vestibulo."
+    },
+    {
+      "type": "object",
+      "description": "Banco de trabajo, bobinas y cables como raices dormidas."
+    },
+    {
+      "type": "guide_presence",
+      "description": "Un automata oxidado parece estar entre el aula y el mundo."
+    },
+    {
+      "type": "portal_preview",
+      "description": "El umbral muestra un brillo herido de Ohmdal antes de permitir el paso."
+    },
+    {
+      "type": "deterioration",
+      "description": "Nada esta destruido del todo: todo parece interrumpido."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "events": [
+    "started_game",
+    "entered_school",
+    "opened_roxana_office",
+    "found_bitacora",
+    "opened_bitacora",
+    "entered_electronics_room",
+    "started_puzzle_closed_circuit",
+    "failed_puzzle_closed_circuit",
+    "completed_puzzle_closed_circuit",
+    "opened_light_entry",
+    "opened_formal_entry",
+    "clicked_video",
+    "completed_optional_exercise",
+    "finished_demo"
+  ]
+}

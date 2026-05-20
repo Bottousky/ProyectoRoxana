@@ -1,0 +1,51 @@
+{
+  "beats": [
+    {
+      "id": "hub_statue_first_echo",
+      "kind": "dialogue",
+      "contentId": "roxana_intro",
+      "completionFlag": "hub_statue_first_echo",
+      "analyticsEvent": "started_portrait_dialogue"
+    },
+    {
+      "id": "hub_bitacora_found",
+      "kind": "journal_unlock",
+      "requiredBefore": ["hub_statue_first_echo"],
+      "contentId": "central_bitacora_vacia",
+      "completionFlag": "hub_bitacora_found",
+      "analyticsEvent": "found_bitacora"
+    },
+    {
+      "id": "electronics_classroom_first_entry",
+      "kind": "room_transition",
+      "requiredBefore": ["hub_bitacora_found"],
+      "contentId": "electronics_classroom",
+      "completionFlag": "electronics_classroom_first_entry",
+      "analyticsEvent": "entered_electronics_classroom"
+    },
+    {
+      "id": "ohmdal_preview_first_wound",
+      "kind": "memory",
+      "requiredBefore": ["electronics_classroom_first_entry"],
+      "contentId": "ohmdal_preview",
+      "completionFlag": "ohmdal_preview_first_wound",
+      "analyticsEvent": "viewed_ohmdal_preview"
+    },
+    {
+      "id": "ohmdal_preview_memory_seen",
+      "kind": "memory",
+      "requiredBefore": ["electronics_classroom_first_entry"],
+      "contentId": "ohmdal_preview",
+      "completionFlag": "ohmdal_preview_memory_seen",
+      "analyticsEvent": "completed_memory_sequence"
+    },
+    {
+      "id": "ohmdal_first_puzzle_handoff",
+      "kind": "puzzle_handoff",
+      "requiredBefore": ["ohmdal_preview_memory_seen"],
+      "contentId": "closed_circuit_001",
+      "completionFlag": "ohmdal_first_puzzle_handoff",
+      "analyticsEvent": "started_puzzle_after_narrative_bridge"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "id": "ohmdal_threshold_arrival",
+      "title": "Primer taller de Ohmdal",
+      "body": "El umbral se cierra detras de ti. El aula quedo lejos; aca el metal ya no recuerda la escuela, solo el camino que perdio."
+    },
+    {
+      "id": "ohmdal_switch_moved",
+      "title": "Palanca antigua",
+      "body": "La pieza encaja con un chasquido seco. Algo en el suelo responde con un brillo breve."
+    },
+    {
+      "id": "ohmdal_circuit_open",
+      "title": "Mecanismo dormido",
+      "body": "El mecanismo tiembla, pero el brillo se apaga antes de llegar. El camino parece quedarse incompleto."
+    },
+    {
+      "id": "ohmdal_mechanism_awake",
+      "title": "Primer pulso",
+      "body": "La luz recorre el camino entero y el mecanismo abre un ojo de metal. El taller acaba de recordar una costumbre."
+    },
+    {
+      "id": "ohmdal_return_hint",
+      "title": "Umbral de regreso",
+      "body": "La sala principal sigue del otro lado, como si nunca hubiera dejado de esperarte."
+    }
+  ]
+}

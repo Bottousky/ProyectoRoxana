@@ -1,10 +1,14 @@
 {
   "id": "roxana_intro",
   "speaker": "Roxana",
-  "title": "Una voz entre estantes",
+  "title": "La estatua que recuerda",
+  "presentation": "portrait",
+  "portraitId": "roxana_statue_placeholder",
+  "beatId": "hub_statue_first_echo",
   "lines": [
-    "No hagas ruido. Este lugar recuerda mejor cuando caminamos despacio.",
-    "Hay puertas que solo responden cuando observas el patron correcto.",
-    "Si encuentras una pista, guardala en la bitacora. Yo intentare mantener la biblioteca despierta."
+    "El marmol esta frio, pero algo en la sala parece escuchar tus pasos.",
+    "Cuatro puertas. Dos escaleras. Un despacho que todavia mira desde arriba.",
+    "No corras a elegir una puerta. Primero mira que lugar quiso ordenar todo esto.",
+    "Si una pista se queda contigo, tal vez la bitacora encuentre una forma de escribirla."
   ]
 }

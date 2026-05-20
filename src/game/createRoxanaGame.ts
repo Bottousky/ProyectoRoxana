@@ -1,6 +1,8 @@
 import * as Phaser from "phaser";
 import { GAME_HEIGHT, GAME_WIDTH } from "./constants";
 import { BootScene } from "./scenes/BootScene";
+import { ElectronicsClassroomScene } from "./scenes/ElectronicsClassroomScene";
+import { ElectronicsThresholdScene } from "./scenes/ElectronicsThresholdScene";
 import { HubScene } from "./scenes/HubScene";
 import { PreloadScene } from "./scenes/PreloadScene";
 
@@ -25,6 +27,12 @@ export function createRoxanaGame(parent: HTMLElement) {
       width: GAME_WIDTH,
       height: GAME_HEIGHT,
     },
-    scene: [BootScene, PreloadScene, HubScene],
+    scene: [
+      BootScene,
+      PreloadScene,
+      HubScene,
+      ElectronicsClassroomScene,
+      ElectronicsThresholdScene,
+    ],
   });
 }

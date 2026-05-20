@@ -2,15 +2,24 @@
   "entries": [
     {
       "id": "central_hub_inicio",
-      "title": "La biblioteca central",
+      "title": "La escuela dormida",
       "scope": "central",
-      "body": "Roxana parece ligada al Hub. La bitacora central registrara observaciones formales, patrones descubiertos y pistas recuperadas de cada mundo."
+      "simple": "El edificio no parece roto: parece esperando. La sala principal ordena todo alrededor de una estatua de Roxana, cuatro puertas laterales y un despacho elevado.",
+      "technical": "El hub funciona como centro de navegacion del jugador. Desde aqui se registran descubrimientos, accesos a mundos-simulacion y cambios de restauracion de la escuela."
+    },
+    {
+      "id": "central_bitacora_vacia",
+      "title": "La bitacora vacia",
+      "scope": "central",
+      "simple": "El cuaderno no trae respuestas escritas. Parece hecho para llenarse con lo que el jugador descubra caminando, probando y prestando atencion.",
+      "technical": "La bitacora separa memoria de juego y formalizacion. La vista simple resume lo vivido; la vista tecnica permite estudiar con mayor precision cuando el jugador quiera profundizar."
     },
     {
       "id": "central_hub_libreria",
       "title": "Despacho de Roxana",
       "scope": "central",
-      "body": "Este despacho funciona como nucleo de observacion. Todo lo que entendamos del Hub y de Ohmdal debe quedar asentado aqui antes de avanzar."
+      "simple": "El despacho conserva rastros de alguien que no queria mandar desde arriba, sino mirar el mapa completo antes de abrir una puerta.",
+      "technical": "El despacho de Roxana es el punto narrativo para introducir progreso, bitacora personal y futuras herramientas de diagnostico sin convertir el juego en una evaluacion obligatoria."
     }
   ]
 }

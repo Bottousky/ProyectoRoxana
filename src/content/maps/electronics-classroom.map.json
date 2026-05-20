@@ -1,0 +1,202 @@
+{
+  "id": "electronics_classroom",
+  "tileSize": 16,
+  "size": {
+    "width": 384,
+    "height": 216
+  },
+  "spawn": {
+    "x": 64,
+    "y": 176
+  },
+  "entities": {
+    "roxana": {
+      "id": "ohm_automaton_shadow",
+      "x": 188,
+      "y": 106
+    }
+  },
+  "solids": [
+    {
+      "id": "north_wall",
+      "x": 8,
+      "y": 8,
+      "width": 368,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "south_wall_left",
+      "x": 8,
+      "y": 196,
+      "width": 48,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "south_wall_right",
+      "x": 104,
+      "y": 196,
+      "width": 272,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "west_wall",
+      "x": 8,
+      "y": 8,
+      "width": 12,
+      "height": 200,
+      "style": "wall"
+    },
+    {
+      "id": "east_wall",
+      "x": 364,
+      "y": 8,
+      "width": 12,
+      "height": 200,
+      "style": "wall"
+    },
+    {
+      "id": "workbench",
+      "x": 48,
+      "y": 44,
+      "width": 104,
+      "height": 26,
+      "style": "furniture"
+    },
+    {
+      "id": "silent_coils",
+      "x": 44,
+      "y": 100,
+      "width": 56,
+      "height": 40,
+      "style": "shelf"
+    },
+    {
+      "id": "portal_frame",
+      "x": 302,
+      "y": 74,
+      "width": 38,
+      "height": 76,
+      "style": "gate"
+    }
+  ],
+  "decorations": [
+    {
+      "id": "classroom_floor",
+      "x": 20,
+      "y": 20,
+      "width": 344,
+      "height": 176,
+      "fill": "#16241f",
+      "stroke": "#345342"
+    },
+    {
+      "id": "green_copper_glow",
+      "x": 268,
+      "y": 52,
+      "width": 92,
+      "height": 120,
+      "fill": "#1b3a32",
+      "stroke": "#8a6a38"
+    },
+    {
+      "id": "portal_wound",
+      "x": 310,
+      "y": 82,
+      "width": 22,
+      "height": 60,
+      "fill": "#274f45",
+      "stroke": "#d0a84f"
+    },
+    {
+      "id": "cable_roots",
+      "x": 132,
+      "y": 116,
+      "width": 148,
+      "height": 8,
+      "fill": "#6f5133",
+      "stroke": "#b88749"
+    },
+    {
+      "id": "automaton_dais",
+      "x": 164,
+      "y": 88,
+      "width": 48,
+      "height": 44,
+      "fill": "#51422f",
+      "stroke": "#9f7a42"
+    },
+    {
+      "id": "return_door_light",
+      "x": 56,
+      "y": 184,
+      "width": 48,
+      "height": 18,
+      "fill": "#243044",
+      "stroke": "#65718a"
+    }
+  ],
+  "interactables": [
+    {
+      "id": "return_hub",
+      "kind": "inspect",
+      "bounds": {
+        "x": 52,
+        "y": 180,
+        "width": 56,
+        "height": 24
+      },
+      "prompt": "Volver al vestibulo",
+      "payload": {
+        "messageId": "electronics_classroom_return"
+      }
+    },
+    {
+      "id": "silent_workbench",
+      "kind": "inspect",
+      "bounds": {
+        "x": 44,
+        "y": 40,
+        "width": 112,
+        "height": 36
+      },
+      "prompt": "Inspeccionar banco",
+      "payload": {
+        "messageId": "electronics_classroom_workbench"
+      }
+    },
+    {
+      "id": "ohm_shadow",
+      "kind": "dialogue",
+      "bounds": {
+        "x": 156,
+        "y": 78,
+        "width": 64,
+        "height": 62
+      },
+      "prompt": "Escuchar al automata",
+      "payload": {
+        "dialogueId": "ohmdal_intro",
+        "speakerId": "ohm_automaton",
+        "messageId": "ohmdal_preview_first_wound"
+      }
+    },
+    {
+      "id": "ohmdal_portal_preview",
+      "kind": "inspect",
+      "bounds": {
+        "x": 286,
+        "y": 62,
+        "width": 70,
+        "height": 100
+      },
+      "prompt": "Observar umbral",
+      "payload": {
+        "messageId": "electronics_classroom_portal_preview",
+        "targetWorldId": "ohmdal"
+      }
+    }
+  ]
+}

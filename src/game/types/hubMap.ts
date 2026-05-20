@@ -1,4 +1,9 @@
-export type InteractableKind = "dialogue" | "journal" | "blocked_gate" | "inspect";
+export type InteractableKind =
+  | "dialogue"
+  | "journal"
+  | "blocked_gate"
+  | "inspect"
+  | "puzzle";
 
 export type BoundsRect = {
   x: number;

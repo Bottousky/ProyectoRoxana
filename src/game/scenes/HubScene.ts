@@ -4,6 +4,11 @@ import { GAME_HEIGHT, GAME_WIDTH, TILE_SIZE } from "@/game/constants";
 import { Player } from "@/game/entities/Player";
 import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
 import { gameEvents } from "@/game/systems/eventBus";
+import {
+  hasCompletedNarrativeBeat,
+  setLastRoom,
+  setProgressMilestone,
+} from "@/game/systems/progressStore";
 import type {
   BoundsRect,
   HubInteractable,
@@ -86,6 +91,15 @@ export class HubScene extends Phaser.Scene {
     });
 
     gameEvents.emit("scene:ready", { scene: "hub" });
+    gameEvents.emit("room:entered", {
+      roomId: this.mapData.id,
+      firstVisit: false,
+    });
+    gameEvents.emit("analytics:track", {
+      eventName: "entered_school",
+      roomId: this.mapData.id,
+    });
+    setLastRoom(this.mapData.id);
   }
 
   update(_time: number, delta: number) {
@@ -227,12 +241,49 @@ export class HubScene extends Phaser.Scene {
 
         this.movementLocked = true;
         this.clearPrompt();
-        gameEvents.emit("dialogue:start", { dialogueId, speakerId });
+        gameEvents.emit("narrative:beat-started", {
+          beatId: "hub_statue_first_echo",
+          kind: "dialogue",
+          roomId: this.mapData.id,
+        });
+        gameEvents.emit("dialogue:start", {
+          dialogueId,
+          speakerId,
+          presentation: "portrait",
+          beatId: "hub_statue_first_echo",
+        });
         break;
       }
       case "journal": {
+        if (target.id === "roxana_office_door") {
+          const entryId = target.payload?.journalEntryId;
+          gameEvents.emit("analytics:track", {
+            eventName: "opened_roxana_office",
+            roomId: this.mapData.id,
+            entryId,
+          });
+          gameEvents.emit("analytics:track", {
+            eventName: "found_bitacora",
+            roomId: this.mapData.id,
+            entryId,
+          });
+          setProgressMilestone("bitacora_found");
+          if (entryId) {
+            gameEvents.emit("journal:entry-unlocked", {
+              entryId,
+              source: "story",
+              beatId: "hub_bitacora_found",
+            });
+          }
+          gameEvents.emit("narrative:beat-completed", {
+            beatId: "hub_bitacora_found",
+            roomId: this.mapData.id,
+          });
+        }
+
         gameEvents.emit("journal:open", {
           entryId: target.payload?.journalEntryId,
+          mode: "simple",
         });
         break;
       }
@@ -244,6 +295,21 @@ export class HubScene extends Phaser.Scene {
         }
 
         gameEvents.emit("message:show", { messageId });
+        if (target.payload?.targetWorldId === "ohmdal") {
+          if (!hasCompletedNarrativeBeat("hub_bitacora_found")) {
+            gameEvents.emit("message:show", {
+              messageId: "ohmdal_gate_needs_bitacora",
+            });
+            return;
+          }
+
+          gameEvents.emit("analytics:track", {
+            eventName: "entered_electronics_room",
+            roomId: this.mapData.id,
+            source: target.id,
+          });
+          this.scene.start("ElectronicsClassroomScene");
+        }
         break;
       }
       default:

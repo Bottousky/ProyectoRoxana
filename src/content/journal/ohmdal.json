@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "id": "ohmdal_closed_circuit",
+      "title": "El circuito dormido",
+      "scope": "world",
+      "worldId": "ohmdal",
+      "conceptIds": ["closed_circuit"],
+      "simple": "El mecanismo no desperto hasta que el camino quedo completo. La energia no parecia buscar solo llegar: necesitaba poder recorrer todo el trayecto.",
+      "technical": "Un circuito electrico cerrado permite que la corriente circule desde una fuente, atraviese una carga y vuelva por una trayectoria continua. Cuando el camino esta interrumpido, el circuito queda abierto y la corriente no puede sostener el funcionamiento del mecanismo.",
+      "videoLinks": [
+        {
+          "id": "video_circuito_cerrado_intro",
+          "label": "Ver explicacion clasica",
+          "url": "https://www.youtube.com/"
+        }
+      ],
+      "exerciseLinks": [
+        {
+          "id": "exercise_circuito_cerrado_001",
+          "label": "Probar ejercicios opcionales",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}

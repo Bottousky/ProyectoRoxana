@@ -79,7 +79,7 @@ El objetivo actual es construir un vertical slice
 
 ## Resolucion y UI
 
-El gameplay usa pixel art con resolucion base 384x216 y tiles de 16x16.
+El gameplay usa pixel art con resolucion base 512x288 y tiles de 32x32.
 
 La UI textual NO debe renderizarse dentro de Phaser salvo casos minimos.
 Dialogos, bitacora, inventario y menus deben ser ReactHTML para asegurar legibilidad en PC y mobile.
@@ -179,5 +179,6 @@ No acoplar puzzles a UI React salvo mediante eventos.
 
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
-shell commands, and other important information, read the current plan
+shell commands, and other important information, read
+`specs/014-narrative-pacing-hub-ohmdal/plan.md`.
 <!-- SPECKIT END -->
