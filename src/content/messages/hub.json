@@ -19,6 +19,11 @@
       "id": "ohmdal_gate_needs_bitacora",
       "title": "Sala de Ohmdal",
       "body": "La puerta vibra, pero no te reconoce. Quizas convenga encontrar primero aquello que registra lo que la escuela todavia recuerda."
+    },
+    {
+      "id": "roxana_office_revisit",
+      "title": "Despacho de Roxana",
+      "body": "La mesa sigue en silencio. La bitacora, en cambio, ya no parece tan vacia."
     }
   ]
 }

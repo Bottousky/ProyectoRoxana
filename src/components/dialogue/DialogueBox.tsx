@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ohmdalIntro from "@/content/dialogues/ohmdal-intro.json";
+import ohmdalPreviewResponse from "@/content/dialogues/ohmdal-preview-response.json";
 import roxanaIntro from "@/content/dialogues/roxana-intro.json";
 import { gameEvents } from "@/game/systems/eventBus";
 import type { DialogueContent } from "@/game/types/dialogue";
@@ -9,6 +10,7 @@ import { useGameStore } from "@/store/useGameStore";
 
 const dialogueLibrary: Record<string, DialogueContent> = {
   [ohmdalIntro.id]: ohmdalIntro as DialogueContent,
+  [ohmdalPreviewResponse.id]: ohmdalPreviewResponse as DialogueContent,
   [roxanaIntro.id]: roxanaIntro as DialogueContent,
 };
 

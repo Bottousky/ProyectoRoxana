@@ -11,15 +11,15 @@
       "id": "central_bitacora_vacia",
       "title": "La bitacora vacia",
       "scope": "central",
-      "simple": "El cuaderno no trae respuestas escritas. Parece hecho para llenarse con lo que el jugador descubra caminando, probando y prestando atencion.",
-      "technical": "La bitacora separa memoria de juego y formalizacion. La vista simple resume lo vivido; la vista tecnica permite estudiar con mayor precision cuando el jugador quiera profundizar."
+      "simple": "El cuaderno estaba en el despacho de Roxana, abierto en una pagina limpia. No parece vacio por olvido: parece reservado para lo que descubras caminando, probando y prestando atencion.",
+      "technical": "La bitacora separa memoria de juego y formalizacion. La vista simple resume lo vivido; la vista tecnica permite estudiar con mayor precision cuando el jugador quiera profundizar. Su funcion narrativa es registrar descubrimientos del jugador, no entregar respuestas previas."
     },
     {
       "id": "central_hub_libreria",
       "title": "Despacho de Roxana",
       "scope": "central",
-      "simple": "El despacho conserva rastros de alguien que no queria mandar desde arriba, sino mirar el mapa completo antes de abrir una puerta.",
-      "technical": "El despacho de Roxana es el punto narrativo para introducir progreso, bitacora personal y futuras herramientas de diagnostico sin convertir el juego en una evaluacion obligatoria."
+      "simple": "El despacho no se siente como una oficina cerrada. Tiene polvo, mapas, fichas y una silla orientada hacia la sala principal. Roxana parecia mirar desde arriba para cuidar el orden de las puertas, no para mandar.",
+      "technical": "El despacho de Roxana es el punto narrativo para introducir progreso, bitacora personal y futuras herramientas de diagnostico sin convertir el juego en una evaluacion obligatoria. Tambien funciona como puente entre exploracion del hub y eleccion de mundo."
     }
   ]
 }

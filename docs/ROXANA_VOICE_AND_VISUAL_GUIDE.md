@@ -54,6 +54,8 @@ Ejemplos validos en gameplay:
 
 Roxana no es tutorial, mascota ni docente frontal. Es memoria, presencia y pregunta.
 
+En la estatua del hub, Roxana no aparece como holograma completo ni como una conciencia plenamente despierta. La primera presencia debe sentirse como inscripciones que reaccionan al jugador y forman una voz incompleta entre marmol, polvo y memoria.
+
 ### Rasgos
 
 - Serena.

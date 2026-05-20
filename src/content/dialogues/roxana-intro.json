@@ -1,14 +1,16 @@
 {
   "id": "roxana_intro",
   "speaker": "Roxana",
-  "title": "La estatua que recuerda",
+  "title": "Inscripciones bajo el marmol",
   "presentation": "portrait",
   "portraitId": "roxana_statue_placeholder",
   "beatId": "hub_statue_first_echo",
   "lines": [
-    "El marmol esta frio, pero algo en la sala parece escuchar tus pasos.",
-    "Cuatro puertas. Dos escaleras. Un despacho que todavia mira desde arriba.",
-    "No corras a elegir una puerta. Primero mira que lugar quiso ordenar todo esto.",
-    "Si una pista se queda contigo, tal vez la bitacora encuentre una forma de escribirla."
+    "Las letras grabadas en la base no parecen talladas. Parecen haber esperado tu sombra.",
+    "Cuando las miras de cerca, una voz se arma entre el marmol y el polvo. No del todo viva. No del todo recuerdo.",
+    "Cuatro puertas laterales. Dos escaleras. Un despacho arriba, todavia mirando el mapa completo.",
+    "Esta escuela no se apagaba desde las puertas. Se apagaba cuando alguien dejaba de mirar alrededor.",
+    "Antes de elegir una sala, subi. Hay una mesa que guardo muchas llegadas.",
+    "Si algo de este lugar se queda con vos, la bitacora va a encontrar una forma de escribirlo."
   ]
 }

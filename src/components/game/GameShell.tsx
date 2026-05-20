@@ -115,6 +115,25 @@ export function GameShell() {
       if (payload.beatId) {
         completeNarrativeBeat(payload.beatId);
       }
+      if (payload.memoryId === "roxana_office_discovery") {
+        gameEvents.emit("journal:entry-unlocked", {
+          entryId: "central_bitacora_vacia",
+          source: "story",
+          beatId: "hub_bitacora_found",
+        });
+        gameEvents.emit("journal:open", {
+          entryId: "central_bitacora_vacia",
+          mode: "simple",
+        });
+      }
+      if (payload.memoryId === "ohmdal_preview") {
+        gameEvents.emit("dialogue:start", {
+          dialogueId: "ohmdal_preview_response",
+          speakerId: "ohm_automaton",
+          presentation: "portrait",
+          beatId: "ohmdal_automaton_after_preview",
+        });
+      }
       trackAnalyticsEvent({
         eventName: "completed_memory_sequence",
         memoryId: payload.memoryId,

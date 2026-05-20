@@ -262,22 +262,24 @@ export class HubScene extends Phaser.Scene {
             roomId: this.mapData.id,
             entryId,
           });
-          gameEvents.emit("analytics:track", {
-            eventName: "found_bitacora",
-            roomId: this.mapData.id,
-            entryId,
-          });
-          setProgressMilestone("bitacora_found");
-          if (entryId) {
-            gameEvents.emit("journal:entry-unlocked", {
-              entryId,
-              source: "story",
+          if (!hasCompletedNarrativeBeat("hub_bitacora_found")) {
+            this.clearPrompt();
+            gameEvents.emit("memory:start", {
+              memoryId: "roxana_office_discovery",
               beatId: "hub_bitacora_found",
+              source: "office",
             });
+            gameEvents.emit("analytics:track", {
+              eventName: "found_bitacora",
+              roomId: this.mapData.id,
+              entryId,
+            });
+            setProgressMilestone("bitacora_found");
+            return;
           }
-          gameEvents.emit("narrative:beat-completed", {
-            beatId: "hub_bitacora_found",
-            roomId: this.mapData.id,
+
+          gameEvents.emit("message:show", {
+            messageId: "roxana_office_revisit",
           });
         }
 

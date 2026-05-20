@@ -1,20 +1,32 @@
 {
   "id": "ohmdal_preview",
-  "title": "El brillo que no vuelve",
+  "title": "Bienvenidos a Ohmdal",
   "skippable": true,
   "onCompleteBeatId": "ohmdal_preview_memory_seen",
   "panels": [
     {
       "id": "ohmdal_preview_01",
-      "imageId": "ohmdal_bronze_towers_placeholder",
-      "tone": "sepia_bronze",
-      "caption": "Del otro lado, las torres de bronce siguen en pie. Pero ninguna luz completa su camino."
+      "imageId": "ohmdal_welcome_gate_placeholder",
+      "tone": "golden_copper",
+      "caption": "Bienvenidos a Ohmdal, reino de bronce vivo. Aqui, cada puerta responde cuando el camino esta preparado."
     },
     {
       "id": "ohmdal_preview_02",
-      "imageId": "ohmdal_silent_bridge_placeholder",
+      "imageId": "ohmdal_students_bridge_placeholder",
       "tone": "green_copper",
-      "caption": "Un puente intenta despertar. La chispa aparece, golpea el metal... y se apaga antes de volver."
+      "caption": "Los alumnos cruzaban puentes de luz para probar maquinas que no se explicaban: se observaban, se tocaban, se entendian."
+    },
+    {
+      "id": "ohmdal_preview_03",
+      "imageId": "ohmdal_workshop_awake_placeholder",
+      "tone": "warm_bronze",
+      "caption": "En el primer taller, una chispa viajaba por el suelo, despertaba una puerta y regresaba al corazon del mecanismo."
+    },
+    {
+      "id": "ohmdal_preview_04",
+      "imageId": "ohmdal_teacher_demonstration_placeholder",
+      "tone": "soft_gold",
+      "caption": "Nadie entraba a memorizar respuestas. Entraban a mirar que hacia el mundo cuando una pieza cambiaba de lugar."
     }
   ]
 }

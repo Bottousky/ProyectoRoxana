@@ -2,12 +2,14 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ohmdalPreview from "@/content/memories/ohmdal-preview.json";
+import roxanaOfficeDiscovery from "@/content/memories/roxana-office-discovery.json";
 import { gameEvents } from "@/game/systems/eventBus";
 import type { MemorySequence } from "@/game/types/memory";
 import { useGameStore } from "@/store/useGameStore";
 
 const memoryLibrary: Record<string, MemorySequence> = {
   [ohmdalPreview.id]: ohmdalPreview as MemorySequence,
+  [roxanaOfficeDiscovery.id]: roxanaOfficeDiscovery as MemorySequence,
 };
 
 export function MemoryPanelOverlay() {

@@ -46,6 +46,30 @@
       "contentId": "closed_circuit_001",
       "completionFlag": "ohmdal_first_puzzle_handoff",
       "analyticsEvent": "started_puzzle_after_narrative_bridge"
+    },
+    {
+      "id": "ohmdal_threshold_ohm_first_hint",
+      "kind": "dialogue",
+      "requiredBefore": ["ohmdal_first_puzzle_handoff"],
+      "contentId": "ohmdal_intro",
+      "completionFlag": "ohmdal_threshold_ohm_first_hint",
+      "analyticsEvent": "started_portrait_dialogue"
+    },
+    {
+      "id": "ohmdal_automaton_after_preview",
+      "kind": "dialogue",
+      "requiredBefore": ["ohmdal_preview_memory_seen"],
+      "contentId": "ohmdal_preview_response",
+      "completionFlag": "ohmdal_automaton_after_preview",
+      "analyticsEvent": "started_portrait_dialogue"
+    },
+    {
+      "id": "ohmdal_first_system_touch",
+      "kind": "puzzle_handoff",
+      "requiredBefore": ["ohmdal_first_puzzle_handoff"],
+      "contentId": "closed_circuit_001",
+      "completionFlag": "ohmdal_first_system_touch",
+      "analyticsEvent": "started_puzzle_closed_circuit"
     }
   ]
 }

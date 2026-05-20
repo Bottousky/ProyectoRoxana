@@ -11,7 +11,11 @@ import {
   type ClosedCircuitRuntimeState,
 } from "@/game/puzzles/closedCircuitPuzzle";
 import { gameEvents } from "@/game/systems/eventBus";
-import { setProgressMilestone } from "@/game/systems/progressStore";
+import {
+  completeNarrativeBeat,
+  hasCompletedNarrativeBeat,
+  setProgressMilestone,
+} from "@/game/systems/progressStore";
 import type { DirectionVector } from "@/game/types/events";
 import type {
   BoundsRect,
@@ -49,6 +53,7 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
   private switchVisual?: Phaser.GameObjects.Rectangle;
   private pathVisual?: Phaser.GameObjects.Rectangle;
   private mechanismVisual?: Phaser.GameObjects.Rectangle;
+  private puzzleStarted = false;
 
   constructor() {
     super("ElectronicsThresholdScene");
@@ -105,15 +110,6 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
       roomId: this.mapData.id,
       sourceRoomId: "electronics_classroom",
       firstVisit: false,
-    });
-    gameEvents.emit("puzzle:start", {
-      puzzleId: this.puzzleData.id,
-      worldId: this.puzzleData.worldId,
-    });
-    gameEvents.emit("analytics:track", {
-      eventName: "started_puzzle_closed_circuit",
-      roomId: this.mapData.id,
-      puzzleId: this.puzzleData.id,
     });
     gameEvents.emit("message:show", { messageId: "ohmdal_threshold_arrival" });
   }
@@ -212,9 +208,19 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
         return;
       }
 
+      if (hasCompletedNarrativeBeat("ohmdal_threshold_ohm_first_hint")) {
+        gameEvents.emit("message:show", { messageId: "ohmdal_automaton_revisit" });
+        return;
+      }
+
       this.movementLocked = true;
       this.clearPrompt();
-      gameEvents.emit("dialogue:start", { dialogueId, speakerId });
+      gameEvents.emit("dialogue:start", {
+        dialogueId,
+        speakerId,
+        presentation: "portrait",
+        beatId: "ohmdal_threshold_ohm_first_hint",
+      });
       return;
     }
 
@@ -228,6 +234,10 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
       if (messageId) {
         gameEvents.emit("message:show", { messageId });
       }
+      return;
+    }
+
+    if (this.startPuzzleIfNeeded()) {
       return;
     }
 
@@ -287,6 +297,30 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
         puzzleId: this.puzzleData.id,
       });
     }
+  }
+
+  private startPuzzleIfNeeded() {
+    if (this.puzzleStarted) {
+      return false;
+    }
+
+    this.puzzleStarted = true;
+    gameEvents.emit("message:show", { messageId: "ohmdal_system_first_touch" });
+    gameEvents.emit("puzzle:start", {
+      puzzleId: this.puzzleData.id,
+      worldId: this.puzzleData.worldId,
+    });
+    gameEvents.emit("analytics:track", {
+      eventName: "started_puzzle_closed_circuit",
+      roomId: this.mapData.id,
+      puzzleId: this.puzzleData.id,
+    });
+    gameEvents.emit("narrative:beat-completed", {
+      beatId: "ohmdal_first_system_touch",
+      roomId: this.mapData.id,
+    });
+    completeNarrativeBeat("ohmdal_first_system_touch");
+    return true;
   }
 
   private readMovementDirection(): DirectionVector {

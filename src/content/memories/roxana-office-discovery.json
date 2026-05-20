@@ -1,0 +1,21 @@
+{
+  "id": "roxana_office_discovery",
+  "title": "El despacho de Roxana",
+  "skippable": true,
+  "onCompleteBeatId": "hub_bitacora_found",
+  "unlockedJournalEntryIds": ["central_bitacora_vacia"],
+  "panels": [
+    {
+      "id": "roxana_office_01",
+      "imageId": "roxana_office_balcony_placeholder",
+      "tone": "warm_dust",
+      "caption": "El despacho no esta arriba para alejarse de la escuela. Esta arriba para ver como todas las puertas se relacionan."
+    },
+    {
+      "id": "roxana_office_02",
+      "imageId": "roxana_empty_journal_placeholder",
+      "tone": "paper_gold",
+      "caption": "Sobre la mesa hay una bitacora abierta. Sus paginas no estan borradas: estan esperando una experiencia propia."
+    }
+  ]
+}
