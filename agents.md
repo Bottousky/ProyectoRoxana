@@ -129,6 +129,8 @@ Antes de implementar una feature nueva, crear o actualizar una spec en `specs/`.
 
 GitHub Spec Kit esta instalado en `.specify/` y sus skills Codex viven en `.agents/skills/`.
 
+Superpowers tambien esta integrado como skills locales en `.agents/skills/`. Usarlo como metodologia auxiliar para planificacion, debugging, review, verificacion y cierre de rama, manteniendo siempre prioridad para este `agents.md`, la constitucion de Spec Kit y la spec activa. Ver `docs/SUPERPOWERS_INTEGRATION.md`.
+
 Para nuevas features activas, preferir el flujo:
 
 - `$speckit-specify`
