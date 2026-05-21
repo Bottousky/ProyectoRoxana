@@ -1,0 +1,69 @@
+{
+  "messages": [
+    {
+      "id": "ohmdal_ch01_arrival_gate",
+      "title": "Entrada de servicio",
+      "body": "El suelo conserva líneas de bronce que no decoran: conectan. Algunas brillan apenas; otras parecen cortadas por años de silencio."
+    },
+    {
+      "id": "ohmdal_ch01_broken_return",
+      "title": "Tramo interrumpido",
+      "body": "El pulso llega hasta acá y se apaga. No hay explosión ni castigo: solo una costumbre que no logra completarse."
+    },
+    {
+      "id": "ohmdal_ch01_switch_feedback",
+      "title": "Palanca de patio",
+      "body": "La palanca despierta el camino por un instante, pero el brillo no encuentra regreso."
+    },
+    {
+      "id": "ohmdal_ch01_gate_restored",
+      "title": "Compuerta pública",
+      "body": "El camino se cierra. La compuerta responde con un golpe lento, como si hubiera esperado demasiado tiempo para moverse."
+    },
+    {
+      "id": "ohmdal_ch01_workshop_automaton",
+      "title": "Autómata de taller",
+      "body": "Tiene una mano sobre una pieza sin terminar. No parece roto: parece esperando una señal que nunca llega."
+    },
+    {
+      "id": "ohmdal_ch01_wooden_path",
+      "title": "Canal de madera",
+      "body": "La forma acompaña el recorrido, pero el pulso no la sigue. El canal queda igual de oscuro."
+    },
+    {
+      "id": "ohmdal_ch01_copper_path",
+      "title": "Cinta de cobre",
+      "body": "El brillo corre por la cinta con una seguridad antigua. El autómata mueve un dedo."
+    },
+    {
+      "id": "ohmdal_ch01_stone_path",
+      "title": "Baldosa grabada",
+      "body": "El grabado es hermoso, pero no alcanza. La señal no encuentra continuidad."
+    },
+    {
+      "id": "ohmdal_ch01_plaza_source",
+      "title": "Fuente quieta",
+      "body": "La fuente tiene una boca de entrada, una rueda de activación y un retorno oculto bajo las baldosas."
+    },
+    {
+      "id": "ohmdal_ch01_plaza_incomplete",
+      "title": "Sistema incompleto",
+      "body": "Una parte despierta, otra responde, pero el conjunto no sostiene el pulso. Falta cerrar el recorrido."
+    },
+    {
+      "id": "ohmdal_ch01_plaza_restored",
+      "title": "Primer circuito de plaza",
+      "body": "La luz rodea la fuente y vuelve al origen. El agua sube poco, pero sube."
+    },
+    {
+      "id": "ohmdal_ch01_archive_gate",
+      "title": "Archivo de bronce",
+      "body": "La puerta del archivo se abre apenas. Dentro, una bobina gira sin tocar nada."
+    },
+    {
+      "id": "ohmdal_ch01_memory_coil",
+      "title": "Bobina de memoria",
+      "body": "No pesa como metal. Pesa como una ruta que alguien dejó preparada para volver a entender."
+    }
+  ]
+}
