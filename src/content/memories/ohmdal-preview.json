@@ -6,27 +6,39 @@
   "panels": [
     {
       "id": "ohmdal_preview_01",
-      "imageId": "ohmdal_welcome_gate_placeholder",
+      "imageId": "ohmdal_city_gate_placeholder",
       "tone": "golden_copper",
-      "caption": "Bienvenidos a Ohmdal, reino de bronce vivo. Aqui, cada puerta responde cuando el camino esta preparado."
+      "caption": "Bienvenidos a Ohmdal, ciudad de bronce vivo, donde humanos y automatas compartian talleres, puentes y mercados encendidos."
     },
     {
       "id": "ohmdal_preview_02",
-      "imageId": "ohmdal_students_bridge_placeholder",
+      "imageId": "ohmdal_humans_automatons_placeholder",
       "tone": "green_copper",
-      "caption": "Los alumnos cruzaban puentes de luz para probar maquinas que no se explicaban: se observaban, se tocaban, se entendian."
+      "caption": "Para sus habitantes, la energia era una magia antigua: campanas que despertaban solas, puertas que obedecian al metal, faros que guiaban sin llama."
     },
     {
       "id": "ohmdal_preview_03",
-      "imageId": "ohmdal_workshop_awake_placeholder",
+      "imageId": "ohmdal_students_observing_placeholder",
       "tone": "warm_bronze",
-      "caption": "En el primer taller, una chispa viajaba por el suelo, despertaba una puerta y regresaba al corazon del mecanismo."
+      "caption": "Los antiguos profesores abrian este mundo para que los alumnos miraran de cerca esa magia y descubrieran que obedecia patrones."
     },
     {
       "id": "ohmdal_preview_04",
-      "imageId": "ohmdal_teacher_demonstration_placeholder",
+      "imageId": "ohmdal_public_systems_placeholder",
       "tone": "soft_gold",
-      "caption": "Nadie entraba a memorizar respuestas. Entraban a mirar que hacia el mundo cuando una pieza cambiaba de lugar."
+      "caption": "Cuando los caminos estaban completos, los ascensores subian, los automatas reparaban relojes y las plazas brillaban hasta tarde."
+    },
+    {
+      "id": "ohmdal_preview_05",
+      "imageId": "ohmdal_blackout_placeholder",
+      "tone": "cold_copper",
+      "caption": "Pero sin nadie que preguntara como funcionaba, los caminos empezaron a cortarse. La magia siguio teniendo nombre, pero perdio oficio."
+    },
+    {
+      "id": "ohmdal_preview_06",
+      "imageId": "ohmdal_broken_gate_placeholder",
+      "tone": "dark_green",
+      "caption": "Ahora algunas puertas esperan una chispa que no llega, y algunos automatas miran sus propias manos sin recordar que pieza falta."
     }
   ]
 }

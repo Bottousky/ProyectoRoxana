@@ -51,7 +51,7 @@
     },
     {
       "id": "generator_base",
-      "x": 48,
+      "x": 46,
       "y": 66,
       "width": 52,
       "height": 34,
@@ -64,6 +64,22 @@
       "width": 42,
       "height": 80,
       "style": "gate"
+    },
+    {
+      "id": "market_stall",
+      "x": 112,
+      "y": 138,
+      "width": 64,
+      "height": 28,
+      "style": "furniture"
+    },
+    {
+      "id": "fallen_automaton",
+      "x": 226,
+      "y": 132,
+      "width": 38,
+      "height": 24,
+      "style": "furniture"
     }
   ],
   "decorations": [
@@ -75,6 +91,24 @@
       "height": 176,
       "fill": "#17242c",
       "stroke": "#36505d"
+    },
+    {
+      "id": "cold_market_corner",
+      "x": 96,
+      "y": 126,
+      "width": 96,
+      "height": 48,
+      "fill": "#24313a",
+      "stroke": "#6f5133"
+    },
+    {
+      "id": "automaton_oil_shadow",
+      "x": 216,
+      "y": 126,
+      "width": 60,
+      "height": 38,
+      "fill": "#111820",
+      "stroke": "#557b83"
     },
     {
       "id": "circuit_path_open",
@@ -111,6 +145,15 @@
       "height": 108,
       "fill": "#1f2e37",
       "stroke": "#557b83"
+    },
+    {
+      "id": "distant_houses",
+      "x": 38,
+      "y": 30,
+      "width": 118,
+      "height": 24,
+      "fill": "#263640",
+      "stroke": "#8a6a38"
     }
   ],
   "interactables": [
@@ -141,6 +184,48 @@
       "prompt": "Mover palanca",
       "payload": {
         "messageId": "ohmdal_switch_moved"
+      }
+    },
+    {
+      "id": "market_stall_dark",
+      "kind": "inspect",
+      "bounds": {
+        "x": 104,
+        "y": 128,
+        "width": 80,
+        "height": 46
+      },
+      "prompt": "Inspeccionar puesto",
+      "payload": {
+        "messageId": "ohmdal_market_stall_dark"
+      }
+    },
+    {
+      "id": "broken_automaton",
+      "kind": "inspect",
+      "bounds": {
+        "x": 214,
+        "y": 122,
+        "width": 64,
+        "height": 46
+      },
+      "prompt": "Observar automata",
+      "payload": {
+        "messageId": "ohmdal_broken_automaton"
+      }
+    },
+    {
+      "id": "floor_path",
+      "kind": "inspect",
+      "bounds": {
+        "x": 92,
+        "y": 72,
+        "width": 204,
+        "height": 34
+      },
+      "prompt": "Seguir linea de bronce",
+      "payload": {
+        "messageId": "ohmdal_floor_path"
       }
     },
     {

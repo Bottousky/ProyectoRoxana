@@ -5,6 +5,7 @@ import { ElectronicsClassroomScene } from "./scenes/ElectronicsClassroomScene";
 import { ElectronicsThresholdScene } from "./scenes/ElectronicsThresholdScene";
 import { HubScene } from "./scenes/HubScene";
 import { PreloadScene } from "./scenes/PreloadScene";
+import { RoxanaOfficeScene } from "./scenes/RoxanaOfficeScene";
 
 export function createRoxanaGame(parent: HTMLElement) {
   return new Phaser.Game({
@@ -31,6 +32,7 @@ export function createRoxanaGame(parent: HTMLElement) {
       BootScene,
       PreloadScene,
       HubScene,
+      RoxanaOfficeScene,
       ElectronicsClassroomScene,
       ElectronicsThresholdScene,
     ],

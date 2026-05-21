@@ -15,6 +15,9 @@ type GameStore = {
   journalFocusEntryId: string | null;
   journalMode: JournalViewMode;
   unlockedJournalEntryIds: string[];
+  unlockedJournalStagesByEntry: Record<string, string[]>;
+  journalSpreadIndexByEntry: Record<string, number>;
+  hasSeenJournalFirstOpen: boolean;
   prompt: string | null;
   activeMessageId: string | null;
   puzzleStates: Record<string, PuzzleState>;
@@ -36,6 +39,9 @@ type GameStore = {
   toggleJournal: () => void;
   setJournalMode: (mode: JournalViewMode) => void;
   unlockJournalEntry: (entryId: string) => void;
+  unlockJournalStage: (entryId: string, stageId: string) => void;
+  setJournalSpreadIndex: (entryId: string, spreadIndex: number) => void;
+  markJournalFirstOpenSeen: () => void;
   setPuzzleState: (puzzleId: string, state: PuzzleState) => void;
   setPrompt: (prompt: string | null) => void;
   setRoomLabel: (label: string) => void;
@@ -56,6 +62,9 @@ export const useGameStore = create<GameStore>((set) => ({
   journalFocusEntryId: null,
   journalMode: "simple",
   unlockedJournalEntryIds: [],
+  unlockedJournalStagesByEntry: {},
+  journalSpreadIndexByEntry: {},
+  hasSeenJournalFirstOpen: false,
   prompt: null,
   activeMessageId: null,
   puzzleStates: {},
@@ -129,6 +138,28 @@ export const useGameStore = create<GameStore>((set) => ({
         unlockedJournalEntryIds: [...state.unlockedJournalEntryIds, entryId],
       };
     }),
+  unlockJournalStage: (entryId, stageId) =>
+    set((state) => {
+      const stages = state.unlockedJournalStagesByEntry[entryId] ?? [];
+      if (stages.includes(stageId)) {
+        return state;
+      }
+
+      return {
+        unlockedJournalStagesByEntry: {
+          ...state.unlockedJournalStagesByEntry,
+          [entryId]: [...stages, stageId],
+        },
+      };
+    }),
+  setJournalSpreadIndex: (entryId, spreadIndex) =>
+    set((state) => ({
+      journalSpreadIndexByEntry: {
+        ...state.journalSpreadIndexByEntry,
+        [entryId]: spreadIndex,
+      },
+    })),
+  markJournalFirstOpenSeen: () => set({ hasSeenJournalFirstOpen: true }),
   setPuzzleState: (puzzleId, puzzleState) =>
     set((state) => ({
       puzzleStates: {

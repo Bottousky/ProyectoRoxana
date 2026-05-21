@@ -8,17 +8,17 @@
     {
       "id": "electronics_classroom_workbench",
       "title": "Banco de trabajo",
-      "body": "Herramientas quietas, bobinas opacas y marcas de cobre sobre la madera. Alguien dejo este banco listo para observar antes de tocar."
+      "body": "Herramientas quietas, bobinas opacas y marcas de cobre sobre la madera. No parece un altar: parece una mesa preparada para probar sin romper."
     },
     {
       "id": "electronics_classroom_portal_preview",
       "title": "Umbral de Ohmdal",
-      "body": "Del otro lado se adivinan torres de bronce y una luz verde que parpadea sin ritmo. Algo intenta despertar, pero no encuentra por donde volver."
+      "body": "Del otro lado se adivinan torres de bronce, carteles torcidos y una plaza sin faroles. No esta vacio. Esta detenido."
     },
     {
       "id": "electronics_classroom_portal_ready",
       "title": "Umbral de Ohmdal",
-      "body": "El brillo se ordena apenas. El umbral ya no parece una puerta: parece una invitacion a mirar donde se corta la luz."
+      "body": "El brillo se ordena apenas. OHM no mira la puerta: mira el suelo del otro lado, como si esperara encontrar una interrupcion."
     },
     {
       "id": "electronics_classroom_ohm_revisit",

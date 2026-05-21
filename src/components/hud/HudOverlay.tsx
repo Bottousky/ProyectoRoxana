@@ -16,6 +16,8 @@ export function HudOverlay() {
         </div>
         <div className="hidden sm:block">WASD / Flechas para moverte</div>
         <div className="hidden sm:block">E / Enter / Espacio para interactuar</div>
+        <div className="hidden sm:block">B / J para abrir bitacora</div>
+        <div className="hidden sm:block">Esc / Backspace para atras</div>
       </div>
 
       <button

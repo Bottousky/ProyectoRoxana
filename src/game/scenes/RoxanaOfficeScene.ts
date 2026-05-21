@@ -1,19 +1,11 @@
 import * as Phaser from "phaser";
-import ohmdalMapRaw from "@/content/maps/ohmdal-threshold.map.json";
-import closedCircuitRaw from "@/content/puzzles/closed-circuit-001.json";
+import officeMapRaw from "@/content/maps/roxana-office.map.json";
 import { GAME_HEIGHT, GAME_WIDTH, TILE_SIZE } from "@/game/constants";
 import { Player } from "@/game/entities/Player";
-import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
-import {
-  createClosedCircuitState,
-  testClosedCircuit,
-  toggleCircuitSwitch,
-  type ClosedCircuitRuntimeState,
-} from "@/game/puzzles/closedCircuitPuzzle";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
-  completeNarrativeBeat,
   hasCompletedNarrativeBeat,
+  setLastRoom,
   setProgressMilestone,
 } from "@/game/systems/progressStore";
 import type { DirectionVector } from "@/game/types/events";
@@ -23,7 +15,6 @@ import type {
   HubMapData,
   HubSolid,
 } from "@/game/types/hubMap";
-import type { PuzzleData } from "@/game/types/puzzle";
 
 type WasdKeys = {
   W: Phaser.Input.Keyboard.Key;
@@ -35,10 +26,8 @@ type WasdKeys = {
   ENTER: Phaser.Input.Keyboard.Key;
 };
 
-export class ElectronicsThresholdScene extends Phaser.Scene {
-  private readonly mapData = ohmdalMapRaw as HubMapData;
-  private readonly puzzleData = closedCircuitRaw as PuzzleData;
-  private puzzleState: ClosedCircuitRuntimeState = createClosedCircuitState();
+export class RoxanaOfficeScene extends Phaser.Scene {
+  private readonly mapData = officeMapRaw as HubMapData;
   private player?: Player;
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
   private keys?: WasdKeys;
@@ -50,27 +39,18 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
   private virtualDirection: DirectionVector = { x: 0, y: 0 };
   private activePromptId: string | null = null;
   private cleanupEventHandlers: Array<() => void> = [];
-  private switchVisual?: Phaser.GameObjects.Rectangle;
-  private pathVisual?: Phaser.GameObjects.Rectangle;
-  private mechanismVisual?: Phaser.GameObjects.Rectangle;
-  private puzzleStarted = false;
 
   constructor() {
-    super("ElectronicsThresholdScene");
+    super("RoxanaOfficeScene");
   }
 
   create() {
-    this.puzzleState = createClosedCircuitState();
     this.solids = this.mapData.solids;
     this.interactables = this.mapData.interactables;
-    this.drawRoom();
+    this.drawOffice();
 
     this.player = new Player(this, this.mapData.spawn.x, this.mapData.spawn.y);
-    new RoxanaNpc(
-      this,
-      this.mapData.entities.roxana.x,
-      this.mapData.entities.roxana.y,
-    );
+    this.drawEmptyChair();
 
     this.cursors = this.input.keyboard?.createCursorKeys();
     this.keys = this.input.keyboard?.addKeys(
@@ -78,15 +58,16 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
     ) as WasdKeys;
 
     this.cleanupEventHandlers = [
-      gameEvents.on("dialogue:complete", () => {
-        this.movementLocked = false;
-        this.suppressInteractionBriefly();
-      }),
       gameEvents.on("input:virtual-direction", (direction) => {
         this.virtualDirection = direction;
       }),
       gameEvents.on("input:interact", () => {
         this.tryInteract(this.findNearbyInteractable());
+      }),
+      gameEvents.on("input:back", () => {
+        if (!this.uiLocked) {
+          this.scene.start("HubScene");
+        }
       }),
       gameEvents.on("ui:controls-lock", ({ locked }) => {
         this.uiLocked = locked;
@@ -105,13 +86,21 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
       this.clearPrompt();
     });
 
-    gameEvents.emit("scene:ready", { scene: "electronics_threshold" });
+    gameEvents.emit("scene:ready", { scene: "roxana_office" });
     gameEvents.emit("room:entered", {
       roomId: this.mapData.id,
-      sourceRoomId: "electronics_classroom",
-      firstVisit: false,
+      sourceRoomId: "roxana_library_hub",
+      firstVisit: !hasCompletedNarrativeBeat("roxana_office_first_entry"),
     });
-    gameEvents.emit("message:show", { messageId: "ohmdal_threshold_arrival" });
+    gameEvents.emit("narrative:beat-completed", {
+      beatId: "roxana_office_first_entry",
+      roomId: this.mapData.id,
+    });
+    gameEvents.emit("analytics:track", {
+      eventName: "opened_roxana_office",
+      roomId: this.mapData.id,
+    });
+    setLastRoom(this.mapData.id);
   }
 
   update(_time: number, delta: number) {
@@ -136,14 +125,14 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
     );
   }
 
-  private drawRoom() {
-    this.cameras.main.setBackgroundColor("#0b151b");
+  private drawOffice() {
+    this.cameras.main.setBackgroundColor("#15110f");
 
     const graphics = this.add.graphics();
-    graphics.fillStyle(0x111b24, 1);
+    graphics.fillStyle(0x1a1412, 1);
     graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    graphics.lineStyle(1, 0x263247, 0.35);
+    graphics.lineStyle(1, 0x3a2f28, 0.36);
     for (let x = 0; x <= GAME_WIDTH; x += TILE_SIZE) {
       graphics.lineBetween(x, 0, x, GAME_HEIGHT);
     }
@@ -174,14 +163,21 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
     for (const solid of this.solids) {
       graphics.fillStyle(this.styleColorForSolid(solid.style), 1);
       graphics.fillRect(solid.x, solid.y, solid.width, solid.height);
-      graphics.lineStyle(1, 0x0f1420, 0.8);
+      graphics.lineStyle(1, 0x0d0b0a, 0.8);
       graphics.strokeRect(solid.x, solid.y, solid.width, solid.height);
     }
+  }
 
-    this.pathVisual = this.add.rectangle(191, 88, 192, 6, 0x8b6a42, 0.95);
-    this.switchVisual = this.add.rectangle(154, 128, 30, 8, 0xbf6b5a, 0.95);
-    this.mechanismVisual = this.add.rectangle(319, 112, 22, 48, 0x315660, 0.95);
-    this.mechanismVisual.setStrokeStyle(1, 0x7faeb6, 0.8);
+  private drawEmptyChair() {
+    const chair = this.add.rectangle(
+      this.mapData.entities.roxana.x,
+      this.mapData.entities.roxana.y,
+      18,
+      22,
+      0x2b2420,
+      1,
+    );
+    chair.setStrokeStyle(1, 0xc9a85f, 0.35);
   }
 
   private tryInteract(interactable: HubInteractable | null) {
@@ -201,145 +197,50 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
       kind: target.kind,
     });
 
-    if (target.kind === "dialogue") {
-      const dialogueId = target.payload?.dialogueId;
-      const speakerId = target.payload?.speakerId ?? "ohm_automaton";
-      if (!dialogueId) {
-        return;
-      }
-
-      if (hasCompletedNarrativeBeat("ohmdal_threshold_ohm_first_hint")) {
-        gameEvents.emit("message:show", { messageId: "ohmdal_automaton_revisit" });
-        return;
-      }
-
-      this.movementLocked = true;
-      this.clearPrompt();
-      gameEvents.emit("dialogue:start", {
-        dialogueId,
-        speakerId,
-        presentation: "portrait",
-        beatId: "ohmdal_threshold_ohm_first_hint",
-      });
-      return;
-    }
-
     if (target.id === "return_hub") {
       this.scene.start("HubScene");
       return;
     }
 
-    if (target.kind !== "puzzle") {
-      const messageId = target.payload?.messageId;
-      if (messageId) {
-        gameEvents.emit("message:show", { messageId });
-      }
-      return;
-    }
-
-    if (this.startPuzzleIfNeeded()) {
-      return;
-    }
-
-    if (target.id === "circuit_switch") {
-      this.puzzleState = toggleCircuitSwitch(this.puzzleState);
-      this.switchVisual?.setFillStyle(
-        this.puzzleState.switchClosed ? 0x8bd17c : 0xbf6b5a,
-        0.95,
-      );
-      this.pathVisual?.setFillStyle(
-        this.puzzleState.switchClosed ? 0xc9a85f : 0x8b6a42,
-        0.95,
-      );
-      gameEvents.emit("puzzle:state-change", {
-        puzzleId: this.puzzleData.id,
-        state: this.puzzleState.puzzleState,
-      });
-      if (target.payload?.messageId) {
-        gameEvents.emit("message:show", { messageId: target.payload.messageId });
-      }
-      if (!hasCompletedNarrativeBeat("ohmdal_pattern_recognition")) {
-        gameEvents.emit("journal:entry-updated", {
-          entryId: "ohmdal_closed_circuit",
-          stageId: "pattern_recognition",
-          source: "story",
-          beatId: "ohmdal_pattern_recognition",
-        });
-        gameEvents.emit("narrative:beat-completed", {
-          beatId: "ohmdal_pattern_recognition",
-          roomId: this.mapData.id,
-        });
-        completeNarrativeBeat("ohmdal_pattern_recognition");
-      }
-      return;
-    }
-
-    if (target.id === "sleeping_mechanism") {
-      this.puzzleState = testClosedCircuit(this.puzzleData, this.puzzleState);
-      gameEvents.emit("puzzle:state-change", {
-        puzzleId: this.puzzleData.id,
-        state: this.puzzleState.puzzleState,
-      });
-
-      if (this.puzzleState.puzzleState === "complete") {
-        this.mechanismVisual?.setFillStyle(0x8bd17c, 1);
-        this.pathVisual?.setFillStyle(0xf2d675, 1);
-        gameEvents.emit("message:show", { messageId: "ohmdal_mechanism_awake" });
-        gameEvents.emit("puzzle:complete", {
-          puzzleId: this.puzzleData.id,
-          unlockedJournalEntryIds: this.puzzleData.unlockedJournalEntryIds,
-        });
-        gameEvents.emit("analytics:track", {
-          eventName: "completed_puzzle_closed_circuit",
-          roomId: this.mapData.id,
-          puzzleId: this.puzzleData.id,
-        });
-        gameEvents.emit("analytics:track", {
-          eventName: "finished_demo",
-          roomId: this.mapData.id,
-          puzzleId: this.puzzleData.id,
-        });
-        setProgressMilestone("closed_circuit_completed");
+    if (target.kind === "journal") {
+      const entryId = target.payload?.journalEntryId;
+      if (!entryId) {
         return;
       }
 
-      gameEvents.emit("message:show", { messageId: "ohmdal_circuit_open" });
-      gameEvents.emit("analytics:track", {
-        eventName: "failed_puzzle_closed_circuit",
-        roomId: this.mapData.id,
-        puzzleId: this.puzzleData.id,
+      this.clearPrompt();
+      if (!hasCompletedNarrativeBeat("hub_bitacora_found")) {
+        gameEvents.emit("message:show", {
+          messageId: "roxana_office_journal_found",
+        });
+        gameEvents.emit("journal:entry-unlocked", {
+          entryId,
+          source: "story",
+          beatId: "hub_bitacora_found",
+        });
+        gameEvents.emit("analytics:track", {
+          eventName: "found_bitacora",
+          roomId: this.mapData.id,
+          entryId,
+        });
+        setProgressMilestone("bitacora_found");
+      } else {
+        gameEvents.emit("message:show", {
+          messageId: "roxana_office_journal_revisit",
+        });
+      }
+
+      gameEvents.emit("journal:open", {
+        entryId,
+        mode: "simple",
       });
-    }
-  }
-
-  private startPuzzleIfNeeded() {
-    if (this.puzzleStarted) {
-      return false;
+      return;
     }
 
-    this.puzzleStarted = true;
-    gameEvents.emit("journal:entry-updated", {
-      entryId: "ohmdal_closed_circuit",
-      stageId: "system_observation",
-      source: "story",
-      beatId: "ohmdal_first_system_touch",
-    });
-    gameEvents.emit("message:show", { messageId: "ohmdal_system_first_touch" });
-    gameEvents.emit("puzzle:start", {
-      puzzleId: this.puzzleData.id,
-      worldId: this.puzzleData.worldId,
-    });
-    gameEvents.emit("analytics:track", {
-      eventName: "started_puzzle_closed_circuit",
-      roomId: this.mapData.id,
-      puzzleId: this.puzzleData.id,
-    });
-    gameEvents.emit("narrative:beat-completed", {
-      beatId: "ohmdal_first_system_touch",
-      roomId: this.mapData.id,
-    });
-    completeNarrativeBeat("ohmdal_first_system_touch");
-    return true;
+    const messageId = target.payload?.messageId;
+    if (messageId) {
+      gameEvents.emit("message:show", { messageId });
+    }
   }
 
   private readMovementDirection(): DirectionVector {
@@ -492,15 +393,15 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
   private styleColorForSolid(style: HubSolid["style"]) {
     switch (style) {
       case "wall":
-        return 0x2f3d54;
+        return 0x3b2f27;
       case "shelf":
-        return 0x4f3d2f;
+        return 0x5d4632;
       case "furniture":
-        return 0x645341;
+        return 0x6a4d33;
       case "gate":
-        return 0x2e4a52;
+        return 0x2f3540;
       default:
-        return 0x3b4455;
+        return 0x3c332c;
     }
   }
 

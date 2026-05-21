@@ -1,0 +1,244 @@
+{
+  "id": "roxana_office",
+  "tileSize": 16,
+  "size": {
+    "width": 384,
+    "height": 216
+  },
+  "spawn": {
+    "x": 192,
+    "y": 176
+  },
+  "entities": {
+    "roxana": {
+      "id": "empty_chair",
+      "x": 192,
+      "y": 84
+    }
+  },
+  "solids": [
+    {
+      "id": "north_wall",
+      "x": 8,
+      "y": 8,
+      "width": 368,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "south_wall_left",
+      "x": 8,
+      "y": 196,
+      "width": 144,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "south_wall_right",
+      "x": 232,
+      "y": 196,
+      "width": 144,
+      "height": 12,
+      "style": "wall"
+    },
+    {
+      "id": "west_wall",
+      "x": 8,
+      "y": 8,
+      "width": 12,
+      "height": 200,
+      "style": "wall"
+    },
+    {
+      "id": "east_wall",
+      "x": 364,
+      "y": 8,
+      "width": 12,
+      "height": 200,
+      "style": "wall"
+    },
+    {
+      "id": "roxana_desk",
+      "x": 146,
+      "y": 62,
+      "width": 92,
+      "height": 36,
+      "style": "furniture"
+    },
+    {
+      "id": "left_bookcase",
+      "x": 34,
+      "y": 34,
+      "width": 56,
+      "height": 118,
+      "style": "shelf"
+    },
+    {
+      "id": "right_cabinet",
+      "x": 294,
+      "y": 44,
+      "width": 44,
+      "height": 100,
+      "style": "shelf"
+    },
+    {
+      "id": "school_map_wall",
+      "x": 122,
+      "y": 24,
+      "width": 140,
+      "height": 22,
+      "style": "furniture"
+    }
+  ],
+  "decorations": [
+    {
+      "id": "office_floor",
+      "x": 20,
+      "y": 20,
+      "width": 344,
+      "height": 176,
+      "fill": "#261f1a",
+      "stroke": "#5f4a35"
+    },
+    {
+      "id": "window_glow",
+      "x": 112,
+      "y": 20,
+      "width": 160,
+      "height": 48,
+      "fill": "#3c3025",
+      "stroke": "#b58a52"
+    },
+    {
+      "id": "desk_lamplight",
+      "x": 132,
+      "y": 48,
+      "width": 120,
+      "height": 70,
+      "fill": "#4a3724",
+      "stroke": "#c9a85f"
+    },
+    {
+      "id": "journal_glow",
+      "x": 176,
+      "y": 70,
+      "width": 32,
+      "height": 18,
+      "fill": "#c9a85f",
+      "stroke": "#f0d891"
+    },
+    {
+      "id": "return_door",
+      "x": 152,
+      "y": 188,
+      "width": 80,
+      "height": 20,
+      "fill": "#1b2433",
+      "stroke": "#65718a"
+    },
+    {
+      "id": "scattered_notes",
+      "x": 102,
+      "y": 124,
+      "width": 68,
+      "height": 24,
+      "fill": "#7a6448",
+      "stroke": "#d8bb78"
+    },
+    {
+      "id": "sealed_letters",
+      "x": 230,
+      "y": 128,
+      "width": 50,
+      "height": 18,
+      "fill": "#6b5138",
+      "stroke": "#b58a52"
+    }
+  ],
+  "interactables": [
+    {
+      "id": "return_hub",
+      "kind": "inspect",
+      "bounds": {
+        "x": 150,
+        "y": 178,
+        "width": 84,
+        "height": 30
+      },
+      "prompt": "Volver al vestibulo",
+      "payload": {
+        "messageId": "roxana_office_return"
+      }
+    },
+    {
+      "id": "roxana_journal_desk",
+      "kind": "journal",
+      "bounds": {
+        "x": 140,
+        "y": 54,
+        "width": 104,
+        "height": 52
+      },
+      "prompt": "Abrir bitacora",
+      "payload": {
+        "journalEntryId": "central_bitacora_vacia"
+      }
+    },
+    {
+      "id": "roxana_school_notes",
+      "kind": "inspect",
+      "bounds": {
+        "x": 94,
+        "y": 116,
+        "width": 86,
+        "height": 42
+      },
+      "prompt": "Leer notas",
+      "payload": {
+        "messageId": "roxana_office_school_notes"
+      }
+    },
+    {
+      "id": "roxana_wall_map",
+      "kind": "inspect",
+      "bounds": {
+        "x": 112,
+        "y": 18,
+        "width": 160,
+        "height": 38
+      },
+      "prompt": "Observar mapa",
+      "payload": {
+        "messageId": "roxana_office_school_map"
+      }
+    },
+    {
+      "id": "roxana_last_letters",
+      "kind": "inspect",
+      "bounds": {
+        "x": 220,
+        "y": 118,
+        "width": 72,
+        "height": 40
+      },
+      "prompt": "Revisar cartas",
+      "payload": {
+        "messageId": "roxana_office_last_letters"
+      }
+    },
+    {
+      "id": "roxana_archive_shelf",
+      "kind": "inspect",
+      "bounds": {
+        "x": 26,
+        "y": 28,
+        "width": 72,
+        "height": 132
+      },
+      "prompt": "Inspeccionar estantes",
+      "payload": {
+        "messageId": "roxana_office_archive_shelf"
+      }
+    }
+  ]
+}

@@ -65,6 +65,23 @@ export function setProgressMilestone(milestone: ProgressMilestone) {
   }));
 }
 
+export function unlockJournalStage(entryId: string, stageId: string) {
+  return updateProgress((progress) => {
+    const stages = progress.unlockedJournalStagesByEntry[entryId] ?? [];
+    if (stages.includes(stageId)) {
+      return progress;
+    }
+
+    return {
+      ...progress,
+      unlockedJournalStagesByEntry: {
+        ...progress.unlockedJournalStagesByEntry,
+        [entryId]: [...stages, stageId],
+      },
+    };
+  });
+}
+
 export function setLastRoom(lastRoomId: string) {
   return updateProgress((progress) => ({
     ...progress,

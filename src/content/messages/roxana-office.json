@@ -1,0 +1,39 @@
+{
+  "messages": [
+    {
+      "id": "roxana_office_return",
+      "title": "Puerta al vestibulo",
+      "body": "Desde aca se ve la sala principal como una maqueta cansada: cuatro puertas, dos escaleras y una estatua esperando abajo."
+    },
+    {
+      "id": "roxana_office_school_notes",
+      "title": "Notas de Roxana",
+      "body": "Las ultimas anotaciones no hablan de una catastrofe. Hablan de aulas cada vez mas vacias, de preguntas que nadie terminaba de hacer."
+    },
+    {
+      "id": "roxana_office_school_map",
+      "title": "Mapa de la escuela",
+      "body": "El mapa une la sala principal con aulas especializadas. Algunas lineas terminan en nombres casi borrados: Ohmdal, Arithmos, Kinetia, Null."
+    },
+    {
+      "id": "roxana_office_last_letters",
+      "title": "Cartas sin enviar",
+      "body": "Roxana pedia que no cerraran los mundos. Decia que no eran vitrinas: eran lugares para probar, equivocarse y volver a mirar."
+    },
+    {
+      "id": "roxana_office_archive_shelf",
+      "title": "Estantes del despacho",
+      "body": "Hay programas, listas de taller y bitacoras antiguas. Ninguna parece escrita de antemano: todas empiezan cuando alguien vive algo digno de recordar."
+    },
+    {
+      "id": "roxana_office_journal_found",
+      "title": "La bitacora",
+      "body": "El cuaderno esta vacio, pero no abandonado. La primera pagina se mueve apenas, como si hubiera reconocido que alguien llego por fin."
+    },
+    {
+      "id": "roxana_office_journal_revisit",
+      "title": "La bitacora",
+      "body": "Ya no parece un objeto del despacho. Parece algo que decidio acompanarte."
+    }
+  ]
+}

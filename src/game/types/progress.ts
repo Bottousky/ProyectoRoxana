@@ -14,6 +14,7 @@ export type PlayerProgress = {
   completedNarrativeBeats: string[];
   visitedRoomIds: string[];
   unlockedJournalEntries: string[];
+  unlockedJournalStagesByEntry: Record<string, string[]>;
   completedPuzzles: string[];
   puzzleStates: Record<string, PuzzleState>;
   diagnosticKnowledge: string[];
@@ -27,6 +28,7 @@ export const createInitialProgress = (): PlayerProgress => ({
   completedNarrativeBeats: [],
   visitedRoomIds: [],
   unlockedJournalEntries: [],
+  unlockedJournalStagesByEntry: {},
   completedPuzzles: [],
   puzzleStates: {},
   diagnosticKnowledge: [],

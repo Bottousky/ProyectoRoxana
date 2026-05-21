@@ -15,6 +15,7 @@ import {
   completeNarrativeBeat,
   loadProgress,
   markRoomVisited,
+  unlockJournalStage as persistJournalStage,
   setPuzzleState as persistPuzzleState,
   unlockJournalEntry as persistJournalEntry,
 } from "@/game/systems/progressStore";
@@ -33,15 +34,25 @@ export function GameShell() {
   const setPrompt = useGameStore((state) => state.setPrompt);
   const setRoomLabel = useGameStore((state) => state.setRoomLabel);
   const openJournal = useGameStore((state) => state.openJournal);
+  const closeJournal = useGameStore((state) => state.closeJournal);
   const unlockJournalEntry = useGameStore((state) => state.unlockJournalEntry);
+  const unlockJournalStage = useGameStore((state) => state.unlockJournalStage);
   const setPuzzleState = useGameStore((state) => state.setPuzzleState);
   const showMessage = useGameStore((state) => state.showMessage);
 
   useEffect(() => {
     installAnalyticsInspector();
-    loadProgress().unlockedJournalEntries.forEach((entryId) => {
+    const progress = loadProgress();
+    progress.unlockedJournalEntries.forEach((entryId) => {
       unlockJournalEntry(entryId);
     });
+    Object.entries(progress.unlockedJournalStagesByEntry).forEach(
+      ([entryId, stageIds]) => {
+        stageIds.forEach((stageId) => {
+          unlockJournalStage(entryId, stageId);
+        });
+      },
+    );
     trackAnalyticsEvent({ eventName: "started_game" });
 
     const offDialogue = gameEvents.on("dialogue:start", (payload) => {
@@ -88,6 +99,23 @@ export function GameShell() {
       },
     );
 
+    const offJournalUpdated = gameEvents.on("journal:entry-updated", (payload) => {
+      unlockJournalStage(payload.entryId, payload.stageId);
+      persistJournalStage(payload.entryId, payload.stageId);
+      gameEvents.emit("journal:stage-revealed", {
+        entryId: payload.entryId,
+        stageId: payload.stageId,
+      });
+      trackAnalyticsEvent({
+        eventName: "journal_stage_revealed",
+        entryId: payload.entryId,
+        source: payload.stageId,
+      });
+      if (payload.beatId) {
+        completeNarrativeBeat(payload.beatId);
+      }
+    });
+
     const offRoomEntered = gameEvents.on("room:entered", (payload) => {
       markRoomVisited(payload.roomId);
       setRoomLabel(roomLabelFor(payload.roomId));
@@ -127,6 +155,17 @@ export function GameShell() {
         });
       }
       if (payload.memoryId === "ohmdal_preview") {
+        gameEvents.emit("journal:entry-unlocked", {
+          entryId: "ohmdal_closed_circuit",
+          source: "story",
+          beatId: "ohmdal_preview_memory_seen",
+        });
+        gameEvents.emit("journal:entry-updated", {
+          entryId: "ohmdal_closed_circuit",
+          stageId: "first_impression",
+          source: "story",
+          beatId: "ohmdal_preview_memory_seen",
+        });
         gameEvents.emit("dialogue:start", {
           dialogueId: "ohmdal_preview_response",
           speakerId: "ohm_automaton",
@@ -154,6 +193,14 @@ export function GameShell() {
         unlockJournalEntry(entryId);
         persistJournalEntry(entryId);
       });
+      if (payload.puzzleId === "closed_circuit_001") {
+        gameEvents.emit("journal:entry-updated", {
+          entryId: "ohmdal_closed_circuit",
+          stageId: "post_restoration",
+          source: "puzzle",
+          beatId: "ohmdal_first_puzzle_handoff",
+        });
+      }
     });
 
     const offAnalytics = gameEvents.on("analytics:track", (payload) => {
@@ -166,6 +213,7 @@ export function GameShell() {
       offJournalOpen();
       offMessageShow();
       offJournalUnlocked();
+      offJournalUpdated();
       offRoomEntered();
       offBeatCompleted();
       offMemoryStart();
@@ -184,7 +232,55 @@ export function GameShell() {
     startDialogue,
     startMemory,
     unlockJournalEntry,
+    unlockJournalStage,
   ]);
+
+  useEffect(() => {
+    function handleGlobalKeyDown(event: KeyboardEvent) {
+      const target = event.target;
+      if (
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement
+      ) {
+        return;
+      }
+
+      const key = event.key.toLowerCase();
+      const isJournalKey = key === "b" || key === "j";
+      const isBackKey = event.key === "Escape" || event.key === "Backspace";
+
+      if (isJournalKey) {
+        event.preventDefault();
+        if (journalOpen) {
+          closeJournal();
+          gameEvents.emit("journal:close");
+          return;
+        }
+
+        gameEvents.emit("journal:open", {
+          mode: "simple",
+        });
+        return;
+      }
+
+      if (
+        isBackKey &&
+        !journalOpen &&
+        !activeDialogueId &&
+        !activeMemoryId &&
+        !activeMessageId
+      ) {
+        gameEvents.emit("input:back");
+      }
+    }
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleGlobalKeyDown);
+    };
+  }, [activeDialogueId, activeMemoryId, activeMessageId, closeJournal, journalOpen]);
 
   useEffect(() => {
     gameEvents.emit("ui:controls-lock", {
@@ -226,6 +322,8 @@ export function GameShell() {
 
 function roomLabelFor(roomId: string) {
   switch (roomId) {
+    case "roxana_office":
+      return "Escuela - Despacho de Roxana";
     case "electronics_classroom":
       return "Escuela - Aula de Electronica";
     case "ohmdal_threshold":

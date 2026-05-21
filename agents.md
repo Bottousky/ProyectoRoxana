@@ -182,5 +182,5 @@ No acoplar puzzles a UI React salvo mediante eventos.
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read
-`specs/014-narrative-pacing-hub-ohmdal/plan.md`.
+`specs/016-roxana-office-ohmdal-layout/plan.md`.
 <!-- SPECKIT END -->

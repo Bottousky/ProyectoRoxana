@@ -2,12 +2,179 @@
   "entries": [
     {
       "id": "ohmdal_closed_circuit",
-      "title": "El circuito dormido",
+      "title": "El camino que no vuelve",
       "scope": "world",
       "worldId": "ohmdal",
       "conceptIds": ["closed_circuit"],
-      "simple": "El mecanismo no desperto hasta que el camino quedo completo. La energia no parecia buscar solo llegar: necesitaba poder recorrer todo el trayecto.",
-      "technical": "Un circuito electrico cerrado permite que la corriente circule desde una fuente, atraviese una carga y vuelva por una trayectoria continua. Cuando el camino esta interrumpido, el circuito queda abierto y la corriente no puede sostener el funcionamiento del mecanismo.",
+      "defaultMode": "simple",
+      "revealStages": [
+        {
+          "id": "first_impression",
+          "title": "Primer destello",
+          "summary": "La bitacora registra la promesa del mundo."
+        },
+        {
+          "id": "system_observation",
+          "title": "Observacion del sistema",
+          "summary": "Algo intenta responder, pero se interrumpe."
+        },
+        {
+          "id": "pattern_recognition",
+          "title": "Patron detectado",
+          "summary": "El camino parece cortarse antes de completar el retorno."
+        },
+        {
+          "id": "post_restoration",
+          "title": "Restauracion inicial",
+          "summary": "El mecanismo despierta cuando el trayecto se completa."
+        }
+      ],
+      "spreads": [
+        {
+          "id": "ohmdal_spread_1",
+          "title": "Umbral de Ohmdal",
+          "leftPageNumber": 22,
+          "rightPageNumber": 23
+        },
+        {
+          "id": "ohmdal_spread_2",
+          "title": "Restauracion del mecanismo",
+          "leftPageNumber": 24,
+          "rightPageNumber": 25
+        }
+      ],
+      "blocks": [
+        {
+          "id": "ohmdal_title",
+          "type": "title",
+          "stageId": "first_impression",
+          "page": "left",
+          "x": 8,
+          "y": 6,
+          "width": 84,
+          "layerMode": "both",
+          "title": "Ohmdal / Cuaderno de campo"
+        },
+        {
+          "id": "ohmdal_intro_note",
+          "type": "paragraph",
+          "stageId": "first_impression",
+          "page": "left",
+          "x": 8,
+          "y": 18,
+          "width": 84,
+          "layerMode": "simple",
+          "text": "El mundo parece una forja en pausa. Todo estaba hecho para responder con precision, pero el pulso se corta antes de volver."
+        },
+        {
+          "id": "ohmdal_intro_callout",
+          "type": "callout",
+          "stageId": "first_impression",
+          "page": "right",
+          "x": 8,
+          "y": 10,
+          "width": 84,
+          "layerMode": "both",
+          "title": "Nota rapida",
+          "text": "No falta energia: falta continuidad."
+        },
+        {
+          "id": "ohmdal_observation",
+          "type": "paragraph",
+          "stageId": "system_observation",
+          "page": "left",
+          "x": 8,
+          "y": 36,
+          "width": 84,
+          "layerMode": "simple",
+          "text": "La palanca responde. La linea se ilumina. El mecanismo tiembla... y se duerme otra vez."
+        },
+        {
+          "id": "ohmdal_annotation",
+          "type": "annotation",
+          "stageId": "system_observation",
+          "page": "right",
+          "x": 8,
+          "y": 30,
+          "width": 84,
+          "layerMode": "both",
+          "text": "Trazo incompleto en el retorno. Revisar tramo oscuro."
+        },
+        {
+          "id": "ohmdal_diagram",
+          "type": "diagram",
+          "stageId": "pattern_recognition",
+          "page": "right",
+          "x": 8,
+          "y": 48,
+          "width": 84,
+          "layerMode": "both",
+          "points": [
+            { "x": 8, "y": 16 },
+            { "x": 30, "y": 16 },
+            { "x": 52, "y": 16 },
+            { "x": 52, "y": 34 },
+            { "x": 30, "y": 34 },
+            { "x": 8, "y": 34 }
+          ],
+          "labels": ["Fuente", "Interruptor", "Carga", "Retorno"]
+        },
+        {
+          "id": "ohmdal_pattern_text",
+          "type": "paragraph",
+          "stageId": "pattern_recognition",
+          "page": "left",
+          "x": 8,
+          "y": 58,
+          "width": 84,
+          "layerMode": "simple",
+          "text": "Cuando el retorno queda abierto, el efecto llega a medias y se pierde."
+        },
+        {
+          "id": "ohmdal_final_simple",
+          "type": "paragraph",
+          "stageId": "post_restoration",
+          "page": "left",
+          "x": 8,
+          "y": 74,
+          "width": 84,
+          "layerMode": "simple",
+          "text": "El mecanismo desperto cuando el camino pudo cerrarse de punta a punta."
+        },
+        {
+          "id": "ohmdal_formula_title",
+          "type": "annotation",
+          "stageId": "post_restoration",
+          "page": "right",
+          "x": 8,
+          "y": 74,
+          "width": 84,
+          "layerMode": "technical",
+          "text": "Formalizacion tecnica"
+        },
+        {
+          "id": "ohmdal_formula",
+          "type": "formula",
+          "stageId": "post_restoration",
+          "page": "right",
+          "x": 8,
+          "y": 84,
+          "width": 84,
+          "layerMode": "technical",
+          "latex": "\\text{circuito cerrado} \\Rightarrow I > 0"
+        },
+        {
+          "id": "ohmdal_technical_note",
+          "type": "paragraph",
+          "stageId": "post_restoration",
+          "page": "right",
+          "x": 8,
+          "y": 96,
+          "width": 84,
+          "layerMode": "technical",
+          "text": "La corriente solo se sostiene cuando existe una trayectoria cerrada entre fuente y carga."
+        }
+      ],
       "videoLinks": [
         {
           "id": "video_circuito_cerrado_intro",

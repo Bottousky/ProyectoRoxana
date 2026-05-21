@@ -21,6 +21,7 @@ export type RoxanaSceneId =
   | "boot"
   | "preload"
   | "hub"
+  | "roxana_office"
   | "electronics_classroom"
   | "topdown_spike"
   | "voxel_spike"
@@ -52,10 +53,30 @@ export type RoxanaGameEvents = {
     entryId?: string;
     mode?: JournalViewMode;
   };
+  "journal:close": void;
   "journal:entry-unlocked": {
     entryId: string;
     source: "story" | "puzzle" | "diagnostic";
     beatId?: string;
+  };
+  "journal:entry-updated": {
+    entryId: string;
+    stageId: string;
+    source: "story" | "puzzle" | "diagnostic";
+    beatId?: string;
+  };
+  "journal:stage-revealed": {
+    entryId: string;
+    stageId: string;
+  };
+  "journal:page-changed": {
+    entryId: string;
+    spreadId: string;
+    direction: "next" | "prev";
+  };
+  "journal:layer-toggled": {
+    entryId: string;
+    mode: JournalViewMode;
   };
   "message:show": {
     messageId: string;
@@ -118,7 +139,11 @@ export type RoxanaGameEvents = {
       | "completed_portrait_dialogue"
       | "started_memory_sequence"
       | "completed_memory_sequence"
-      | "started_puzzle_after_narrative_bridge";
+      | "started_puzzle_after_narrative_bridge"
+      | "opened_flagship_journal"
+      | "journal_stage_revealed"
+      | "journal_page_turned"
+      | "journal_technical_opened";
     roomId?: string;
     puzzleId?: string;
     entryId?: string;

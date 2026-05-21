@@ -223,7 +223,7 @@
     },
     {
       "id": "roxana_office_door",
-      "kind": "journal",
+      "kind": "inspect",
       "bounds": {
         "x": 164,
         "y": 16,
@@ -231,9 +231,7 @@
         "height": 26
       },
       "prompt": "Entrar al despacho",
-      "payload": {
-        "journalEntryId": "central_bitacora_vacia"
-      }
+      "payload": {}
     },
     {
       "id": "archive_counter",

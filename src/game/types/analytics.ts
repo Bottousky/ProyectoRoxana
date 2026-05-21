@@ -20,6 +20,10 @@ export const MVP_ANALYTICS_EVENTS = [
   "started_memory_sequence",
   "completed_memory_sequence",
   "started_puzzle_after_narrative_bridge",
+  "opened_flagship_journal",
+  "journal_stage_revealed",
+  "journal_page_turned",
+  "journal_technical_opened",
 ] as const;
 
 export type MvpAnalyticsEventName = (typeof MVP_ANALYTICS_EVENTS)[number];

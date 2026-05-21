@@ -104,6 +104,22 @@ El aprendizaje ocurre por:
 
 Los dialogos de gameplay pueden hacer preguntas, reaccionar, dar pistas indirectas y usar metaforas. Las definiciones formales viven en la bitacora tecnica.
 
+## Capa Documental Activa
+
+La capa documental de narrativa y game design para el vertical slice vive en:
+
+- `docs/game-bible.md`
+- `docs/narrative-rules.md`
+- `docs/dialogue-style.md`
+- `docs/journal-design.md`
+- `docs/ohmdal-story.md`
+- `docs/ohmdal-curriculum.md`
+- `docs/puzzle-patterns.md`
+
+La profundidad actual debe concentrarse en Hub, despacho, Roxana, aula de Electronica, Ohmdal y OHM. Los otros mundos permanecen como canon liviano hasta nuevo aviso.
+
+Spec activa de pacing narrativo: `specs/016-roxana-office-ohmdal-layout/`. Esta spec fija que la estatua no debe cargar exposicion, que el despacho de Roxana es una sala explorable donde se descubre la bitacora, y que Ohmdal debe presentarse como mundo habitado por humanos y automatas antes del primer puzzle.
+
 ## Direccion De Produccion
 
 Como el equipo inicial es una sola persona sin experiencia previa en desarrollo de videojuegos ni arte, el proyecto debe optimizar para:

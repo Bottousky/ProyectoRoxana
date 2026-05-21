@@ -1,6 +1,7 @@
 "use client";
 
 import { gameEvents } from "@/game/systems/eventBus";
+import { useGameStore } from "@/store/useGameStore";
 
 const directions = {
   up: { x: 0, y: -1, label: "Arriba" },
@@ -14,6 +15,21 @@ function emitDirection(x: number, y: number) {
 }
 
 export function MobileControls() {
+  const journalOpen = useGameStore((state) => state.journalOpen);
+  const closeJournal = useGameStore((state) => state.closeJournal);
+
+  const toggleJournal = () => {
+    if (journalOpen) {
+      closeJournal();
+      gameEvents.emit("journal:close");
+      return;
+    }
+
+    gameEvents.emit("journal:open", {
+      mode: "simple",
+    });
+  };
+
   return (
     <div className="pointer-events-none absolute inset-x-0 bottom-2 z-20 flex items-end justify-between px-3 md:hidden">
       <div className="pointer-events-auto grid grid-cols-3 grid-rows-3 gap-1.5">
@@ -34,14 +50,25 @@ export function MobileControls() {
         <DirectionButton direction="down" />
         <span />
       </div>
-      <button
-        type="button"
-        aria-label="Atras"
-        className="roxana-control-button pointer-events-auto h-11 w-11 rounded-md border border-[var(--roxana-border)] bg-[var(--roxana-panel)]/85 text-lg font-bold text-[var(--roxana-muted)] shadow-lg backdrop-blur active:bg-[var(--roxana-panel-strong)]"
-        onPointerDown={() => gameEvents.emit("input:back")}
-      >
-        B
-      </button>
+      <div className="pointer-events-auto flex gap-2">
+        <button
+          type="button"
+          aria-label="Bitacora"
+          aria-pressed={journalOpen}
+          className="roxana-control-button h-11 rounded-md border border-[var(--roxana-border)] bg-[var(--roxana-panel)]/85 px-3 text-xs font-bold text-[var(--roxana-accent)] shadow-lg backdrop-blur active:bg-[var(--roxana-panel-strong)]"
+          onPointerDown={toggleJournal}
+        >
+          Bitacora
+        </button>
+        <button
+          type="button"
+          aria-label="Atras"
+          className="roxana-control-button h-11 rounded-md border border-[var(--roxana-border)] bg-[var(--roxana-panel)]/85 px-3 text-xs font-bold text-[var(--roxana-muted)] shadow-lg backdrop-blur active:bg-[var(--roxana-panel-strong)]"
+          onPointerDown={() => gameEvents.emit("input:back")}
+        >
+          Atras
+        </button>
+      </div>
     </div>
   );
 }

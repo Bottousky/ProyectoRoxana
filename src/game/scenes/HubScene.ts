@@ -7,7 +7,6 @@ import { gameEvents } from "@/game/systems/eventBus";
 import {
   hasCompletedNarrativeBeat,
   setLastRoom,
-  setProgressMilestone,
 } from "@/game/systems/progressStore";
 import type {
   BoundsRect,
@@ -231,6 +230,16 @@ export class HubScene extends Phaser.Scene {
       kind: target.kind,
     });
 
+    if (target.id === "roxana_office_door") {
+      this.clearPrompt();
+      gameEvents.emit("analytics:track", {
+        eventName: "opened_roxana_office",
+        roomId: this.mapData.id,
+      });
+      this.scene.start("RoxanaOfficeScene");
+      return;
+    }
+
     switch (target.kind) {
       case "dialogue": {
         const dialogueId = target.payload?.dialogueId;
@@ -255,34 +264,6 @@ export class HubScene extends Phaser.Scene {
         break;
       }
       case "journal": {
-        if (target.id === "roxana_office_door") {
-          const entryId = target.payload?.journalEntryId;
-          gameEvents.emit("analytics:track", {
-            eventName: "opened_roxana_office",
-            roomId: this.mapData.id,
-            entryId,
-          });
-          if (!hasCompletedNarrativeBeat("hub_bitacora_found")) {
-            this.clearPrompt();
-            gameEvents.emit("memory:start", {
-              memoryId: "roxana_office_discovery",
-              beatId: "hub_bitacora_found",
-              source: "office",
-            });
-            gameEvents.emit("analytics:track", {
-              eventName: "found_bitacora",
-              roomId: this.mapData.id,
-              entryId,
-            });
-            setProgressMilestone("bitacora_found");
-            return;
-          }
-
-          gameEvents.emit("message:show", {
-            messageId: "roxana_office_revisit",
-          });
-        }
-
         gameEvents.emit("journal:open", {
           entryId: target.payload?.journalEntryId,
           mode: "simple",
