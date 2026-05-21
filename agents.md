@@ -2,7 +2,7 @@
 
 ## Identidad del proyecto
 
-Proyecto Roxana es un juego educativo narrativo web-first para publico 12+, construido como una experiencia 2D pixel art top-down embebida en una aplicacion web.
+Proyecto Roxana es un juego educativo narrativo web-first para publico 12+, construido como una experiencia 2D top-down embebida en una aplicacion web.
 
 El jugador encuentra a Roxana, una IAmemoria atrapada en una biblioteca abandonada, y junto a ella explora mundos donde el conocimiento cientifico se perdio.
 
@@ -77,12 +77,13 @@ El objetivo actual es construir un vertical slice
 - bitacora de mundo
 - objeto recuperado que vuelve al Hub
 
-## Resolucion y UI
+## Resolucion, escala y UI
 
-El gameplay usa pixel art con resolucion base 512x288 y tiles de 32x32.
+La escala visual no esta cerrada como pixel art estricto. El prototipo historico usa `384x216` y tile/base grid `16`, pero las specs nuevas deben separar viewport logico, tamano de mundo y estilo visual final.
 
-La UI textual NO debe renderizarse dentro de Phaser salvo casos minimos.
-Dialogos, bitacora, inventario y menus deben ser ReactHTML para asegurar legibilidad en PC y mobile.
+Para nuevas escenas de capitulo, tomar como referencia `docs/GAME_SCALE_AND_ART_DIRECTION.md`: viewport logico sugerido `640x360`, mapas mas grandes que el viewport, camara con seguimiento y grid de diseno `32` no necesariamente pixel-art final.
+
+La UI textual NO debe renderizarse dentro de Phaser salvo casos minimos. Dialogos, bitacora, inventario y menus deben ser ReactHTML para asegurar legibilidad en PC y mobile.
 
 ## Arquitectura esperada
 
@@ -182,5 +183,5 @@ No acoplar puzzles a UI React salvo mediante eventos.
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read
-`specs/016-roxana-office-ohmdal-layout/plan.md`.
+`specs/017-ohmdal-chapter-01/plan.md`.
 <!-- SPECKIT END -->
