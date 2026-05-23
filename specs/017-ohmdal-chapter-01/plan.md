@@ -13,29 +13,30 @@ Keep the current separation:
 - JSON content: narrative copy, messages, journal blocks.
 - Progress store: puzzle completion, recovered object, chapter completion.
 
-## Phase 1 - Scale Decision And Runtime Preparation
+## Phase 1 - Scale Redesign And Runtime Preparation
 
 Files:
 
 - Read: `docs/GAME_SCALE_AND_ART_DIRECTION.md`
 - Modify: `src/game/constants.ts`
 - Modify: `src/game/createRoxanaGame.ts`
-- Modify: `src/game/entities/Player.ts`
-- Possibly modify scenes using `GAME_WIDTH` / `GAME_HEIGHT`
+- Modify: `src/content/maps/roxana-office.map.json`
+- Modify: `src/content/maps/electronics-classroom.map.json`
+- Modify: `src/content/maps/roxana-library-hub.map.json`
 
 Tasks:
 
-- [ ] Introduce explicit constants for viewport and legacy rooms.
-- [ ] Decide whether `384x216` remains only for legacy scenes.
-- [ ] Add support for a `640x360` viewport.
-- [ ] Ensure canvas still fits responsive React frame.
-- [ ] Ensure mobile controls still work.
+- [ ] Update `GAME_WIDTH` to `640` and `GAME_HEIGHT` to `360` in `src/game/constants.ts`.
+- [ ] Redesign `roxana-office.map.json` to `640x360` (expand size, adjust boundaries, solids, spawn, and decorations coordinates).
+- [ ] Redesign `electronics-classroom.map.json` to `640x360` (expand size, adjust tables, walls, and spawn coordinates).
+- [ ] Redesign `roxana-library-hub.map.json` to `640x360` (expand vestibulo size, walls, and door positions).
+- [ ] Ensure Phaser canvas scales and aligns correctly inside the React container, and verify mobile controls layout.
 
 Acceptance:
 
-- Existing scenes still open.
+- Existing scenes (office, hub, classroom) load natively in `640x360` without distortion.
+- Collisions and interactable boundaries remain perfect in all scaled rooms.
 - Build and lint pass.
-- No narrative/content behavior changes yet.
 
 ## Phase 2 - New Map Structure
 
@@ -68,68 +69,71 @@ Acceptance:
 Files:
 
 - Modify: `src/content/maps/ohmdal-chapter-01.map.json`
-- Create/modify: puzzle system file if needed
+- Create: `src/components/game/puzzles/OpenCircuitPuzzle.tsx` (React puzzle overlay)
 - Modify: `src/content/messages/ohmdal-chapter-01.json`
 - Modify: `src/content/journal/ohmdal.json`
 
 Tasks:
 
-- [ ] Add inspectables before the puzzle.
-- [ ] Add broken bronze line, switch, mechanism and return segment.
-- [ ] Emit `journal:entry-updated` for `system_observation`.
-- [ ] Complete puzzle when continuity is restored.
-- [ ] Reveal `post_restoration` stage.
+- [ ] Add inspectables before the puzzle (updates journal to `material_observation` stage).
+- [ ] Add broken bronze line entity in Phaser that triggers `puzzle:start` with ID `ohmdal_circuit_01` on interaction.
+- [ ] Implement `OpenCircuitPuzzle` React overlay (drag-and-drop or click to place a conductor wire/segment).
+- [ ] Connect `puzzle:fail` to trigger a metaphorical hint dialogue from OHM when player tries wrong materials or submits invalid circuits.
+- [ ] On `puzzle:complete`, close overlay, animate electricity flowing through the bronze line, and open the service patio gate.
+- [ ] Unlock `ohmdal_closed_circuit` technical entry in the journal.
 
 Acceptance:
 
-- Puzzle is understandable through world feedback.
-- No school-style instruction appears in dialogue.
-- Journal updates after observation and completion.
+- Interactive React overlay works smoothly.
+- Visual feedback in Phaser is sequential (current flows -> door opens).
+- Journal entry updates to show formalization.
 
 ## Phase 4 - Puzzle 2: Conductive Path
 
 Files:
 
 - Modify: `src/content/maps/ohmdal-chapter-01.map.json`
+- Create: `src/components/game/puzzles/ConductivePathPuzzle.tsx` (React overlay)
 - Modify: `src/content/messages/ohmdal-chapter-01.json`
 - Create: `src/content/dialogues/ohmdal-conductive-path-hint.json`
 - Modify: `src/content/journal/ohmdal.json`
 
 Tasks:
 
-- [ ] Add workshop automaton.
-- [ ] Add three possible path/material objects.
-- [ ] Make only one or two valid based on continuity/conductive identity.
-- [ ] Add OHM hint dialogue that does not directly explain conductivity.
-- [ ] Unlock `ohmdal_conductive_paths`.
+- [ ] Add workshop automaton in Phaser map.
+- [ ] Create React overlay for selecting from three materials (wood, stone, copper) to bridge the conductor route.
+- [ ] If wood or stone is chosen, trigger `puzzle:fail` to play OHM's reactive dialogue explaining how wood/stone are quiet/silent.
+- [ ] If copper is chosen, resolve the puzzle: play electric glow animation through the copper tape in Phaser, and make the automaton twitch/move.
+- [ ] Unlock `ohmdal_conductive_paths` in the journal (formalizing conductivity).
 
 Acceptance:
 
-- Player can infer solution from visual/message feedback.
-- Wrong choices produce world reaction, not failure/game over.
-- Journal gives formalization after interaction.
+- Wrong choices show immediate narrative/visual feedback without locking the game.
+- Copper choice successfully activates the automaton in Phaser.
+- Journal registers the formalization entry.
 
 ## Phase 5 - Puzzle 3: Plaza System
 
 Files:
 
 - Modify: `src/content/maps/ohmdal-chapter-01.map.json`
+- Create: `src/components/game/puzzles/PlazaSystemPuzzle.tsx` (React overlay)
 - Modify: `src/content/messages/ohmdal-chapter-01.json`
 - Create: `src/content/dialogues/ohmdal-plaza-restored.json`
 - Modify: `src/content/journal/ohmdal.json`
 
 Tasks:
 
-- [ ] Add source, switch, load/fountain and return path.
-- [ ] Require using what player learned in puzzles 1 and 2.
-- [ ] Open archive gate on completion.
-- [ ] Emit `world:item-recovered` after archive interaction.
+- [ ] Add fountain source, main switch, and distribution lines in Phaser plaza map.
+- [ ] Implement synthesis puzzle overlay in React (player must route power from source, through an interactive switch, to the fountain load, and close the loop back to the source).
+- [ ] Metaphorical feedback from OHM if the return path is missing or switches are open.
+- [ ] On success, trigger energy current loop on the floor, turn on the plaza fountain, and open the archive gate.
+- [ ] Emit `world:item-recovered` when player retrieves the Memory Coil inside the archive.
 
 Acceptance:
 
-- Puzzle 3 feels like synthesis, not new mechanic overload.
-- The plaza changes visually after restoration.
-- Archive becomes accessible.
+- Puzzle 3 successfully requires closed circuit and conductive path synthesis.
+- The plaza is fully illuminated, and the gate opens upon resolution.
 
 ## Phase 6 - Chapter Closing
 

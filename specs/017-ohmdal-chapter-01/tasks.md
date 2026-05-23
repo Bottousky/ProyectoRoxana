@@ -7,23 +7,21 @@
 - [ ] Read `specs/017-ohmdal-chapter-01/spec.md`.
 - [ ] Verify current build before changes.
 
-## B. Scale and camera
+## B. Scale and global redesign
 
-- [ ] Introduce viewport constants without deleting legacy assumptions.
-- [ ] Decide how old `384x216` scenes are handled.
-- [ ] Add world-size-aware player clamp or scene-level clamp.
-- [ ] Add camera follow support for larger maps.
-- [ ] Validate mobile aspect ratio.
+- [ ] Update `GAME_WIDTH` to `640` and `GAME_HEIGHT` to `360` in `src/game/constants.ts`.
+- [ ] Redesign `roxana-office.map.json` to `640x360` natively (adjust walls, coordinates, spawn, and decorations).
+- [ ] Redesign `electronics-classroom.map.json` to `640x360` natively.
+- [ ] Redesign `roxana-library-hub.map.json` to `640x360` natively.
+- [ ] Adjust CSS and responsive scaling of Phaser canvas in React wrapper.
+- [ ] Validate mobile overlay controls layout.
 
-## C. Map
+## C. Map and camera
 
-- [ ] Create `ohmdal-chapter-01.map.json`.
-- [ ] Add spawn and world size.
+- [ ] Create `ohmdal-chapter-01.map.json` with dimensions `1280x720`.
+- [ ] Set player spawn coordinates and camera tracking with world boundaries.
 - [ ] Add zones: arrival, patio, workshops, plaza, archive.
-- [ ] Add solids.
-- [ ] Add decorations.
-- [ ] Add interactables.
-- [ ] Keep all labels/prompts short.
+- [ ] Configure solids, decorations, and interactable triggers.
 
 ## D. Scene
 
@@ -44,21 +42,22 @@
 - [ ] Extend journal content.
 - [ ] Ensure no long narrative text is hardcoded in Phaser.
 
-## F. Puzzles
+## F. Puzzles (React Overlays & Phaser Reactions)
 
-- [ ] Puzzle 1: open circuit restoration.
-- [ ] Puzzle 2: conductive path / material route.
-- [ ] Puzzle 3: plaza system restoration.
-- [ ] Add feedback for wrong/incomplete states.
-- [ ] Add journal updates.
-- [ ] Add puzzle completion events.
+- [ ] Create React component `OpenCircuitPuzzle.tsx` overlay.
+- [ ] Create React component `ConductivePathPuzzle.tsx` overlay.
+- [ ] Create React component `PlazaSystemPuzzle.tsx` overlay.
+- [ ] Emit `puzzle:start` from Phaser to trigger React overlays and lock controls.
+- [ ] Emit `puzzle:fail` from React to trigger OHM's metaphorical reactive hints in Phaser.
+- [ ] Emit `puzzle:complete` from React to trigger sequential animations in Phaser (glow lines -> actuation) and restore movement.
+- [ ] Integrate 3-phase pedagogical loop with journal updates (`material_observation` at inspection, `formalization` at completion).
 
 ## G. Completion
 
-- [ ] Add recovered object/progress beat.
-- [ ] Enable archive gate.
+- [ ] Enable archive gate on Puzzle 3 completion.
+- [ ] Retrieve `bobina_memoria_de_ohmdal` (emit `world:item-recovered`).
 - [ ] Enable return to Hub.
-- [ ] Prepare Hub acknowledgment hook.
+- [ ] Implement Hub progress recognition hook for recovered memory coil.
 
 ## H. QA
 

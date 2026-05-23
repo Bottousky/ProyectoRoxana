@@ -6,18 +6,14 @@
 
 **Input**: Expandir Ohmdal desde un umbral chico hacia un primer capítulo jugable real, con mapa más grande que el viewport, tres puzzles eléctricos conectados narrativamente y bitácora progresiva.
 
-## Decisión de escala
+## Decisión de escala y Rediseño Global
 
-Esta feature NO debe asumir que el juego final será pixel art 16x16 ni que cada sala ocupa una pantalla completa.
+El juego adopta de forma global y nativa la resolución de `640x360` para su viewport lógico.
 
-Target de diseño:
-
-- viewport lógico recomendado: `640x360`;
-- mapa del capítulo: referencia `1280x720`;
-- grid de diseño: `32`;
-- cámara con seguimiento del jugador;
-- UI textual en React;
-- arte placeholder permitido, pero con composición compatible con arte 2D top-down estilizado.
+- **Viewport lógico global**: `640x360` (relación de aspecto 16:9).
+- **Rediseño nativo de escenas existentes**: Los mapas de la oficina (`roxana-office.map.json`), el aula (`electronics-classroom.map.json`) y el vestíbulo (`roxana-library-hub.map.json`) se rediseñan en sus coordenadas y colisiones a `640x360` de forma nativa para evitar zooms de cámara y mantener la nitidez.
+- **Mapa de Ohmdal Capítulo 1**: Lienzo nativo de `1280x720` con cámara que sigue al jugador y respeta los límites del mapa.
+- **Grid de diseño**: `32` unidades.
 
 Ver `docs/GAME_SCALE_AND_ART_DIRECTION.md`.
 
@@ -39,16 +35,13 @@ Ohmdal debe sentirse como:
 
 ## Alcance
 
+- Adaptar la resolución global del motor a `640x360` y rediseñar los mapas legacy para ajustarlos nativamente a esta escala.
 - Crear una escena o mapa nuevo para `OhmdalChapter01`.
-- Usar mapa más grande que el viewport.
-- Incorporar cámara con límites de mundo.
-- Diseñar tres zonas/puzzles conectados.
-- Mantener textos narrativos en JSON.
-- Mantener bitácora en React.
-- Mantener Phaser como mundo/input/colisiones/interactuables.
-- Usar placeholders visuales ordenados.
-- Crear o extender mensajes, diálogos y entradas de bitácora.
-- Definir layout en archivo de diseño editable `.excalidraw`.
+- Usar mapa más grande que el viewport con cámara de seguimiento.
+- Diseñar tres zonas/puzzles conectados utilizando la arquitectura de **puzzles híbridos** (Phaser para activación y reacción visual; React para la interfaz interactiva).
+- Implementar el **ciclo pedagógico de 3 fases** (exploración en bitácora -> feedback metafórico de OHM ante fallos -> formalización en bitácora al completar).
+- Mantener textos narrativos en JSON y la bitácora en React.
+- Usar placeholders visuales ordenados y definir el layout en `.excalidraw`.
 
 ## Fuera de alcance
 
@@ -161,16 +154,31 @@ El jugador obtiene una bobina/memoria y vuelve al Hub.
 - La bitácora traduce la experiencia a conceptos formales.
 - Todo mensaje de puzzle debe sonar como consecuencia del mundo, no consigna escolar.
 
-## Eventos propuestos
+## Arquitectura de Puzzles Híbridos
 
-- `chapter:start`
-- `chapter:complete`
-- `world:item-recovered`
-- `puzzle:hint`
-- `puzzle:complete`
-- `journal:entry-updated`
-- `message:show`
-- `dialogue:start`
+Los puzzles utilizan una integración estrecha pero desacoplada entre Phaser y React:
+1. **Inicio**: El jugador interactúa en el mapa 2D de Phaser. Phaser congela su movimiento y emite el evento `puzzle:start` con el ID del puzzle.
+2. **Interfaz (React Overlay)**: React captura el evento y despliega un overlay a pantalla completa con estética premium (drag & drop, trazos de conexión, animaciones CSS).
+3. **Interacciones y Fallos**: Si el jugador comete un error, React emite `puzzle:fail`. Phaser reproduce un sonido o desencadena un diálogo dinámico donde OHM aporta pistas metafóricas indirectas.
+4. **Resolución**: Al completarse, React emite `puzzle:complete`. Phaser cierra el overlay de React, ejecuta una animación secuencial (flujo de energía iluminando el bronce en el mapa -> activación física o apertura del elemento del mapa) y desbloquea el movimiento del jugador.
+
+## Ciclo Pedagógico de 3 Fases (Bitácora y Narrativa)
+
+- **Fase 1: Exploración (Observación)**: Inspeccionar el entorno en Phaser antes de resolver desbloquea anotaciones preliminares en la bitácora (`material_observation`).
+- **Fase 2: Experimentación (Feedback del error)**: Al fallar en el puzzle interactivo de React, se activan comentarios dinámicos e indirectos de OHM para reorientar al jugador sin explicar de forma académica.
+- **Fase 3: Formalización (Conclusión)**: Al resolver el puzzle, la bitácora de React se actualiza desbloqueando la formalización técnica del concepto (`formalization`).
+
+## Eventos de Comunicación Phaser <-> React
+
+- `chapter:start` (Phaser -> React)
+- `chapter:complete` (Phaser -> React)
+- `world:item-recovered` (Phaser -> React)
+- `puzzle:start` (Phaser -> React: abre el overlay interactivo del puzzle y congela movimiento)
+- `puzzle:fail` (React -> Phaser: emite cuando el jugador coloca materiales erróneos para activar pistas de OHM)
+- `puzzle:complete` (React -> Phaser: cierra el overlay, inicia animaciones en el mapa y devuelve movimiento)
+- `journal:entry-unlocked` / `journal:entry-updated` (Phaser -> React)
+- `message:show` (Phaser <-> React)
+- `dialogue:start` (Phaser -> React)
 
 ## Contenido requerido
 
