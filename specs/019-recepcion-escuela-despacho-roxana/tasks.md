@@ -9,6 +9,7 @@
 
 - [x] Migrar `src/game/constants.ts` a `640x360`.
 - [x] Redisenar `src/content/maps/roxana-library-hub.map.json` como recepcion de escuela.
+- [x] Ajustar sala principal al boceto: cartelera detras de estatua, doble escalera lateral y Ohmdal en Sala 3.
 - [x] Redisenar `src/content/maps/roxana-office.map.json` como despacho explorable.
 
 ## C. Escenas y eventos

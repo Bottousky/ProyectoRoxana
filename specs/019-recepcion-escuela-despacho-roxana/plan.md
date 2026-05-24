@@ -23,7 +23,7 @@ Archivos:
 Tareas:
 
 - Migrar viewport logico a `640x360`.
-- Redisenar recepcion de escuela: entrada, presencia central de Roxana, accesos sellados y puerta al despacho.
+- Redisenar recepcion de escuela: entrada principal abajo, presencia central de Roxana, cartelera/mostrador como pared del balcon, doble escalera lateral, `Sala 3` como acceso de Ohmdal y puerta superior al despacho.
 - Redisenar despacho: escritorio con bitacora, mapa, notas, cartas, estantes y retorno a recepcion.
 
 ## Fase 3 - Escenas y beats

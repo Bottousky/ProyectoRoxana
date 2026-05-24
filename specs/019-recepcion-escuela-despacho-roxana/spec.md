@@ -11,6 +11,8 @@ Consolidar el primer tramo jugable del vertical slice con una recepcion de escue
 ## Alcance
 
 - Redisenar `roxana-library-hub.map.json` como recepcion de escuela con acceso prominente al despacho y accesos sellados.
+- La sala principal se organiza como hall de planta baja: entrada principal abajo, estatua al centro, cartelera/mostrador detras de la estatua como pared del balcon, doble escalera lateral y acceso al despacho arriba.
+- Ohmdal queda asociado a `Sala 3`, la puerta superior derecha; `Sala 1`, `Sala 2` y `Sala 4` permanecen selladas en esta feature.
 - Redisenar `roxana-office.map.json` como despacho explorable con pistas de historia ambiental.
 - Migrar viewport logico a `640x360`.
 - Mantener separacion Phaser/React (mundo en Phaser, UI textual en React).

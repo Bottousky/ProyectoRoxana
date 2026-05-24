@@ -13,7 +13,7 @@
     "roxana": {
       "id": "roxana_presence",
       "x": 320,
-      "y": 174
+      "y": 192
     }
   },
   "solids": [
@@ -107,16 +107,16 @@
     },
     {
       "id": "reception_counter",
-      "x": 220,
-      "y": 112,
-      "width": 200,
-      "height": 38,
+      "x": 214,
+      "y": 84,
+      "width": 212,
+      "height": 48,
       "style": "shelf"
     },
     {
       "id": "roxana_presence_pedestal",
       "x": 300,
-      "y": 156,
+      "y": 174,
       "width": 40,
       "height": 48,
       "style": "furniture"
@@ -151,45 +151,45 @@
       "stroke": "#4a5a76"
     },
     {
-      "id": "left_trophy_case",
-      "x": 58,
-      "y": 62,
-      "width": 132,
-      "height": 44,
-      "fill": "#273449",
-      "stroke": "#5d738e"
+      "id": "left_balcony_stairs",
+      "x": 52,
+      "y": 72,
+      "width": 150,
+      "height": 60,
+      "fill": "#29364a",
+      "stroke": "#6f7f99"
     },
     {
-      "id": "right_honor_board",
-      "x": 450,
-      "y": 62,
-      "width": 132,
-      "height": 44,
-      "fill": "#273449",
-      "stroke": "#5d738e"
+      "id": "right_balcony_stairs",
+      "x": 438,
+      "y": 72,
+      "width": 150,
+      "height": 60,
+      "fill": "#29364a",
+      "stroke": "#6f7f99"
     },
     {
       "id": "upper_gallery",
-      "x": 204,
-      "y": 48,
-      "width": 232,
-      "height": 42,
+      "x": 202,
+      "y": 52,
+      "width": 236,
+      "height": 46,
       "fill": "#252f42",
       "stroke": "#596b86"
     },
     {
-      "id": "reception_lamp_pool",
-      "x": 234,
-      "y": 100,
-      "width": 172,
-      "height": 76,
-      "fill": "#3a3033",
-      "stroke": "#a9845f"
+      "id": "balcony_notice_wall",
+      "x": 222,
+      "y": 76,
+      "width": 196,
+      "height": 62,
+      "fill": "#4a3b2f",
+      "stroke": "#b18a61"
     },
     {
       "id": "roxana_presence_aura",
-      "x": 278,
-      "y": 136,
+      "x": 274,
+      "y": 154,
       "width": 84,
       "height": 86,
       "fill": "#213246",
@@ -198,11 +198,29 @@
     {
       "id": "office_path",
       "x": 296,
-      "y": 198,
+      "y": 222,
       "width": 48,
-      "height": 116,
+      "height": 92,
       "fill": "#253248",
       "stroke": "#596883"
+    },
+    {
+      "id": "left_stair_lines",
+      "x": 64,
+      "y": 84,
+      "width": 126,
+      "height": 34,
+      "fill": "#202b3c",
+      "stroke": "#8290a8"
+    },
+    {
+      "id": "right_stair_lines",
+      "x": 450,
+      "y": 84,
+      "width": 126,
+      "height": 34,
+      "fill": "#202b3c",
+      "stroke": "#8290a8"
     }
   ],
   "interactables": [
@@ -211,7 +229,7 @@
       "kind": "dialogue",
       "bounds": {
         "x": 274,
-        "y": 130,
+        "y": 148,
         "width": 92,
         "height": 96
       },
@@ -237,12 +255,12 @@
       "id": "reception_counter",
       "kind": "inspect",
       "bounds": {
-        "x": 220,
-        "y": 112,
-        "width": 200,
-        "height": 38
+        "x": 214,
+        "y": 78,
+        "width": 212,
+        "height": 62
       },
-      "prompt": "Revisar recepcion",
+      "prompt": "Revisar cartelera",
       "payload": {
         "messageId": "reception_counter_archive"
       }
@@ -284,9 +302,9 @@
         "width": 34,
         "height": 56
       },
-      "prompt": "Sala sellada",
+      "prompt": "Sala de Ohmdal",
       "payload": {
-        "messageId": "world_room_sealed"
+        "messageId": "ohmdal_gate_unstable"
       }
     },
     {
@@ -298,9 +316,9 @@
         "width": 34,
         "height": 56
       },
-      "prompt": "Sala de Ohmdal",
+      "prompt": "Sala sellada",
       "payload": {
-        "messageId": "ohmdal_gate_unstable"
+        "messageId": "world_room_sealed"
       }
     }
   ]
