@@ -43,6 +43,13 @@ El proyecto usa Spec Driven Development. Antes de agregar features o assets, cre
 
 GitHub Spec Kit esta instalado en `.specify/` con skills Codex en `.agents/skills/`. Ver `docs/SPECKIT_ADOPTION.md`.
 
+Agent Sprite Forge esta integrado en `.agents/skills/` para generar y procesar assets 2D:
+
+- `$generate2dmap`
+- `$generate2dsprite`
+
+Ver `docs/AGENT_SPRITE_FORGE_REVIEW.md`.
+
 La IA se usa como herramienta de direccion creativa bajo reglas versionadas:
 
 - `docs/AI_SOURCE_REVIEW.md`

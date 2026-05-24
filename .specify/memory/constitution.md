@@ -40,9 +40,9 @@ AI-generated assets must have a declared function, visual identity rules, scale 
 
 - Main app: Next.js, React, TypeScript, Tailwind CSS, Zustand.
 - Gameplay runtime: Phaser.
-- Base gameplay resolution: 384x216.
-- Tile size: 16x16.
 - Aspect ratio: 16:9.
+- The historical prototype uses a 384x216 logical viewport and 16-unit base grid. These values are compatibility context, not a permanent production mandate.
+- Active feature specs must declare their own logical viewport, world/map size, camera behavior, and design grid. For the current Ohmdal chapter spec, the target logical viewport is 640x360, chapter maps may be larger than the viewport, and the design grid reference is 32 units.
 - Phaser canvas must scale to its container without distortion.
 - Communication between Phaser and React must use typed events.
 - Narrative content should live in `src/content`, not inside Phaser scenes.
@@ -67,4 +67,4 @@ This constitution supersedes ad-hoc implementation preferences. When it conflict
 
 Changes to the constitution require a documented update in `.specify/memory/constitution.md` and should be reflected in `agents.md` or project docs when they affect day-to-day work.
 
-**Version**: 1.0.0 | **Ratified**: 2026-05-13 | **Last Amended**: 2026-05-13
+**Version**: 1.1.0 | **Ratified**: 2026-05-13 | **Last Amended**: 2026-05-24

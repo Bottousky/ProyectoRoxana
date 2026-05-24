@@ -130,7 +130,12 @@ Antes de implementar una feature nueva, crear o actualizar una spec en `specs/`.
 
 GitHub Spec Kit esta instalado en `.specify/` y sus skills Codex viven en `.agents/skills/`.
 
-Superpowers tambien esta integrado como skills locales en `.agents/skills/`. Usarlo como metodologia auxiliar para planificacion, debugging, review, verificacion y cierre de rama, manteniendo siempre prioridad para este `agents.md`, la constitucion de Spec Kit y la spec activa. Ver `docs/SUPERPOWERS_INTEGRATION.md`.
+Agent Sprite Forge tambien esta integrado como skills locales en `.agents/skills/` para produccion visual 2D:
+
+- `$generate2dmap`
+- `$generate2dsprite`
+
+Usar Agent Sprite Forge solo para mapas, sprites, props, referencias visuales y procesamiento de assets 2D. No reemplaza Spec Kit, no decide contenido narrativo y no autoriza assets finales si la spec vigente solo permite placeholders. Ver `docs/AGENT_SPRITE_FORGE_REVIEW.md`.
 
 Para nuevas features activas, preferir el flujo:
 
@@ -139,6 +144,13 @@ Para nuevas features activas, preferir el flujo:
 - `$speckit-plan`
 - `$speckit-tasks`
 - `$speckit-implement`
+
+Flujo de ramas:
+
+- `main`: base estable.
+- `develop`: integracion activa del vertical slice.
+- ramas feature temporales: crear solo cuando una spec activa lo necesite y eliminarlas despues de integrar.
+- las ramas feature de Spec Kit deben usar prefijo compatible, por ejemplo `017-ohmdal-chapter-01`.
 
 La constitucion del proyecto vive en `.specify/memory/constitution.md`.
 
