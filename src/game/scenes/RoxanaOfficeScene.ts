@@ -45,6 +45,7 @@ export class RoxanaOfficeScene extends Phaser.Scene {
   }
 
   create() {
+    const firstVisit = !hasCompletedNarrativeBeat("roxana_office_first_entry");
     this.solids = this.mapData.solids;
     this.interactables = this.mapData.interactables;
     this.drawOffice();
@@ -90,15 +91,25 @@ export class RoxanaOfficeScene extends Phaser.Scene {
     gameEvents.emit("room:entered", {
       roomId: this.mapData.id,
       sourceRoomId: "roxana_library_hub",
-      firstVisit: !hasCompletedNarrativeBeat("roxana_office_first_entry"),
+      firstVisit,
     });
-    gameEvents.emit("narrative:beat-completed", {
-      beatId: "roxana_office_first_entry",
-      roomId: this.mapData.id,
-    });
+    if (firstVisit) {
+      gameEvents.emit("narrative:beat-completed", {
+        beatId: "roxana_office_first_entry",
+        roomId: this.mapData.id,
+      });
+      gameEvents.emit("message:show", {
+        messageId: "roxana_office_first_entry_moment",
+      });
+    } else {
+      gameEvents.emit("message:show", {
+        messageId: "roxana_office_reentry_moment",
+      });
+    }
     gameEvents.emit("analytics:track", {
       eventName: "opened_roxana_office",
       roomId: this.mapData.id,
+      metadata: { firstVisit },
     });
     setLastRoom(this.mapData.id);
   }
@@ -172,8 +183,8 @@ export class RoxanaOfficeScene extends Phaser.Scene {
     const chair = this.add.rectangle(
       this.mapData.entities.roxana.x,
       this.mapData.entities.roxana.y,
-      18,
-      22,
+      24,
+      28,
       0x2b2420,
       1,
     );

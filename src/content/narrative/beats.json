@@ -1,16 +1,32 @@
 {
   "beats": [
     {
-      "id": "hub_statue_first_echo",
+      "id": "school_reception_first_entry",
+      "kind": "room_transition",
+      "contentId": "roxana_library_hub",
+      "completionFlag": "school_reception_first_entry",
+      "analyticsEvent": "entered_school"
+    },
+    {
+      "id": "roxana_presence_first_echo",
       "kind": "dialogue",
       "contentId": "roxana_intro",
-      "completionFlag": "hub_statue_first_echo",
-      "analyticsEvent": "started_portrait_dialogue"
+      "requiredBefore": ["school_reception_first_entry"],
+      "completionFlag": "roxana_presence_first_echo",
+      "analyticsEvent": "observed_roxana_presence"
+    },
+    {
+      "id": "roxana_office_first_entry",
+      "kind": "room_transition",
+      "requiredBefore": ["roxana_presence_first_echo"],
+      "contentId": "roxana_office",
+      "completionFlag": "roxana_office_first_entry",
+      "analyticsEvent": "opened_roxana_office"
     },
     {
       "id": "hub_bitacora_found",
       "kind": "journal_unlock",
-      "requiredBefore": ["hub_statue_first_echo"],
+      "requiredBefore": ["roxana_office_first_entry"],
       "contentId": "central_bitacora_vacia",
       "completionFlag": "hub_bitacora_found",
       "analyticsEvent": "found_bitacora"

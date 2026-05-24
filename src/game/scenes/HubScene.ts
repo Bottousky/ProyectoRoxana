@@ -6,6 +6,7 @@ import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
   hasCompletedNarrativeBeat,
+  hasVisitedRoom,
   setLastRoom,
 } from "@/game/systems/progressStore";
 import type {
@@ -45,6 +46,7 @@ export class HubScene extends Phaser.Scene {
   }
 
   create() {
+    const firstVisit = !hasVisitedRoom(this.mapData.id);
     this.solids = this.mapData.solids;
     this.interactables = this.mapData.interactables;
     this.drawHubRoom();
@@ -92,11 +94,18 @@ export class HubScene extends Phaser.Scene {
     gameEvents.emit("scene:ready", { scene: "hub" });
     gameEvents.emit("room:entered", {
       roomId: this.mapData.id,
-      firstVisit: false,
+      firstVisit,
     });
+    if (firstVisit) {
+      gameEvents.emit("narrative:beat-completed", {
+        beatId: "school_reception_first_entry",
+        roomId: this.mapData.id,
+      });
+    }
     gameEvents.emit("analytics:track", {
       eventName: "entered_school",
       roomId: this.mapData.id,
+      metadata: { firstVisit },
     });
     setLastRoom(this.mapData.id);
   }
@@ -232,10 +241,6 @@ export class HubScene extends Phaser.Scene {
 
     if (target.id === "roxana_office_door") {
       this.clearPrompt();
-      gameEvents.emit("analytics:track", {
-        eventName: "opened_roxana_office",
-        roomId: this.mapData.id,
-      });
       this.scene.start("RoxanaOfficeScene");
       return;
     }
@@ -248,10 +253,22 @@ export class HubScene extends Phaser.Scene {
           return;
         }
 
+        if (hasCompletedNarrativeBeat("roxana_presence_first_echo")) {
+          gameEvents.emit("message:show", {
+            messageId: "roxana_presence_revisit",
+          });
+          return;
+        }
+
         this.movementLocked = true;
         this.clearPrompt();
+        gameEvents.emit("analytics:track", {
+          eventName: "observed_roxana_presence",
+          roomId: this.mapData.id,
+          source: target.id,
+        });
         gameEvents.emit("narrative:beat-started", {
-          beatId: "hub_statue_first_echo",
+          beatId: "roxana_presence_first_echo",
           kind: "dialogue",
           roomId: this.mapData.id,
         });
@@ -259,7 +276,7 @@ export class HubScene extends Phaser.Scene {
           dialogueId,
           speakerId,
           presentation: "portrait",
-          beatId: "hub_statue_first_echo",
+          beatId: "roxana_presence_first_echo",
         });
         break;
       }
