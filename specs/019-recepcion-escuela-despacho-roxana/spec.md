@@ -2,7 +2,7 @@
 
 **Feature Branch**: `019-recepcion-escuela-despacho-roxana`
 
-**Status**: Draft
+**Status**: Completed
 
 ## Objetivo
 

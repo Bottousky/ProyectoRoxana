@@ -32,3 +32,4 @@
 
 - [x] `npm run lint`
 - [x] `npm run build`
+- [x] Spec marcada como completada antes de integrar en `develop`.
