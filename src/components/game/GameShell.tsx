@@ -299,7 +299,7 @@ export function GameShell() {
               Proyecto Roxana
             </h1>
             <p className="text-sm leading-5 text-[var(--roxana-muted)]">
-              Hub tecnico inicial: mover, interactuar y abrir bitacora.
+              Tramo inicial: recepcion, despacho y despertar de la bitacora.
             </p>
           </div>
         </div>
@@ -330,6 +330,6 @@ function roomLabelFor(roomId: string) {
       return "Ohmdal - Umbral";
     case "roxana_library_hub":
     default:
-      return "Escuela - Sala principal";
+      return "Escuela - Recepcion";
   }
 }

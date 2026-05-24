@@ -1,12 +1,12 @@
 {
   "id": "roxana_intro",
   "speaker": "Roxana",
-  "title": "Inscripciones bajo el marmol",
+  "title": "Eco en la recepcion",
   "presentation": "portrait",
-  "portraitId": "roxana_statue_placeholder",
-  "beatId": "hub_statue_first_echo",
+  "portraitId": "roxana_presence_placeholder",
+  "beatId": "roxana_presence_first_echo",
   "lines": [
-    "La base conserva una frase casi borrada: subir tambien es una forma de recordar.",
-    "La estatua no responde. Pero el despacho, arriba, parece haber estado esperando una visita."
+    "No me acuerdo de mi voz completa, pero esta sala aun recuerda quien venia con preguntas.",
+    "Si subis al despacho, capaz encontremos la primera pagina que falta."
   ]
 }

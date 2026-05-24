@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "school-reception",
+  "zones": [
+    {
+      "id": "roxana_presence",
+      "kind": "dialogue",
+      "bounds": {
+        "x": 274,
+        "y": 148,
+        "width": 92,
+        "height": 96
+      }
+    },
+    {
+      "id": "roxana_office_door",
+      "kind": "inspect",
+      "bounds": {
+        "x": 282,
+        "y": 12,
+        "width": 76,
+        "height": 34
+      }
+    },
+    {
+      "id": "reception_counter",
+      "kind": "inspect",
+      "bounds": {
+        "x": 214,
+        "y": 78,
+        "width": 212,
+        "height": 62
+      }
+    },
+    {
+      "id": "right_upper_room",
+      "kind": "blocked_gate",
+      "bounds": {
+        "x": 584,
+        "y": 100,
+        "width": 34,
+        "height": 56
+      }
+    }
+  ],
+  "notes": "Trigger zones are reference metadata only; runtime remains driven by src/content/maps JSON."
+}

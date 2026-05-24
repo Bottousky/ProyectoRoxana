@@ -1,6 +1,7 @@
 export const MVP_ANALYTICS_EVENTS = [
   "started_game",
   "entered_school",
+  "observed_roxana_presence",
   "opened_roxana_office",
   "found_bitacora",
   "opened_bitacora",

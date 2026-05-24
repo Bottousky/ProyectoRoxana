@@ -1,9 +1,9 @@
 {
   "messages": [
     {
-      "id": "central_archive_counter",
-      "title": "Archivos del vestibulo",
-      "body": "Entre polvo, fichas y libros vencidos, aun se distinguen nombres de materias. Alguien intento ordenar este lugar para volver siempre al centro."
+      "id": "reception_counter_archive",
+      "title": "Cartelera del balcon",
+      "body": "La cartelera sostiene horarios, avisos viejos y nombres de materias que ya no se dictan. Esta detras de la estatua, como si cuidara la subida al despacho."
     },
     {
       "id": "world_room_sealed",
@@ -13,17 +13,17 @@
     {
       "id": "ohmdal_gate_unstable",
       "title": "Sala de Ohmdal",
-      "body": "El marco conserva un brillo debil, como un metal que recuerda haber conducido algo. Todavia no encuentra la forma de abrirse."
+      "body": "El marco conserva un brillo debil, como un metal que recuerda haber conducido algo. Todavia esta sellado."
     },
     {
       "id": "ohmdal_gate_needs_bitacora",
       "title": "Sala de Ohmdal",
-      "body": "La puerta vibra, pero no te reconoce. Quizas convenga encontrar primero aquello que registra lo que la escuela todavia recuerda."
+      "body": "La puerta vibra, pero no te reconoce. Primero hace falta recuperar la bitacora del despacho."
     },
     {
-      "id": "roxana_office_revisit",
-      "title": "Despacho de Roxana",
-      "body": "La mesa sigue en silencio. La bitacora, en cambio, ya no parece tan vacia."
+      "id": "roxana_presence_revisit",
+      "title": "Presencia de Roxana",
+      "body": "La silueta no habla, pero el aire cambia cuando miras hacia el despacho."
     }
   ]
 }

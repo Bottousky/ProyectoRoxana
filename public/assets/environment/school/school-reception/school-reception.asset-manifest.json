@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "school-reception-placeholder-bundle-v1",
+  "kind": "layeredRasterMapBundle",
+  "status": "placeholder_reference",
+  "source": {
+    "tool": "agent-sprite-forge",
+    "mapMode": "scene_mode",
+    "visualModel": "layered_raster",
+    "runtimeObjectModel": "y_sorted_props_and_interactive_scene_objects",
+    "collisionModel": "coarse_shapes_and_trigger_zones",
+    "engineTarget": "Phaser/project-native JSON",
+    "visualAssetSource": "procedural_placeholder",
+    "notes": "Generated under active spec 019; not final art."
+  },
+  "mapSize": {
+    "width": 640,
+    "height": 360
+  },
+  "baseImage": "/assets/environment/school/school-reception/school-reception-base.placeholder.png",
+  "props": "/assets/environment/school/school-reception/school-reception-props.json",
+  "collision": "/assets/environment/school/school-reception/school-reception-collision.json",
+  "zones": "/assets/environment/school/school-reception/school-reception-zones.json",
+  "preview": "/assets/environment/school/school-reception/school-reception-layered-preview.placeholder.png",
+  "prompt": "/assets/environment/school/school-reception/school-reception.prompt.txt"
+}

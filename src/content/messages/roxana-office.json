@@ -1,19 +1,29 @@
 {
   "messages": [
     {
+      "id": "roxana_office_first_entry_moment",
+      "title": "Despacho de Roxana",
+      "body": "El despacho no se siente vacio: se siente en pausa. Todo parece colocado para que alguien retome una conversacion interrumpida."
+    },
+    {
+      "id": "roxana_office_reentry_moment",
+      "title": "Despacho de Roxana",
+      "body": "Volves y todo esta igual, salvo una certeza: la bitacora ya te reconoce."
+    },
+    {
       "id": "roxana_office_return",
       "title": "Puerta al vestibulo",
-      "body": "Desde aca se ve la sala principal como una maqueta cansada: cuatro puertas, dos escaleras y una estatua esperando abajo."
+      "body": "Desde aca la recepcion se ve como una escena detenida: puertas selladas, polvo en el pasillo y una presencia que no se va."
     },
     {
       "id": "roxana_office_school_notes",
       "title": "Notas de Roxana",
-      "body": "Las ultimas anotaciones no hablan de una catastrofe. Hablan de aulas cada vez mas vacias, de preguntas que nadie terminaba de hacer."
+      "body": "Las ultimas anotaciones no hablan de una catastrofe. Hablan de aulas cada vez mas vacias y preguntas que nadie termino de sostener."
     },
     {
       "id": "roxana_office_school_map",
       "title": "Mapa de la escuela",
-      "body": "El mapa une la sala principal con aulas especializadas. Algunas lineas terminan en nombres casi borrados: Ohmdal, Arithmos, Kinetia, Null."
+      "body": "El plano conecta la recepcion con aulas especializadas. Varias rutas terminan en nombres casi borrados: Ohmdal, Arithmos, Kinetia, Null."
     },
     {
       "id": "roxana_office_last_letters",
@@ -24,6 +34,11 @@
       "id": "roxana_office_archive_shelf",
       "title": "Estantes del despacho",
       "body": "Hay programas, listas de taller y bitacoras antiguas. Ninguna parece escrita de antemano: todas empiezan cuando alguien vive algo digno de recordar."
+    },
+    {
+      "id": "roxana_office_absent_chair",
+      "title": "Silla frente al escritorio",
+      "body": "La tela esta hundida como si alguien se hubiera levantado hace un instante. No hay nadie, pero queda calor en la madera."
     },
     {
       "id": "roxana_office_journal_found",

@@ -57,7 +57,7 @@ export const useGameStore = create<GameStore>((set) => ({
   activeMemoryId: null,
   activeMemoryBeatId: null,
   activeMemorySource: null,
-  currentRoomLabel: "Escuela - Sala principal",
+  currentRoomLabel: "Escuela - Recepcion",
   journalOpen: false,
   journalFocusEntryId: null,
   journalMode: "simple",

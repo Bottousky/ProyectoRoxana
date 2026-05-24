@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "school-reception",
+  "source": {
+    "tool": "agent-sprite-forge",
+    "mode": "scene_mode",
+    "visualAssetSource": "procedural_placeholder"
+  },
+  "props": [
+    {
+      "id": "north_wall_left",
+      "image": "public/assets/environment/school/school-reception/props/north_wall_left/prop.placeholder.png",
+      "x": 152.0,
+      "y": 32,
+      "w": 272,
+      "h": 16,
+      "sortY": 32,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "north_wall_right",
+      "image": "public/assets/environment/school/school-reception/props/north_wall_right/prop.placeholder.png",
+      "x": 488.0,
+      "y": 32,
+      "w": 272,
+      "h": 16,
+      "sortY": 32,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "south_wall_left",
+      "image": "public/assets/environment/school/school-reception/props/south_wall_left/prop.placeholder.png",
+      "x": 140.0,
+      "y": 344,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "south_wall_right",
+      "image": "public/assets/environment/school/school-reception/props/south_wall_right/prop.placeholder.png",
+      "x": 500.0,
+      "y": 344,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "west_wall",
+      "image": "public/assets/environment/school/school-reception/props/west_wall/prop.placeholder.png",
+      "x": 24.0,
+      "y": 344,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "east_wall",
+      "image": "public/assets/environment/school/school-reception/props/east_wall/prop.placeholder.png",
+      "x": 616.0,
+      "y": 344,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "roxana_office_door",
+      "image": "public/assets/environment/school/school-reception/props/roxana_office_door/prop.placeholder.png",
+      "x": 320.0,
+      "y": 38,
+      "w": 64,
+      "h": 22,
+      "sortY": 38,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "left_upper_room_door",
+      "image": "public/assets/environment/school/school-reception/props/left_upper_room_door/prop.placeholder.png",
+      "x": 28.0,
+      "y": 152,
+      "w": 24,
+      "h": 46,
+      "sortY": 152,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "left_lower_room_door",
+      "image": "public/assets/environment/school/school-reception/props/left_lower_room_door/prop.placeholder.png",
+      "x": 28.0,
+      "y": 256,
+      "w": 24,
+      "h": 46,
+      "sortY": 256,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "right_upper_room_door_ohmdal",
+      "image": "public/assets/environment/school/school-reception/props/right_upper_room_door_ohmdal/prop.placeholder.png",
+      "x": 612.0,
+      "y": 152,
+      "w": 24,
+      "h": 46,
+      "sortY": 152,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "right_lower_room_door",
+      "image": "public/assets/environment/school/school-reception/props/right_lower_room_door/prop.placeholder.png",
+      "x": 612.0,
+      "y": 256,
+      "w": 24,
+      "h": 46,
+      "sortY": 256,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "balcony_notice_wall",
+      "image": "public/assets/environment/school/school-reception/props/balcony_notice_wall/prop.placeholder.png",
+      "x": 320.0,
+      "y": 132,
+      "w": 212,
+      "h": 48,
+      "sortY": 132,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "roxana_presence_pedestal",
+      "image": "public/assets/environment/school/school-reception/props/roxana_presence_pedestal/prop.placeholder.png",
+      "x": 320.0,
+      "y": 222,
+      "w": 40,
+      "h": 48,
+      "sortY": 222,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    }
+  ]
+}

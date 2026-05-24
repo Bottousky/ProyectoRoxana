@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "school-reception",
+  "mapSize": {
+    "width": 640,
+    "height": 360
+  },
+  "spawn": {
+    "x": 320,
+    "y": 302
+  },
+  "spawnPoints": {
+    "roxana_office_door": {
+      "x": 320,
+      "y": 62
+    }
+  },
+  "blockers": [
+    {
+      "id": "north_wall_left",
+      "type": "rect",
+      "x": 16,
+      "y": 16,
+      "w": 272,
+      "h": 16
+    },
+    {
+      "id": "north_wall_right",
+      "type": "rect",
+      "x": 352,
+      "y": 16,
+      "w": 272,
+      "h": 16
+    },
+    {
+      "id": "south_wall_left",
+      "type": "rect",
+      "x": 16,
+      "y": 328,
+      "w": 248,
+      "h": 16
+    },
+    {
+      "id": "south_wall_right",
+      "type": "rect",
+      "x": 376,
+      "y": 328,
+      "w": 248,
+      "h": 16
+    },
+    {
+      "id": "west_wall",
+      "type": "rect",
+      "x": 16,
+      "y": 16,
+      "w": 16,
+      "h": 328
+    },
+    {
+      "id": "east_wall",
+      "type": "rect",
+      "x": 608,
+      "y": 16,
+      "w": 16,
+      "h": 328
+    },
+    {
+      "id": "roxana_office_door",
+      "type": "rect",
+      "x": 288,
+      "y": 16,
+      "w": 64,
+      "h": 22
+    },
+    {
+      "id": "left_upper_room_door",
+      "type": "rect",
+      "x": 16,
+      "y": 106,
+      "w": 24,
+      "h": 46
+    },
+    {
+      "id": "left_lower_room_door",
+      "type": "rect",
+      "x": 16,
+      "y": 210,
+      "w": 24,
+      "h": 46
+    },
+    {
+      "id": "right_upper_room_door_ohmdal",
+      "type": "rect",
+      "x": 600,
+      "y": 106,
+      "w": 24,
+      "h": 46
+    },
+    {
+      "id": "right_lower_room_door",
+      "type": "rect",
+      "x": 600,
+      "y": 210,
+      "w": 24,
+      "h": 46
+    },
+    {
+      "id": "balcony_notice_wall",
+      "type": "rect",
+      "x": 214,
+      "y": 84,
+      "w": 212,
+      "h": 48
+    },
+    {
+      "id": "roxana_presence_pedestal",
+      "type": "rect",
+      "x": 300,
+      "y": 174,
+      "w": 40,
+      "h": 48
+    }
+  ],
+  "interactables": [
+    {
+      "id": "roxana_presence",
+      "kind": "dialogue",
+      "bounds": {
+        "x": 274,
+        "y": 148,
+        "width": 92,
+        "height": 96
+      }
+    },
+    {
+      "id": "roxana_office_door",
+      "kind": "inspect",
+      "bounds": {
+        "x": 282,
+        "y": 12,
+        "width": 76,
+        "height": 34
+      }
+    },
+    {
+      "id": "reception_counter",
+      "kind": "inspect",
+      "bounds": {
+        "x": 214,
+        "y": 78,
+        "width": 212,
+        "height": 62
+      }
+    },
+    {
+      "id": "right_upper_room",
+      "kind": "blocked_gate",
+      "bounds": {
+        "x": 584,
+        "y": 100,
+        "width": 34,
+        "height": 56
+      }
+    }
+  ],
+  "notes": "Placeholder collision metadata mirrors current Phaser JSON rectangles for visual QA."
+}
