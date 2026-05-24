@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "roxana-office",
+  "source": {
+    "tool": "agent-sprite-forge",
+    "mode": "scene_mode",
+    "visualAssetSource": "procedural_placeholder"
+  },
+  "props": [
+    {
+      "id": "north_wall",
+      "image": "public/assets/environment/school/roxana-office/props/north_wall/prop.placeholder.png",
+      "x": 320.0,
+      "y": 32,
+      "w": 608,
+      "h": 16,
+      "sortY": 32,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "south_wall_left",
+      "image": "public/assets/environment/school/roxana-office/props/south_wall_left/prop.placeholder.png",
+      "x": 140.0,
+      "y": 344,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "south_wall_right",
+      "image": "public/assets/environment/school/roxana-office/props/south_wall_right/prop.placeholder.png",
+      "x": 500.0,
+      "y": 344,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "west_wall",
+      "image": "public/assets/environment/school/roxana-office/props/west_wall/prop.placeholder.png",
+      "x": 24.0,
+      "y": 344,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "east_wall",
+      "image": "public/assets/environment/school/roxana-office/props/east_wall/prop.placeholder.png",
+      "x": 616.0,
+      "y": 344,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "roxana_desk",
+      "image": "public/assets/environment/school/roxana-office/props/roxana_desk/prop.placeholder.png",
+      "x": 320.0,
+      "y": 148,
+      "w": 148,
+      "h": 52,
+      "sortY": 148,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "left_bookcase",
+      "image": "public/assets/environment/school/roxana-office/props/left_bookcase/prop.placeholder.png",
+      "x": 93.0,
+      "y": 260,
+      "w": 74,
+      "h": 208,
+      "sortY": 260,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "right_archive_stack",
+      "image": "public/assets/environment/school/roxana-office/props/right_archive_stack/prop.placeholder.png",
+      "x": 547.0,
+      "y": 250,
+      "w": 74,
+      "h": 196,
+      "sortY": 250,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "school_map_wall",
+      "image": "public/assets/environment/school/roxana-office/props/school_map_wall/prop.placeholder.png",
+      "x": 320.0,
+      "y": 76,
+      "w": 208,
+      "h": 30,
+      "sortY": 76,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "left_notes_table",
+      "image": "public/assets/environment/school/roxana-office/props/left_notes_table/prop.placeholder.png",
+      "x": 234.0,
+      "y": 244,
+      "w": 120,
+      "h": 34,
+      "sortY": 244,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "right_letter_table",
+      "image": "public/assets/environment/school/roxana-office/props/right_letter_table/prop.placeholder.png",
+      "x": 410.0,
+      "y": 244,
+      "w": 120,
+      "h": 34,
+      "sortY": 244,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    },
+    {
+      "id": "empty_chair",
+      "image": "public/assets/environment/school/roxana-office/props/empty_chair/prop.placeholder.png",
+      "x": 320.0,
+      "y": 148,
+      "w": 24,
+      "h": 28,
+      "sortY": 148,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "sourceStatus": "procedural_placeholder"
+    }
+  ]
+}

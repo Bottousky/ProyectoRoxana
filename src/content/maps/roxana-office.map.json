@@ -1,6 +1,10 @@
 {
   "id": "roxana_office",
   "tileSize": 32,
+  "assetBundle": {
+    "manifest": "/assets/environment/school/roxana-office/roxana-office.asset-manifest.json",
+    "status": "placeholder_reference"
+  },
   "size": {
     "width": 640,
     "height": 360

@@ -1,0 +1,127 @@
+{
+  "base": "public\\assets\\environment\\school\\roxana-office\\roxana-office-base.placeholder.png",
+  "placements": "public\\assets\\environment\\school\\roxana-office\\roxana-office-props.json",
+  "output": "public\\assets\\environment\\school\\roxana-office\\roxana-office-layered-preview.placeholder.png",
+  "pasted": [
+    {
+      "id": "north_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\north_wall\\prop.placeholder.png",
+      "left": 16,
+      "top": 16,
+      "w": 608,
+      "h": 16,
+      "sortY": 32,
+      "layer": "props"
+    },
+    {
+      "id": "school_map_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\school_map_wall\\prop.placeholder.png",
+      "left": 216,
+      "top": 46,
+      "w": 208,
+      "h": 30,
+      "sortY": 76,
+      "layer": "props"
+    },
+    {
+      "id": "roxana_desk",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\roxana_desk\\prop.placeholder.png",
+      "left": 246,
+      "top": 96,
+      "w": 148,
+      "h": 52,
+      "sortY": 148,
+      "layer": "props"
+    },
+    {
+      "id": "empty_chair",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\empty_chair\\prop.placeholder.png",
+      "left": 308,
+      "top": 120,
+      "w": 24,
+      "h": 28,
+      "sortY": 148,
+      "layer": "props"
+    },
+    {
+      "id": "left_notes_table",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\left_notes_table\\prop.placeholder.png",
+      "left": 174,
+      "top": 210,
+      "w": 120,
+      "h": 34,
+      "sortY": 244,
+      "layer": "props"
+    },
+    {
+      "id": "right_letter_table",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\right_letter_table\\prop.placeholder.png",
+      "left": 350,
+      "top": 210,
+      "w": 120,
+      "h": 34,
+      "sortY": 244,
+      "layer": "props"
+    },
+    {
+      "id": "right_archive_stack",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\right_archive_stack\\prop.placeholder.png",
+      "left": 510,
+      "top": 54,
+      "w": 74,
+      "h": 196,
+      "sortY": 250,
+      "layer": "props"
+    },
+    {
+      "id": "left_bookcase",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\left_bookcase\\prop.placeholder.png",
+      "left": 56,
+      "top": 52,
+      "w": 74,
+      "h": 208,
+      "sortY": 260,
+      "layer": "props"
+    },
+    {
+      "id": "south_wall_left",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\south_wall_left\\prop.placeholder.png",
+      "left": 16,
+      "top": 328,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "layer": "props"
+    },
+    {
+      "id": "south_wall_right",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\south_wall_right\\prop.placeholder.png",
+      "left": 376,
+      "top": 328,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "layer": "props"
+    },
+    {
+      "id": "west_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\west_wall\\prop.placeholder.png",
+      "left": 16,
+      "top": 16,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "layer": "props"
+    },
+    {
+      "id": "east_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\roxana-office\\props\\east_wall\\prop.placeholder.png",
+      "left": 608,
+      "top": 16,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "layer": "props"
+    }
+  ]
+}

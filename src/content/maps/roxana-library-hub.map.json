@@ -1,6 +1,10 @@
 {
   "id": "roxana_library_hub",
   "tileSize": 32,
+  "assetBundle": {
+    "manifest": "/assets/environment/school/school-reception/school-reception.asset-manifest.json",
+    "status": "placeholder_reference"
+  },
   "size": {
     "width": 640,
     "height": 360

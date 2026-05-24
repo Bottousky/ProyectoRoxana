@@ -1,0 +1,3 @@
+Agent Sprite Forge placeholder brief for school-reception.
+Map mode: scene_mode. Visual model: layered_raster. Engine target: Phaser/project-native JSON.
+Create a clean top-down 2D RPG school interior scene at 640x360. Foundation-only base plus separate props, collision, zones, and QA preview. Status: placeholder/reference only, not final art. No UI text, no readable labels inside PNGs. Keep props separate from base and preserve the current Spec 019 layout and event ids.

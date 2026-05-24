@@ -46,6 +46,10 @@ export type HubEntity = {
 export type HubMapData = {
   id: string;
   tileSize: number;
+  assetBundle?: {
+    manifest: string;
+    status: "placeholder_reference" | "normalized" | "runtime";
+  };
   size: {
     width: number;
     height: number;

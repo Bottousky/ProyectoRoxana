@@ -1,0 +1,137 @@
+{
+  "base": "public\\assets\\environment\\school\\school-reception\\school-reception-base.placeholder.png",
+  "placements": "public\\assets\\environment\\school\\school-reception\\school-reception-props.json",
+  "output": "public\\assets\\environment\\school\\school-reception\\school-reception-layered-preview.placeholder.png",
+  "pasted": [
+    {
+      "id": "north_wall_left",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\north_wall_left\\prop.placeholder.png",
+      "left": 16,
+      "top": 16,
+      "w": 272,
+      "h": 16,
+      "sortY": 32,
+      "layer": "props"
+    },
+    {
+      "id": "north_wall_right",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\north_wall_right\\prop.placeholder.png",
+      "left": 352,
+      "top": 16,
+      "w": 272,
+      "h": 16,
+      "sortY": 32,
+      "layer": "props"
+    },
+    {
+      "id": "roxana_office_door",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\roxana_office_door\\prop.placeholder.png",
+      "left": 288,
+      "top": 16,
+      "w": 64,
+      "h": 22,
+      "sortY": 38,
+      "layer": "props"
+    },
+    {
+      "id": "balcony_notice_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\balcony_notice_wall\\prop.placeholder.png",
+      "left": 214,
+      "top": 84,
+      "w": 212,
+      "h": 48,
+      "sortY": 132,
+      "layer": "props"
+    },
+    {
+      "id": "left_upper_room_door",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\left_upper_room_door\\prop.placeholder.png",
+      "left": 16,
+      "top": 106,
+      "w": 24,
+      "h": 46,
+      "sortY": 152,
+      "layer": "props"
+    },
+    {
+      "id": "right_upper_room_door_ohmdal",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\right_upper_room_door_ohmdal\\prop.placeholder.png",
+      "left": 600,
+      "top": 106,
+      "w": 24,
+      "h": 46,
+      "sortY": 152,
+      "layer": "props"
+    },
+    {
+      "id": "roxana_presence_pedestal",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\roxana_presence_pedestal\\prop.placeholder.png",
+      "left": 300,
+      "top": 174,
+      "w": 40,
+      "h": 48,
+      "sortY": 222,
+      "layer": "props"
+    },
+    {
+      "id": "left_lower_room_door",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\left_lower_room_door\\prop.placeholder.png",
+      "left": 16,
+      "top": 210,
+      "w": 24,
+      "h": 46,
+      "sortY": 256,
+      "layer": "props"
+    },
+    {
+      "id": "right_lower_room_door",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\right_lower_room_door\\prop.placeholder.png",
+      "left": 600,
+      "top": 210,
+      "w": 24,
+      "h": 46,
+      "sortY": 256,
+      "layer": "props"
+    },
+    {
+      "id": "south_wall_left",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\south_wall_left\\prop.placeholder.png",
+      "left": 16,
+      "top": 328,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "layer": "props"
+    },
+    {
+      "id": "south_wall_right",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\south_wall_right\\prop.placeholder.png",
+      "left": 376,
+      "top": 328,
+      "w": 248,
+      "h": 16,
+      "sortY": 344,
+      "layer": "props"
+    },
+    {
+      "id": "west_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\west_wall\\prop.placeholder.png",
+      "left": 16,
+      "top": 16,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "layer": "props"
+    },
+    {
+      "id": "east_wall",
+      "image": "C:\\YO\\Proyectos\\proyecto roxana\\public\\assets\\environment\\school\\school-reception\\props\\east_wall\\prop.placeholder.png",
+      "left": 608,
+      "top": 16,
+      "w": 16,
+      "h": 328,
+      "sortY": 344,
+      "layer": "props"
+    }
+  ]
+}

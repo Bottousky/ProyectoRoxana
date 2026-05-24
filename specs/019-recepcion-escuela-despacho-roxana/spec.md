@@ -30,6 +30,15 @@ Consolidar el primer tramo jugable del vertical slice con una recepcion de escue
 - Backend, login, tienda o persistencia nueva.
 - Arte final generado con IA.
 
+## Assets placeholder generados
+
+Los bundles visuales de `public/assets/environment/school/` son referencias tecnicas creadas con Agent Sprite Forge para esta spec. Incluyen base, props transparentes, manifest, colisiones, zonas y preview compuesto para:
+
+- `school-reception`
+- `roxana-office`
+
+Estos assets no reemplazan la fuente de gameplay en `src/content/maps/*.map.json` y no estan aprobados como arte final.
+
 ## Decisiones tecnicas
 
 - `GAME_WIDTH` y `GAME_HEIGHT` pasan a `640x360`.

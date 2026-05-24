@@ -11,6 +11,8 @@
 - [x] Redisenar `src/content/maps/roxana-library-hub.map.json` como recepcion de escuela.
 - [x] Ajustar sala principal al boceto: cartelera detras de estatua, doble escalera lateral y Ohmdal en Sala 3.
 - [x] Redisenar `src/content/maps/roxana-office.map.json` como despacho explorable.
+- [x] Generar bundles placeholder con Agent Sprite Forge para recepcion y despacho.
+- [x] Vincular los mapas con manifests placeholder mediante `assetBundle`.
 
 ## C. Escenas y eventos
 
