@@ -27,6 +27,10 @@ type WasdKeys = {
   ENTER: Phaser.Input.Keyboard.Key;
 };
 
+type HubSceneData = {
+  spawnPointId?: string;
+};
+
 export class HubScene extends Phaser.Scene {
   private readonly mapData = hubMapRaw as HubMapData;
   private player?: Player;
@@ -45,13 +49,17 @@ export class HubScene extends Phaser.Scene {
     super("HubScene");
   }
 
-  create() {
+  create(data: HubSceneData = {}) {
     const firstVisit = !hasVisitedRoom(this.mapData.id);
     this.solids = this.mapData.solids;
     this.interactables = this.mapData.interactables;
     this.drawHubRoom();
 
-    this.player = new Player(this, this.mapData.spawn.x, this.mapData.spawn.y);
+    const spawn = this.resolveSpawn(data.spawnPointId);
+    this.player = new Player(this, spawn.x, spawn.y);
+    if (data.spawnPointId) {
+      this.suppressInteractionBriefly();
+    }
     new RoxanaNpc(
       this,
       this.mapData.entities.roxana.x,
@@ -438,5 +446,13 @@ export class HubScene extends Phaser.Scene {
 
   private isInteractionSuppressed() {
     return this.time.now < this.suppressInteractUntil;
+  }
+
+  private resolveSpawn(spawnPointId?: string) {
+    if (!spawnPointId) {
+      return this.mapData.spawn;
+    }
+
+    return this.mapData.spawnPoints?.[spawnPointId] ?? this.mapData.spawn;
   }
 }

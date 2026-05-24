@@ -9,6 +9,12 @@
     "x": 320,
     "y": 302
   },
+  "spawnPoints": {
+    "roxana_office_door": {
+      "x": 320,
+      "y": 62
+    }
+  },
   "entities": {
     "roxana": {
       "id": "roxana_presence",

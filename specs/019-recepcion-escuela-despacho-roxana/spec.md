@@ -62,7 +62,8 @@ Consolidar el primer tramo jugable del vertical slice con una recepcion de escue
 4. El despacho se abre desde recepcion y comunica historia ambiental por interaccion.
 5. La bitacora se desbloquea al inspeccionar el escritorio, no automaticamente.
 6. Reingresar al despacho muestra mensaje de revisita, sin repetir primer beat emocional.
-7. Build y lint pasan.
+7. Al volver desde el despacho, el jugador aparece junto a la puerta del despacho en el hall, no en la entrada principal.
+8. Build y lint pasan.
 
 ## QA esperado
 

@@ -67,7 +67,7 @@ export class RoxanaOfficeScene extends Phaser.Scene {
       }),
       gameEvents.on("input:back", () => {
         if (!this.uiLocked) {
-          this.scene.start("HubScene");
+          this.returnToHub();
         }
       }),
       gameEvents.on("ui:controls-lock", ({ locked }) => {
@@ -209,7 +209,7 @@ export class RoxanaOfficeScene extends Phaser.Scene {
     });
 
     if (target.id === "return_hub") {
-      this.scene.start("HubScene");
+      this.returnToHub();
       return;
     }
 
@@ -422,5 +422,11 @@ export class RoxanaOfficeScene extends Phaser.Scene {
 
   private isInteractionSuppressed() {
     return this.time.now < this.suppressInteractUntil;
+  }
+
+  private returnToHub() {
+    this.scene.start("HubScene", {
+      spawnPointId: "roxana_office_door",
+    });
   }
 }

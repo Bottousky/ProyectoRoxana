@@ -16,6 +16,7 @@
 
 - [x] Ajustar `HubScene` a beats `school_reception_first_entry` y `roxana_presence_first_echo`.
 - [x] Ajustar `RoxanaOfficeScene` para primer ingreso + revisita sin repetir beat completo.
+- [x] Corregir spawn de retorno desde despacho para aparecer junto a la puerta usada.
 - [x] Extender analytics tipado con `observed_roxana_presence`.
 - [x] Actualizar labels y flujo de room events en React.
 

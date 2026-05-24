@@ -54,6 +54,13 @@ export type HubMapData = {
     x: number;
     y: number;
   };
+  spawnPoints?: Record<
+    string,
+    {
+      x: number;
+      y: number;
+    }
+  >;
   entities: {
     roxana: HubEntity;
   };
