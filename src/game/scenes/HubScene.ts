@@ -303,7 +303,10 @@ export class HubScene extends Phaser.Scene {
         }
 
         gameEvents.emit("message:show", { messageId });
-        if (target.payload?.targetWorldId === "ohmdal") {
+        const isOhmdalGate =
+          target.payload?.targetWorldId === "ohmdal" ||
+          target.id === "right_upper_room";
+        if (isOhmdalGate) {
           if (!hasCompletedNarrativeBeat("hub_bitacora_found")) {
             gameEvents.emit("message:show", {
               messageId: "ohmdal_gate_needs_bitacora",

@@ -17,6 +17,10 @@
     "roxana_office_door": {
       "x": 320,
       "y": 62
+    },
+    "ohmdal_gate": {
+      "x": 560,
+      "y": 182
     }
   },
   "entities": {
@@ -314,7 +318,8 @@
       },
       "prompt": "Sala de Ohmdal",
       "payload": {
-        "messageId": "ohmdal_gate_unstable"
+        "messageId": "ohmdal_gate_unstable",
+        "targetWorldId": "ohmdal"
       }
     },
     {

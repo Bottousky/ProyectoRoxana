@@ -14,7 +14,10 @@ import { gameEvents } from "@/game/systems/eventBus";
 import {
   completeNarrativeBeat,
   hasCompletedNarrativeBeat,
+  hasVisitedRoom,
+  markRoomVisited,
   setProgressMilestone,
+  setLastRoom,
 } from "@/game/systems/progressStore";
 import type { DirectionVector } from "@/game/types/events";
 import type {
@@ -60,7 +63,9 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
   }
 
   create() {
+    const firstVisit = !hasVisitedRoom(this.mapData.id);
     this.puzzleState = createClosedCircuitState();
+    this.puzzleStarted = false;
     this.solids = this.mapData.solids;
     this.interactables = this.mapData.interactables;
     this.drawRoom();
@@ -109,9 +114,15 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
     gameEvents.emit("room:entered", {
       roomId: this.mapData.id,
       sourceRoomId: "electronics_classroom",
-      firstVisit: false,
+      firstVisit,
     });
-    gameEvents.emit("message:show", { messageId: "ohmdal_threshold_arrival" });
+    if (firstVisit) {
+      gameEvents.emit("message:show", { messageId: "ohmdal_threshold_arrival" });
+    } else {
+      gameEvents.emit("message:show", { messageId: "ohmdal_return_hint" });
+    }
+    markRoomVisited(this.mapData.id);
+    setLastRoom(this.mapData.id);
   }
 
   update(_time: number, delta: number) {
@@ -178,10 +189,7 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
       graphics.strokeRect(solid.x, solid.y, solid.width, solid.height);
     }
 
-    this.pathVisual = this.add.rectangle(191, 88, 192, 6, 0x8b6a42, 0.95);
-    this.switchVisual = this.add.rectangle(154, 128, 30, 8, 0xbf6b5a, 0.95);
-    this.mechanismVisual = this.add.rectangle(319, 112, 22, 48, 0x315660, 0.95);
-    this.mechanismVisual.setStrokeStyle(1, 0x7faeb6, 0.8);
+    this.setupPuzzleVisuals();
   }
 
   private tryInteract(interactable: HubInteractable | null) {
@@ -209,7 +217,9 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
       }
 
       if (hasCompletedNarrativeBeat("ohmdal_threshold_ohm_first_hint")) {
-        gameEvents.emit("message:show", { messageId: "ohmdal_automaton_revisit" });
+        gameEvents.emit("message:show", {
+          messageId: "ohmdal_automaton_revisit",
+        });
         return;
       }
 
@@ -225,7 +235,7 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
     }
 
     if (target.id === "return_hub") {
-      this.scene.start("HubScene");
+      this.scene.start("HubScene", { spawnPointId: "ohmdal_gate" });
       return;
     }
 
@@ -510,5 +520,48 @@ export class ElectronicsThresholdScene extends Phaser.Scene {
 
   private isInteractionSuppressed() {
     return this.time.now < this.suppressInteractUntil;
+  }
+
+  private setupPuzzleVisuals() {
+    const pathBounds = this.findInteractableBounds("floor_path");
+    if (pathBounds) {
+      this.pathVisual = this.add.rectangle(
+        pathBounds.x + pathBounds.width / 2,
+        pathBounds.y + pathBounds.height / 2,
+        Math.max(32, pathBounds.width - 20),
+        8,
+        0x8b6a42,
+        0.95,
+      );
+    }
+
+    const switchBounds = this.findInteractableBounds("circuit_switch");
+    if (switchBounds) {
+      this.switchVisual = this.add.rectangle(
+        switchBounds.x + switchBounds.width / 2,
+        switchBounds.y + switchBounds.height / 2,
+        Math.max(24, switchBounds.width - 22),
+        10,
+        0xbf6b5a,
+        0.95,
+      );
+    }
+
+    const mechanismBounds = this.findInteractableBounds("sleeping_mechanism");
+    if (mechanismBounds) {
+      this.mechanismVisual = this.add.rectangle(
+        mechanismBounds.x + mechanismBounds.width / 2,
+        mechanismBounds.y + mechanismBounds.height / 2,
+        Math.max(20, mechanismBounds.width - 58),
+        Math.max(42, mechanismBounds.height - 112),
+        0x315660,
+        0.95,
+      );
+      this.mechanismVisual.setStrokeStyle(1, 0x7faeb6, 0.8);
+    }
+  }
+
+  private findInteractableBounds(interactableId: string) {
+    return this.interactables.find((item) => item.id === interactableId)?.bounds;
   }
 }

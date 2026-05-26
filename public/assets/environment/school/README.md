@@ -1,6 +1,7 @@
 # School Environment Placeholder Assets
 
 Generated with the local Agent Sprite Forge workflow for spec `019-recepcion-escuela-despacho-roxana`.
+Extended with placeholder bundles for spec `020-aula-ohmdal-presala`.
 
 Status: placeholder/reference only. These files are not approved final art.
 
@@ -22,6 +23,15 @@ Status: placeholder/reference only. These files are not approved final art.
   - `roxana-office-collision.json`
   - `roxana-office-zones.json`
   - `roxana-office.asset-manifest.json`
+  - `props/*/prop.placeholder.png`
+
+- `electronics-classroom/`
+  - `electronics-classroom-base.placeholder.png`
+  - `electronics-classroom-layered-preview.placeholder.png`
+  - `electronics-classroom-props.json`
+  - `electronics-classroom-collision.json`
+  - `electronics-classroom-zones.json`
+  - `electronics-classroom.asset-manifest.json`
   - `props/*/prop.placeholder.png`
 
 ## Contract

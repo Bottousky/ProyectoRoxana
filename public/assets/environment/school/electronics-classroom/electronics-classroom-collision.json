@@ -1,0 +1,145 @@
+{
+    "schemaVersion":  1,
+    "sceneId":  "electronics_classroom",
+    "mapSize":  {
+                    "width":  640,
+                    "height":  360
+                },
+    "spawn":  {
+                  "x":  114,
+                  "y":  306
+              },
+    "blockers":  [
+                     {
+                         "id":  "north_wall",
+                         "type":  "rect",
+                         "x":  16,
+                         "y":  16,
+                         "w":  608,
+                         "h":  16
+                     },
+                     {
+                         "id":  "south_wall_left",
+                         "type":  "rect",
+                         "x":  16,
+                         "y":  328,
+                         "w":  74,
+                         "h":  16
+                     },
+                     {
+                         "id":  "south_wall_right",
+                         "type":  "rect",
+                         "x":  154,
+                         "y":  328,
+                         "w":  470,
+                         "h":  16
+                     },
+                     {
+                         "id":  "west_wall",
+                         "type":  "rect",
+                         "x":  16,
+                         "y":  16,
+                         "w":  16,
+                         "h":  328
+                     },
+                     {
+                         "id":  "east_wall",
+                         "type":  "rect",
+                         "x":  608,
+                         "y":  16,
+                         "w":  16,
+                         "h":  328
+                     },
+                     {
+                         "id":  "chalkboard_bank",
+                         "type":  "rect",
+                         "x":  170,
+                         "y":  44,
+                         "w":  256,
+                         "h":  48
+                     },
+                     {
+                         "id":  "workbench",
+                         "type":  "rect",
+                         "x":  84,
+                         "y":  142,
+                         "w":  194,
+                         "h":  56
+                     },
+                     {
+                         "id":  "silent_coils",
+                         "type":  "rect",
+                         "x":  70,
+                         "y":  222,
+                         "w":  124,
+                         "h":  62
+                     },
+                     {
+                         "id":  "cable_cart",
+                         "type":  "rect",
+                         "x":  258,
+                         "y":  234,
+                         "w":  98,
+                         "h":  46
+                     },
+                     {
+                         "id":  "portal_frame",
+                         "type":  "rect",
+                         "x":  506,
+                         "y":  78,
+                         "w":  82,
+                         "h":  196
+                     },
+                     {
+                         "id":  "automaton_dais",
+                         "type":  "rect",
+                         "x":  354,
+                         "y":  166,
+                         "w":  94,
+                         "h":  78
+                     }
+                 ],
+    "interactables":  [
+                          {
+                              "id":  "return_hub",
+                              "kind":  "inspect",
+                              "bounds":  {
+                                             "x":  84,
+                                             "y":  300,
+                                             "width":  74,
+                                             "height":  48
+                                         }
+                          },
+                          {
+                              "id":  "silent_workbench",
+                              "kind":  "inspect",
+                              "bounds":  {
+                                             "x":  78,
+                                             "y":  132,
+                                             "width":  212,
+                                             "height":  74
+                                         }
+                          },
+                          {
+                              "id":  "ohm_shadow",
+                              "kind":  "dialogue",
+                              "bounds":  {
+                                             "x":  344,
+                                             "y":  148,
+                                             "width":  126,
+                                             "height":  112
+                                         }
+                          },
+                          {
+                              "id":  "ohmdal_portal_preview",
+                              "kind":  "inspect",
+                              "bounds":  {
+                                             "x":  496,
+                                             "y":  70,
+                                             "width":  104,
+                                             "height":  212
+                                         }
+                          }
+                      ],
+    "notes":  "Placeholder collision metadata mirrors current Phaser JSON rectangles for visual QA."
+}

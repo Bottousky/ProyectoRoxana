@@ -7,23 +7,23 @@
   "moodCues": [
     {
       "type": "palette",
-      "description": "Verde profundo, cobre y bronce envejecido separan el aula del vestibulo."
+      "description": "Verde profundo, cobre y bronce envejecido marcan un aula viva pero interrumpida."
     },
     {
       "type": "object",
-      "description": "Banco de trabajo, bobinas y cables como raices dormidas."
+      "description": "Banco de trabajo, bobinas, placas y cables como raices dormidas."
     },
     {
       "type": "guide_presence",
-      "description": "Un automata oxidado parece estar entre el aula y el mundo."
+      "description": "OHM espera entre pupitres y portal, como puente entre escuela y ciudad rota."
     },
     {
       "type": "portal_preview",
-      "description": "El umbral muestra un brillo herido de Ohmdal antes de permitir el paso."
+      "description": "El umbral muestra un brillo herido de Ohmdal y pide memoria antes de cruzar."
     },
     {
       "type": "deterioration",
-      "description": "Nada esta destruido del todo: todo parece interrumpido."
+      "description": "Nada esta destruido del todo: todo parece detenido a mitad de una prueba."
     }
   ]
 }

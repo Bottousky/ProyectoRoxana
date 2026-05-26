@@ -1,0 +1,4 @@
+Spec: 020-aula-ohmdal-presala
+Scene: ohmdal_threshold
+Status: placeholder_reference
+Intent: environmental placeholder bundle for visual QA and map contract validation.

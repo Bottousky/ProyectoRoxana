@@ -1,0 +1,143 @@
+{
+    "schemaVersion":  1,
+    "sceneId":  "electronics_classroom",
+    "source":  {
+                   "tool":  "agent-sprite-forge",
+                   "mode":  "scene_mode",
+                   "visualAssetSource":  "procedural_placeholder"
+               },
+    "props":  [
+                  {
+                      "id":  "north_wall",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/north_wall/prop.placeholder.png",
+                      "x":  320,
+                      "y":  32,
+                      "w":  608,
+                      "h":  16,
+                      "sortY":  32,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "south_wall_left",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/south_wall_left/prop.placeholder.png",
+                      "x":  53,
+                      "y":  344,
+                      "w":  74,
+                      "h":  16,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "south_wall_right",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/south_wall_right/prop.placeholder.png",
+                      "x":  389,
+                      "y":  344,
+                      "w":  470,
+                      "h":  16,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "west_wall",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/west_wall/prop.placeholder.png",
+                      "x":  24,
+                      "y":  344,
+                      "w":  16,
+                      "h":  328,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "east_wall",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/east_wall/prop.placeholder.png",
+                      "x":  616,
+                      "y":  344,
+                      "w":  16,
+                      "h":  328,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "chalkboard_bank",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/chalkboard_bank/prop.placeholder.png",
+                      "x":  298,
+                      "y":  92,
+                      "w":  256,
+                      "h":  48,
+                      "sortY":  92,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "workbench",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/workbench/prop.placeholder.png",
+                      "x":  181,
+                      "y":  198,
+                      "w":  194,
+                      "h":  56,
+                      "sortY":  198,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "silent_coils",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/silent_coils/prop.placeholder.png",
+                      "x":  132,
+                      "y":  284,
+                      "w":  124,
+                      "h":  62,
+                      "sortY":  284,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "cable_cart",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/cable_cart/prop.placeholder.png",
+                      "x":  307,
+                      "y":  280,
+                      "w":  98,
+                      "h":  46,
+                      "sortY":  280,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "portal_frame",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/portal_frame/prop.placeholder.png",
+                      "x":  547,
+                      "y":  274,
+                      "w":  82,
+                      "h":  196,
+                      "sortY":  274,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "automaton_dais",
+                      "image":  "public/assets/environment/school/electronics-classroom/props/automaton_dais/prop.placeholder.png",
+                      "x":  401,
+                      "y":  244,
+                      "w":  94,
+                      "h":  78,
+                      "sortY":  244,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  }
+              ]
+}

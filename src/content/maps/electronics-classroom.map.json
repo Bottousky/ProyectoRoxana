@@ -1,141 +1,178 @@
 {
   "id": "electronics_classroom",
-  "tileSize": 16,
+  "tileSize": 32,
+  "assetBundle": {
+    "manifest": "/assets/environment/school/electronics-classroom/electronics-classroom.asset-manifest.json",
+    "status": "placeholder_reference"
+  },
   "size": {
-    "width": 384,
-    "height": 216
+    "width": 640,
+    "height": 360
   },
   "spawn": {
-    "x": 64,
-    "y": 176
+    "x": 114,
+    "y": 306
   },
   "entities": {
     "roxana": {
       "id": "ohm_automaton_shadow",
-      "x": 188,
-      "y": 106
+      "x": 396,
+      "y": 196
     }
   },
   "solids": [
     {
       "id": "north_wall",
-      "x": 8,
-      "y": 8,
-      "width": 368,
-      "height": 12,
+      "x": 16,
+      "y": 16,
+      "width": 608,
+      "height": 16,
       "style": "wall"
     },
     {
       "id": "south_wall_left",
-      "x": 8,
-      "y": 196,
-      "width": 48,
-      "height": 12,
+      "x": 16,
+      "y": 328,
+      "width": 74,
+      "height": 16,
       "style": "wall"
     },
     {
       "id": "south_wall_right",
-      "x": 104,
-      "y": 196,
-      "width": 272,
-      "height": 12,
+      "x": 154,
+      "y": 328,
+      "width": 470,
+      "height": 16,
       "style": "wall"
     },
     {
       "id": "west_wall",
-      "x": 8,
-      "y": 8,
-      "width": 12,
-      "height": 200,
+      "x": 16,
+      "y": 16,
+      "width": 16,
+      "height": 328,
       "style": "wall"
     },
     {
       "id": "east_wall",
-      "x": 364,
-      "y": 8,
-      "width": 12,
-      "height": 200,
+      "x": 608,
+      "y": 16,
+      "width": 16,
+      "height": 328,
       "style": "wall"
     },
     {
-      "id": "workbench",
-      "x": 48,
+      "id": "chalkboard_bank",
+      "x": 170,
       "y": 44,
-      "width": 104,
-      "height": 26,
+      "width": 256,
+      "height": 48,
+      "style": "shelf"
+    },
+    {
+      "id": "workbench",
+      "x": 84,
+      "y": 142,
+      "width": 194,
+      "height": 56,
       "style": "furniture"
     },
     {
       "id": "silent_coils",
-      "x": 44,
-      "y": 100,
-      "width": 56,
-      "height": 40,
+      "x": 70,
+      "y": 222,
+      "width": 124,
+      "height": 62,
       "style": "shelf"
     },
     {
+      "id": "cable_cart",
+      "x": 258,
+      "y": 234,
+      "width": 98,
+      "height": 46,
+      "style": "furniture"
+    },
+    {
       "id": "portal_frame",
-      "x": 302,
-      "y": 74,
-      "width": 38,
-      "height": 76,
+      "x": 506,
+      "y": 78,
+      "width": 82,
+      "height": 196,
       "style": "gate"
+    },
+    {
+      "id": "automaton_dais",
+      "x": 354,
+      "y": 166,
+      "width": 94,
+      "height": 78,
+      "style": "furniture"
     }
   ],
   "decorations": [
     {
       "id": "classroom_floor",
-      "x": 20,
-      "y": 20,
-      "width": 344,
-      "height": 176,
+      "x": 32,
+      "y": 32,
+      "width": 576,
+      "height": 296,
       "fill": "#16241f",
       "stroke": "#345342"
     },
     {
+      "id": "hallway_bleed",
+      "x": 90,
+      "y": 304,
+      "width": 64,
+      "height": 40,
+      "fill": "#243044",
+      "stroke": "#65718a"
+    },
+    {
+      "id": "teacher_lane",
+      "x": 290,
+      "y": 104,
+      "width": 128,
+      "height": 194,
+      "fill": "#1b2f2a",
+      "stroke": "#4b6d61"
+    },
+    {
       "id": "green_copper_glow",
-      "x": 268,
-      "y": 52,
-      "width": 92,
-      "height": 120,
+      "x": 474,
+      "y": 60,
+      "width": 130,
+      "height": 234,
       "fill": "#1b3a32",
       "stroke": "#8a6a38"
     },
     {
       "id": "portal_wound",
-      "x": 310,
-      "y": 82,
-      "width": 22,
-      "height": 60,
+      "x": 526,
+      "y": 102,
+      "width": 42,
+      "height": 146,
       "fill": "#274f45",
       "stroke": "#d0a84f"
     },
     {
       "id": "cable_roots",
-      "x": 132,
-      "y": 116,
-      "width": 148,
-      "height": 8,
+      "x": 176,
+      "y": 274,
+      "width": 292,
+      "height": 12,
       "fill": "#6f5133",
       "stroke": "#b88749"
     },
     {
-      "id": "automaton_dais",
-      "x": 164,
-      "y": 88,
-      "width": 48,
-      "height": 44,
-      "fill": "#51422f",
+      "id": "automaton_shadow",
+      "x": 336,
+      "y": 154,
+      "width": 134,
+      "height": 110,
+      "fill": "#2d2d1f",
       "stroke": "#9f7a42"
-    },
-    {
-      "id": "return_door_light",
-      "x": 56,
-      "y": 184,
-      "width": 48,
-      "height": 18,
-      "fill": "#243044",
-      "stroke": "#65718a"
     }
   ],
   "interactables": [
@@ -143,10 +180,10 @@
       "id": "return_hub",
       "kind": "inspect",
       "bounds": {
-        "x": 52,
-        "y": 180,
-        "width": 56,
-        "height": 24
+        "x": 84,
+        "y": 300,
+        "width": 74,
+        "height": 48
       },
       "prompt": "Volver al vestibulo",
       "payload": {
@@ -157,10 +194,10 @@
       "id": "silent_workbench",
       "kind": "inspect",
       "bounds": {
-        "x": 44,
-        "y": 40,
-        "width": 112,
-        "height": 36
+        "x": 78,
+        "y": 132,
+        "width": 212,
+        "height": 74
       },
       "prompt": "Inspeccionar banco",
       "payload": {
@@ -171,10 +208,10 @@
       "id": "ohm_shadow",
       "kind": "dialogue",
       "bounds": {
-        "x": 156,
-        "y": 78,
-        "width": 64,
-        "height": 62
+        "x": 344,
+        "y": 148,
+        "width": 126,
+        "height": 112
       },
       "prompt": "Escuchar al automata",
       "payload": {
@@ -187,10 +224,10 @@
       "id": "ohmdal_portal_preview",
       "kind": "inspect",
       "bounds": {
-        "x": 286,
-        "y": 62,
-        "width": 70,
-        "height": 100
+        "x": 496,
+        "y": 70,
+        "width": 104,
+        "height": 212
       },
       "prompt": "Observar umbral",
       "payload": {

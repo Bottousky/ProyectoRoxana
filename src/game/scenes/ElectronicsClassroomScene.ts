@@ -199,7 +199,7 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     });
 
     if (target.id === "return_hub") {
-      this.scene.start("HubScene");
+      this.scene.start("HubScene", { spawnPointId: "ohmdal_gate" });
       return;
     }
 

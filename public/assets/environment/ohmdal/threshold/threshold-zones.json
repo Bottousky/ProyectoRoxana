@@ -1,0 +1,77 @@
+{
+    "schemaVersion":  1,
+    "sceneId":  "ohmdal_threshold",
+    "zones":  [
+                  {
+                      "id":  "ohm_automaton",
+                      "kind":  "dialogue",
+                      "bounds":  {
+                                     "x":  108,
+                                     "y":  166,
+                                     "width":  64,
+                                     "height":  64
+                                 }
+                  },
+                  {
+                      "id":  "circuit_switch",
+                      "kind":  "puzzle",
+                      "bounds":  {
+                                     "x":  238,
+                                     "y":  174,
+                                     "width":  78,
+                                     "height":  56
+                                 }
+                  },
+                  {
+                      "id":  "market_stall_dark",
+                      "kind":  "inspect",
+                      "bounds":  {
+                                     "x":  188,
+                                     "y":  204,
+                                     "width":  148,
+                                     "height":  82
+                                 }
+                  },
+                  {
+                      "id":  "broken_automaton",
+                      "kind":  "inspect",
+                      "bounds":  {
+                                     "x":  354,
+                                     "y":  196,
+                                     "width":  146,
+                                     "height":  84
+                                 }
+                  },
+                  {
+                      "id":  "floor_path",
+                      "kind":  "inspect",
+                      "bounds":  {
+                                     "x":  186,
+                                     "y":  148,
+                                     "width":  320,
+                                     "height":  44
+                                 }
+                  },
+                  {
+                      "id":  "sleeping_mechanism",
+                      "kind":  "puzzle",
+                      "bounds":  {
+                                     "x":  490,
+                                     "y":  74,
+                                     "width":  106,
+                                     "height":  206
+                                 }
+                  },
+                  {
+                      "id":  "return_hub",
+                      "kind":  "blocked_gate",
+                      "bounds":  {
+                                     "x":  34,
+                                     "y":  274,
+                                     "width":  62,
+                                     "height":  72
+                                 }
+                  }
+              ],
+    "notes":  "Trigger zones are reference metadata only; runtime remains driven by src/content/maps JSON."
+}

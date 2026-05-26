@@ -1,0 +1,119 @@
+{
+    "schemaVersion":  1,
+    "sceneId":  "ohmdal_threshold",
+    "source":  {
+                   "tool":  "agent-sprite-forge",
+                   "mode":  "scene_mode",
+                   "visualAssetSource":  "procedural_placeholder"
+               },
+    "props":  [
+                  {
+                      "id":  "north_wall",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/north_wall/prop.placeholder.png",
+                      "x":  320,
+                      "y":  32,
+                      "w":  608,
+                      "h":  16,
+                      "sortY":  32,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "south_wall",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/south_wall/prop.placeholder.png",
+                      "x":  320,
+                      "y":  344,
+                      "w":  608,
+                      "h":  16,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "west_wall",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/west_wall/prop.placeholder.png",
+                      "x":  24,
+                      "y":  344,
+                      "w":  16,
+                      "h":  328,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "east_wall",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/east_wall/prop.placeholder.png",
+                      "x":  616,
+                      "y":  344,
+                      "w":  16,
+                      "h":  328,
+                      "sortY":  344,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "generator_base",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/generator_base/prop.placeholder.png",
+                      "x":  146,
+                      "y":  172,
+                      "w":  124,
+                      "h":  76,
+                      "sortY":  172,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "market_stall",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/market_stall/prop.placeholder.png",
+                      "x":  263,
+                      "y":  272,
+                      "w":  126,
+                      "h":  56,
+                      "sortY":  272,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "fallen_automaton",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/fallen_automaton/prop.placeholder.png",
+                      "x":  423,
+                      "y":  266,
+                      "w":  98,
+                      "h":  58,
+                      "sortY":  266,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "service_pillar",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/service_pillar/prop.placeholder.png",
+                      "x":  344,
+                      "y":  232,
+                      "w":  52,
+                      "h":  108,
+                      "sortY":  232,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  },
+                  {
+                      "id":  "sleeping_gate",
+                      "image":  "public/assets/environment/ohmdal/threshold/props/sleeping_gate/prop.placeholder.png",
+                      "x":  542,
+                      "y":  270,
+                      "w":  84,
+                      "h":  186,
+                      "sortY":  270,
+                      "anchor":  "center-bottom",
+                      "layer":  "props",
+                      "sourceStatus":  "procedural_placeholder"
+                  }
+              ]
+}

@@ -1,0 +1,159 @@
+{
+    "schemaVersion":  1,
+    "sceneId":  "ohmdal_threshold",
+    "mapSize":  {
+                    "width":  640,
+                    "height":  360
+                },
+    "spawn":  {
+                  "x":  96,
+                  "y":  306
+              },
+    "blockers":  [
+                     {
+                         "id":  "north_wall",
+                         "type":  "rect",
+                         "x":  16,
+                         "y":  16,
+                         "w":  608,
+                         "h":  16
+                     },
+                     {
+                         "id":  "south_wall",
+                         "type":  "rect",
+                         "x":  16,
+                         "y":  328,
+                         "w":  608,
+                         "h":  16
+                     },
+                     {
+                         "id":  "west_wall",
+                         "type":  "rect",
+                         "x":  16,
+                         "y":  16,
+                         "w":  16,
+                         "h":  328
+                     },
+                     {
+                         "id":  "east_wall",
+                         "type":  "rect",
+                         "x":  608,
+                         "y":  16,
+                         "w":  16,
+                         "h":  328
+                     },
+                     {
+                         "id":  "generator_base",
+                         "type":  "rect",
+                         "x":  84,
+                         "y":  96,
+                         "w":  124,
+                         "h":  76
+                     },
+                     {
+                         "id":  "market_stall",
+                         "type":  "rect",
+                         "x":  200,
+                         "y":  216,
+                         "w":  126,
+                         "h":  56
+                     },
+                     {
+                         "id":  "fallen_automaton",
+                         "type":  "rect",
+                         "x":  374,
+                         "y":  208,
+                         "w":  98,
+                         "h":  58
+                     },
+                     {
+                         "id":  "service_pillar",
+                         "type":  "rect",
+                         "x":  318,
+                         "y":  124,
+                         "w":  52,
+                         "h":  108
+                     },
+                     {
+                         "id":  "sleeping_gate",
+                         "type":  "rect",
+                         "x":  500,
+                         "y":  84,
+                         "w":  84,
+                         "h":  186
+                     }
+                 ],
+    "interactables":  [
+                          {
+                              "id":  "ohm_automaton",
+                              "kind":  "dialogue",
+                              "bounds":  {
+                                             "x":  108,
+                                             "y":  166,
+                                             "width":  64,
+                                             "height":  64
+                                         }
+                          },
+                          {
+                              "id":  "circuit_switch",
+                              "kind":  "puzzle",
+                              "bounds":  {
+                                             "x":  238,
+                                             "y":  174,
+                                             "width":  78,
+                                             "height":  56
+                                         }
+                          },
+                          {
+                              "id":  "market_stall_dark",
+                              "kind":  "inspect",
+                              "bounds":  {
+                                             "x":  188,
+                                             "y":  204,
+                                             "width":  148,
+                                             "height":  82
+                                         }
+                          },
+                          {
+                              "id":  "broken_automaton",
+                              "kind":  "inspect",
+                              "bounds":  {
+                                             "x":  354,
+                                             "y":  196,
+                                             "width":  146,
+                                             "height":  84
+                                         }
+                          },
+                          {
+                              "id":  "floor_path",
+                              "kind":  "inspect",
+                              "bounds":  {
+                                             "x":  186,
+                                             "y":  148,
+                                             "width":  320,
+                                             "height":  44
+                                         }
+                          },
+                          {
+                              "id":  "sleeping_mechanism",
+                              "kind":  "puzzle",
+                              "bounds":  {
+                                             "x":  490,
+                                             "y":  74,
+                                             "width":  106,
+                                             "height":  206
+                                         }
+                          },
+                          {
+                              "id":  "return_hub",
+                              "kind":  "blocked_gate",
+                              "bounds":  {
+                                             "x":  34,
+                                             "y":  274,
+                                             "width":  62,
+                                             "height":  72
+                                         }
+                          }
+                      ],
+    "notes":  "Placeholder collision metadata mirrors current Phaser JSON rectangles for visual QA."
+}

@@ -1,0 +1,47 @@
+{
+    "schemaVersion":  1,
+    "sceneId":  "electronics_classroom",
+    "zones":  [
+                  {
+                      "id":  "return_hub",
+                      "kind":  "inspect",
+                      "bounds":  {
+                                     "x":  84,
+                                     "y":  300,
+                                     "width":  74,
+                                     "height":  48
+                                 }
+                  },
+                  {
+                      "id":  "silent_workbench",
+                      "kind":  "inspect",
+                      "bounds":  {
+                                     "x":  78,
+                                     "y":  132,
+                                     "width":  212,
+                                     "height":  74
+                                 }
+                  },
+                  {
+                      "id":  "ohm_shadow",
+                      "kind":  "dialogue",
+                      "bounds":  {
+                                     "x":  344,
+                                     "y":  148,
+                                     "width":  126,
+                                     "height":  112
+                                 }
+                  },
+                  {
+                      "id":  "ohmdal_portal_preview",
+                      "kind":  "inspect",
+                      "bounds":  {
+                                     "x":  496,
+                                     "y":  70,
+                                     "width":  104,
+                                     "height":  212
+                                 }
+                  }
+              ],
+    "notes":  "Trigger zones are reference metadata only; runtime remains driven by src/content/maps JSON."
+}
