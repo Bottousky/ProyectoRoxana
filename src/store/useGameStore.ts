@@ -20,6 +20,7 @@ type GameStore = {
   hasSeenJournalFirstOpen: boolean;
   prompt: string | null;
   activeMessageId: string | null;
+  activePuzzleId: string | null;
   puzzleStates: Record<string, PuzzleState>;
   startDialogue: (
     dialogueId: string,
@@ -47,6 +48,8 @@ type GameStore = {
   setRoomLabel: (label: string) => void;
   showMessage: (messageId: string) => void;
   clearMessage: () => void;
+  showPuzzle: (puzzleId: string) => void;
+  clearPuzzle: () => void;
 };
 
 export const useGameStore = create<GameStore>((set) => ({
@@ -67,6 +70,7 @@ export const useGameStore = create<GameStore>((set) => ({
   hasSeenJournalFirstOpen: false,
   prompt: null,
   activeMessageId: null,
+  activePuzzleId: null,
   puzzleStates: {},
   startDialogue: (dialogueId, speakerId, presentation = "standard", beatId) =>
     set({
@@ -172,8 +176,17 @@ export const useGameStore = create<GameStore>((set) => ({
   showMessage: (messageId) =>
     set({
       activeMessageId: messageId,
+      activePuzzleId: null,
       journalOpen: false,
       journalFocusEntryId: null,
     }),
   clearMessage: () => set({ activeMessageId: null }),
+  showPuzzle: (puzzleId) =>
+    set({
+      activePuzzleId: puzzleId,
+      activeMessageId: null,
+      journalOpen: false,
+      journalFocusEntryId: null,
+    }),
+  clearPuzzle: () => set({ activePuzzleId: null }),
 }));

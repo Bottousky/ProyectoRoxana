@@ -114,6 +114,10 @@ export type RoxanaGameEvents = {
     puzzleId: string;
     state: "idle" | "attempted" | "incomplete" | "complete";
   };
+  "puzzle:fail": {
+    puzzleId: string;
+    reason?: string;
+  };
   "puzzle:complete": {
     puzzleId: string;
     unlockedJournalEntryIds: string[];

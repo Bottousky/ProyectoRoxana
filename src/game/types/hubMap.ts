@@ -33,6 +33,7 @@ export type HubInteractable = {
     speakerId?: string;
     journalEntryId?: string;
     messageId?: string;
+    puzzleId?: string;
     targetWorldId?: string;
   };
 };

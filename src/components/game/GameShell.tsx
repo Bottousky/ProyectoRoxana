@@ -5,6 +5,7 @@ import { DialogueBox } from "@/components/dialogue/DialogueBox";
 import { HudOverlay } from "@/components/hud/HudOverlay";
 import { MessagePanel } from "@/components/hud/MessagePanel";
 import { MemoryPanelOverlay } from "@/components/memory/MemoryPanelOverlay";
+import { OhmdalPuzzleOverlay } from "@/components/puzzle/OhmdalPuzzleOverlay";
 import { JournalPanel } from "@/components/journal/JournalPanel";
 import {
   installAnalyticsInspector,
@@ -27,6 +28,7 @@ export function GameShell() {
   const activeDialogueId = useGameStore((state) => state.activeDialogueId);
   const activeMemoryId = useGameStore((state) => state.activeMemoryId);
   const activeMessageId = useGameStore((state) => state.activeMessageId);
+  const activePuzzleId = useGameStore((state) => state.activePuzzleId);
   const journalOpen = useGameStore((state) => state.journalOpen);
   const startDialogue = useGameStore((state) => state.startDialogue);
   const startMemory = useGameStore((state) => state.startMemory);
@@ -39,6 +41,8 @@ export function GameShell() {
   const unlockJournalStage = useGameStore((state) => state.unlockJournalStage);
   const setPuzzleState = useGameStore((state) => state.setPuzzleState);
   const showMessage = useGameStore((state) => state.showMessage);
+  const showPuzzle = useGameStore((state) => state.showPuzzle);
+  const clearPuzzle = useGameStore((state) => state.clearPuzzle);
 
   useEffect(() => {
     installAnalyticsInspector();
@@ -186,7 +190,19 @@ export function GameShell() {
       persistPuzzleState(payload.puzzleId, payload.state);
     });
 
+    const offPuzzleStart = gameEvents.on("puzzle:start", (payload) => {
+      showPuzzle(payload.puzzleId);
+      setPuzzleState(payload.puzzleId, "attempted");
+      persistPuzzleState(payload.puzzleId, "attempted");
+    });
+
+    const offPuzzleFail = gameEvents.on("puzzle:fail", (payload) => {
+      setPuzzleState(payload.puzzleId, "incomplete");
+      persistPuzzleState(payload.puzzleId, "incomplete");
+    });
+
     const offPuzzleComplete = gameEvents.on("puzzle:complete", (payload) => {
+      clearPuzzle();
       setPuzzleState(payload.puzzleId, "complete");
       persistPuzzleState(payload.puzzleId, "complete");
       payload.unlockedJournalEntryIds.forEach((entryId) => {
@@ -219,6 +235,8 @@ export function GameShell() {
       offMemoryStart();
       offMemoryComplete();
       offPuzzleState();
+      offPuzzleStart();
+      offPuzzleFail();
       offPuzzleComplete();
       offAnalytics();
     };
@@ -229,6 +247,8 @@ export function GameShell() {
     setRoomLabel,
     setPuzzleState,
     showMessage,
+    showPuzzle,
+    clearPuzzle,
     startDialogue,
     startMemory,
     unlockJournalEntry,
@@ -269,7 +289,8 @@ export function GameShell() {
         !journalOpen &&
         !activeDialogueId &&
         !activeMemoryId &&
-        !activeMessageId
+        !activeMessageId &&
+        !activePuzzleId
       ) {
         gameEvents.emit("input:back");
       }
@@ -280,15 +301,19 @@ export function GameShell() {
     return () => {
       window.removeEventListener("keydown", handleGlobalKeyDown);
     };
-  }, [activeDialogueId, activeMemoryId, activeMessageId, closeJournal, journalOpen]);
+  }, [activeDialogueId, activeMemoryId, activeMessageId, activePuzzleId, closeJournal, journalOpen]);
 
   useEffect(() => {
     gameEvents.emit("ui:controls-lock", {
       locked: Boolean(
-        activeDialogueId || activeMemoryId || activeMessageId || journalOpen,
+        activeDialogueId ||
+          activeMemoryId ||
+          activeMessageId ||
+          activePuzzleId ||
+          journalOpen,
       ),
     });
-  }, [activeDialogueId, activeMemoryId, activeMessageId, journalOpen]);
+  }, [activeDialogueId, activeMemoryId, activeMessageId, activePuzzleId, journalOpen]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 py-5 sm:px-6">
@@ -314,6 +339,7 @@ export function GameShell() {
           <MemoryPanelOverlay />
           <JournalPanel />
           <MessagePanel />
+          <OhmdalPuzzleOverlay />
         </div>
       </section>
     </div>

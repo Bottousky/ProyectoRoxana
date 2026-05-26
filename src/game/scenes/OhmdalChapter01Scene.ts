@@ -28,6 +28,12 @@ type WasdKeys = {
 };
 
 export class OhmdalChapter01Scene extends Phaser.Scene {
+  private static readonly PUZZLE_SEQUENCE = [
+    "ohmdal_ch1_puzzle_01",
+    "ohmdal_ch1_puzzle_02",
+    "ohmdal_ch1_puzzle_03",
+  ] as const;
+
   private readonly mapData = chapterMapRaw as HubMapData;
   private player?: Player;
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -40,6 +46,8 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
   private virtualDirection: DirectionVector = { x: 0, y: 0 };
   private activePromptId: string | null = null;
   private cleanupEventHandlers: Array<() => void> = [];
+  private completedPuzzles = new Set<string>();
+  private activePuzzleId: string | null = null;
 
   constructor() {
     super("OhmdalChapter01Scene");
@@ -93,6 +101,21 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
         } else {
           this.suppressInteractionBriefly();
         }
+      }),
+      gameEvents.on("puzzle:fail", (payload) => {
+        if (payload.puzzleId !== this.activePuzzleId) {
+          return;
+        }
+        this.activePuzzleId = null;
+        gameEvents.emit("message:show", { messageId: "ohmdal_ch01_broken_return" });
+      }),
+      gameEvents.on("puzzle:complete", (payload) => {
+        if (payload.puzzleId !== this.activePuzzleId) {
+          return;
+        }
+        this.completedPuzzles.add(payload.puzzleId);
+        this.activePuzzleId = null;
+        this.onPuzzleCompleted(payload.puzzleId);
       }),
     ];
 
@@ -217,6 +240,23 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
         dialogueId,
         speakerId,
         presentation: "portrait",
+      });
+      return;
+    }
+
+    if (target.kind === "puzzle") {
+      const puzzleId = target.payload?.puzzleId;
+      if (!puzzleId) {
+        return;
+      }
+      if (!this.canStartPuzzle(puzzleId)) {
+        gameEvents.emit("message:show", { messageId: "ohmdal_ch01_broken_return" });
+        return;
+      }
+      this.activePuzzleId = puzzleId;
+      gameEvents.emit("puzzle:start", {
+        puzzleId,
+        worldId: this.mapData.id,
       });
       return;
     }
@@ -395,5 +435,51 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
 
   private isInteractionSuppressed() {
     return this.time.now < this.suppressInteractUntil;
+  }
+
+  private canStartPuzzle(puzzleId: string) {
+    const sequence = OhmdalChapter01Scene.PUZZLE_SEQUENCE;
+    const puzzleIndex = sequence.indexOf(
+      puzzleId as (typeof OhmdalChapter01Scene.PUZZLE_SEQUENCE)[number],
+    );
+    if (puzzleIndex === -1 || this.completedPuzzles.has(puzzleId)) {
+      return false;
+    }
+    if (puzzleIndex === 0) {
+      return true;
+    }
+    const previousPuzzleId = sequence[puzzleIndex - 1];
+    return this.completedPuzzles.has(previousPuzzleId);
+  }
+
+  private onPuzzleCompleted(puzzleId: string) {
+    if (puzzleId === "ohmdal_ch1_puzzle_01") {
+      gameEvents.emit("journal:entry-updated", {
+        entryId: "ohmdal_closed_circuit",
+        stageId: "system_observation",
+        source: "puzzle",
+      });
+      gameEvents.emit("message:show", { messageId: "ohmdal_ch01_switch_feedback" });
+      return;
+    }
+
+    if (puzzleId === "ohmdal_ch1_puzzle_02") {
+      gameEvents.emit("journal:entry-updated", {
+        entryId: "ohmdal_closed_circuit",
+        stageId: "pattern_recognition",
+        source: "puzzle",
+      });
+      gameEvents.emit("message:show", { messageId: "ohmdal_ch01_copper_path" });
+      return;
+    }
+
+    if (puzzleId === "ohmdal_ch1_puzzle_03") {
+      gameEvents.emit("journal:entry-updated", {
+        entryId: "ohmdal_closed_circuit",
+        stageId: "post_restoration",
+        source: "puzzle",
+      });
+      gameEvents.emit("message:show", { messageId: "ohmdal_ch01_plaza_restored" });
+    }
   }
 }
