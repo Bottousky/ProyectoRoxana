@@ -6,7 +6,9 @@ import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
 import { drawMapArtBackground } from "@/game/systems/mapArt";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
+  completeNarrativeBeat,
   hasCompletedNarrativeBeat,
+  hasRecoveredWorldItem,
   hasVisitedRoom,
   setLastRoom,
 } from "@/game/systems/progressStore";
@@ -116,6 +118,14 @@ export class HubScene extends Phaser.Scene {
       roomId: this.mapData.id,
       metadata: { firstVisit },
     });
+    if (
+      data.spawnPointId === "ohmdal_gate" &&
+      hasRecoveredWorldItem("bobina_memoria_de_ohmdal") &&
+      !hasCompletedNarrativeBeat("hub_ohmdal_coil_returned")
+    ) {
+      gameEvents.emit("message:show", { messageId: "hub_ohmdal_coil_returned" });
+      completeNarrativeBeat("hub_ohmdal_coil_returned");
+    }
     setLastRoom(this.mapData.id);
   }
 

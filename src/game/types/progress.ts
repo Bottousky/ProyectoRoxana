@@ -18,6 +18,7 @@ export type PlayerProgress = {
   completedPuzzles: string[];
   puzzleStates: Record<string, PuzzleState>;
   diagnosticKnowledge: string[];
+  recoveredWorldItems: string[];
   lastRoomId: string | null;
 };
 
@@ -32,5 +33,6 @@ export const createInitialProgress = (): PlayerProgress => ({
   completedPuzzles: [],
   puzzleStates: {},
   diagnosticKnowledge: [],
+  recoveredWorldItems: [],
   lastRoomId: null,
 });

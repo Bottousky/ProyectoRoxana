@@ -136,3 +136,20 @@ export function setPuzzleState(puzzleId: string, state: PuzzleState) {
     },
   }));
 }
+
+export function recoverWorldItem(itemId: string) {
+  return updateProgress((progress) => {
+    if (progress.recoveredWorldItems.includes(itemId)) {
+      return progress;
+    }
+
+    return {
+      ...progress,
+      recoveredWorldItems: [...progress.recoveredWorldItems, itemId],
+    };
+  });
+}
+
+export function hasRecoveredWorldItem(itemId: string) {
+  return loadProgress().recoveredWorldItems.includes(itemId);
+}

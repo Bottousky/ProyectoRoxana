@@ -106,6 +106,10 @@ export type RoxanaGameEvents = {
     beatId?: string;
     skipped: boolean;
   };
+  "world:item-recovered": {
+    itemId: string;
+    worldId: string;
+  };
   "puzzle:start": {
     puzzleId: string;
     worldId: string;

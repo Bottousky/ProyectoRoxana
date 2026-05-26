@@ -5,6 +5,7 @@ import { Player } from "@/game/entities/Player";
 import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
+  hasRecoveredWorldItem,
   hasVisitedRoom,
   markRoomVisited,
   setLastRoom,
@@ -48,6 +49,8 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
   private cleanupEventHandlers: Array<() => void> = [];
   private completedPuzzles = new Set<string>();
   private activePuzzleId: string | null = null;
+  private archiveGateUnlocked = false;
+  private memoryCoilRecovered = false;
 
   constructor() {
     super("OhmdalChapter01Scene");
@@ -55,6 +58,8 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
 
   create() {
     const firstVisit = !hasVisitedRoom(this.mapData.id);
+    this.archiveGateUnlocked = false;
+    this.memoryCoilRecovered = hasRecoveredWorldItem("bobina_memoria_de_ohmdal");
     this.solids = this.mapData.solids;
     this.interactables = this.mapData.interactables;
     this.drawRoom();
@@ -258,6 +263,39 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
         puzzleId,
         worldId: this.mapData.id,
       });
+      return;
+    }
+
+    if (target.id === "archive_gate_interact") {
+      if (!this.archiveGateUnlocked) {
+        gameEvents.emit("message:show", { messageId: "ohmdal_ch01_archive_gate" });
+        return;
+      }
+      gameEvents.emit("message:show", { messageId: "ohmdal_ch01_gate_restored" });
+      return;
+    }
+
+    if (target.id === "memory_coil_pickup") {
+      if (!this.archiveGateUnlocked) {
+        gameEvents.emit("message:show", { messageId: "ohmdal_ch01_archive_gate" });
+        return;
+      }
+      if (this.memoryCoilRecovered) {
+        gameEvents.emit("message:show", { messageId: "ohmdal_return_hint" });
+        return;
+      }
+      this.memoryCoilRecovered = true;
+      gameEvents.emit("message:show", { messageId: "ohmdal_ch01_memory_coil" });
+      gameEvents.emit("world:item-recovered", {
+        itemId: "bobina_memoria_de_ohmdal",
+        worldId: this.mapData.id,
+      });
+      gameEvents.emit("analytics:track", {
+        eventName: "finished_demo",
+        roomId: this.mapData.id,
+        metadata: { recoveredItem: "bobina_memoria_de_ohmdal" },
+      });
+      this.scene.start("HubScene", { spawnPointId: "ohmdal_gate" });
       return;
     }
 
@@ -474,6 +512,7 @@ export class OhmdalChapter01Scene extends Phaser.Scene {
     }
 
     if (puzzleId === "ohmdal_ch1_puzzle_03") {
+      this.archiveGateUnlocked = true;
       gameEvents.emit("journal:entry-updated", {
         entryId: "ohmdal_closed_circuit",
         stageId: "post_restoration",

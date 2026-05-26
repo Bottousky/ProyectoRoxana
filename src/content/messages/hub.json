@@ -24,6 +24,11 @@
       "id": "roxana_presence_revisit",
       "title": "Presencia de Roxana",
       "body": "La silueta no habla, pero el aire cambia cuando miras hacia el despacho."
+    },
+    {
+      "id": "hub_ohmdal_coil_returned",
+      "title": "Regreso desde Ohmdal",
+      "body": "La bobina de memoria vibra en tu mano. La recepcion responde con un zumbido tenue, como si la escuela notara que algo volvio."
     }
   ]
 }

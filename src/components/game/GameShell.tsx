@@ -16,6 +16,7 @@ import {
   completeNarrativeBeat,
   loadProgress,
   markRoomVisited,
+  recoverWorldItem,
   unlockJournalStage as persistJournalStage,
   setPuzzleState as persistPuzzleState,
   unlockJournalEntry as persistJournalEntry,
@@ -222,6 +223,9 @@ export function GameShell() {
     const offAnalytics = gameEvents.on("analytics:track", (payload) => {
       trackAnalyticsEvent(payload);
     });
+    const offRecoveredItem = gameEvents.on("world:item-recovered", (payload) => {
+      recoverWorldItem(payload.itemId);
+    });
 
     return () => {
       offDialogue();
@@ -239,6 +243,7 @@ export function GameShell() {
       offPuzzleFail();
       offPuzzleComplete();
       offAnalytics();
+      offRecoveredItem();
     };
   }, [
     openJournal,
