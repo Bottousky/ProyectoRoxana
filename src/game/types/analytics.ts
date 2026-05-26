@@ -25,6 +25,7 @@ export const MVP_ANALYTICS_EVENTS = [
   "journal_stage_revealed",
   "journal_page_turned",
   "journal_technical_opened",
+  "entered_ohmdal_chapter_01",
 ] as const;
 
 export type MvpAnalyticsEventName = (typeof MVP_ANALYTICS_EVENTS)[number];

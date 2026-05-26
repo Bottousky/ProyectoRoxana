@@ -4,6 +4,12 @@ import { GAME_HEIGHT, GAME_WIDTH } from "@/game/constants";
 export class Player {
   private readonly body: Phaser.GameObjects.Rectangle;
   private readonly speed = 72;
+  private movementBounds = {
+    minX: 8,
+    maxX: GAME_WIDTH - 8,
+    minY: 10,
+    maxY: GAME_HEIGHT - 10,
+  };
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
     this.body = scene.add.rectangle(x, y, 10, 14, 0x69d2c8);
@@ -26,6 +32,19 @@ export class Player {
     return this.body.height / 2;
   }
 
+  get gameObject() {
+    return this.body;
+  }
+
+  setMovementBounds(bounds: {
+    minX: number;
+    maxX: number;
+    minY: number;
+    maxY: number;
+  }) {
+    this.movementBounds = bounds;
+  }
+
   move(
     directionX: number,
     directionY: number,
@@ -41,15 +60,19 @@ export class Player {
     const deltaX = vector.x * distance;
     const deltaY = vector.y * distance;
 
-    const candidateX = Phaser.Math.Clamp(this.body.x + deltaX, 8, GAME_WIDTH - 8);
+    const candidateX = Phaser.Math.Clamp(
+      this.body.x + deltaX,
+      this.movementBounds.minX,
+      this.movementBounds.maxX,
+    );
     if (!canOccupy || canOccupy(candidateX, this.body.y)) {
       this.body.x = candidateX;
     }
 
     const candidateY = Phaser.Math.Clamp(
       this.body.y + deltaY,
-      10,
-      GAME_HEIGHT - 10,
+      this.movementBounds.minY,
+      this.movementBounds.maxY,
     );
     if (!canOccupy || canOccupy(this.body.x, candidateY)) {
       this.body.y = candidateY;

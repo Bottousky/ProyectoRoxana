@@ -1,0 +1,85 @@
+{
+  "id": "ohmdal_chapter_01",
+  "tileSize": 32,
+  "size": {
+    "width": 1280,
+    "height": 720
+  },
+  "spawn": {
+    "x": 120,
+    "y": 620
+  },
+  "spawnPoints": {
+    "from_classroom": {
+      "x": 120,
+      "y": 620
+    }
+  },
+  "entities": {
+    "roxana": {
+      "id": "ohm_automaton_guide",
+      "x": 164,
+      "y": 580
+    }
+  },
+  "solids": [
+    { "id": "north_wall", "x": 8, "y": 8, "width": 1264, "height": 20, "style": "wall" },
+    { "id": "south_wall_left", "x": 8, "y": 692, "width": 320, "height": 20, "style": "wall" },
+    { "id": "south_wall_right", "x": 420, "y": 692, "width": 852, "height": 20, "style": "wall" },
+    { "id": "west_wall", "x": 8, "y": 8, "width": 20, "height": 704, "style": "wall" },
+    { "id": "east_wall", "x": 1252, "y": 8, "width": 20, "height": 704, "style": "wall" },
+
+    { "id": "service_gate", "x": 418, "y": 470, "width": 28, "height": 110, "style": "gate" },
+    { "id": "workshop_wreck_1", "x": 602, "y": 432, "width": 140, "height": 56, "style": "furniture" },
+    { "id": "workshop_wreck_2", "x": 806, "y": 360, "width": 110, "height": 64, "style": "furniture" },
+    { "id": "plaza_fountain_base", "x": 964, "y": 248, "width": 150, "height": 92, "style": "furniture" },
+    { "id": "archive_gate", "x": 1142, "y": 136, "width": 52, "height": 138, "style": "gate" }
+  ],
+  "decorations": [
+    { "id": "ground", "x": 20, "y": 20, "width": 1240, "height": 680, "fill": "#17242c", "stroke": "#36505d" },
+    { "id": "arrival_plaza", "x": 40, "y": 520, "width": 340, "height": 150, "fill": "#20343d", "stroke": "#4d6f7d" },
+    { "id": "service_patio", "x": 460, "y": 446, "width": 274, "height": 164, "fill": "#26353d", "stroke": "#7f6a48" },
+    { "id": "workshop_street", "x": 760, "y": 352, "width": 380, "height": 220, "fill": "#22303a", "stroke": "#6b5138" },
+    { "id": "plaza", "x": 880, "y": 184, "width": 360, "height": 186, "fill": "#223641", "stroke": "#5a7382" },
+    { "id": "archive_access", "x": 1086, "y": 96, "width": 150, "height": 200, "fill": "#1d2d35", "stroke": "#8a6a38" },
+    { "id": "broken_bronze_line", "x": 480, "y": 520, "width": 520, "height": 10, "fill": "#6e553b", "stroke": "#c29b66" },
+    { "id": "return_threshold", "x": 328, "y": 690, "width": 92, "height": 20, "fill": "#253748", "stroke": "#70849c" }
+  ],
+  "interactables": [
+    {
+      "id": "return_hub",
+      "kind": "inspect",
+      "bounds": { "x": 320, "y": 676, "width": 108, "height": 36 },
+      "prompt": "Volver a la escuela",
+      "payload": { "messageId": "ohmdal_return_hint", "targetWorldId": "hub" }
+    },
+    {
+      "id": "service_line_inspect",
+      "kind": "inspect",
+      "bounds": { "x": 462, "y": 498, "width": 300, "height": 70 },
+      "prompt": "Observar linea de bronce",
+      "payload": { "messageId": "ohmdal_floor_path" }
+    },
+    {
+      "id": "broken_automaton_inspect",
+      "kind": "inspect",
+      "bounds": { "x": 760, "y": 368, "width": 180, "height": 86 },
+      "prompt": "Inspeccionar automata",
+      "payload": { "messageId": "ohmdal_broken_automaton" }
+    },
+    {
+      "id": "market_stall_inspect",
+      "kind": "inspect",
+      "bounds": { "x": 944, "y": 338, "width": 188, "height": 86 },
+      "prompt": "Inspeccionar puesto",
+      "payload": { "messageId": "ohmdal_market_stall_dark" }
+    },
+    {
+      "id": "ohm_chapter_intro",
+      "kind": "dialogue",
+      "bounds": { "x": 128, "y": 546, "width": 94, "height": 84 },
+      "prompt": "Hablar con OHM",
+      "payload": { "dialogueId": "ohmdal_intro", "speakerId": "ohm_automaton" }
+    }
+  ]
+}

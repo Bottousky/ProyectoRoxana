@@ -1,13 +1,10 @@
 import * as Phaser from "phaser";
-import classroomMapRaw from "@/content/maps/electronics-classroom.map.json";
-import { GAME_HEIGHT, GAME_WIDTH, TILE_SIZE } from "@/game/constants";
+import chapterMapRaw from "@/content/maps/ohmdal-chapter-01.map.json";
+import { TILE_SIZE } from "@/game/constants";
 import { Player } from "@/game/entities/Player";
 import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
-import { drawMapArtBackground } from "@/game/systems/mapArt";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
-  completeNarrativeBeat,
-  hasCompletedNarrativeBeat,
   hasVisitedRoom,
   markRoomVisited,
   setLastRoom,
@@ -30,8 +27,8 @@ type WasdKeys = {
   ENTER: Phaser.Input.Keyboard.Key;
 };
 
-export class ElectronicsClassroomScene extends Phaser.Scene {
-  private readonly mapData = classroomMapRaw as HubMapData;
+export class OhmdalChapter01Scene extends Phaser.Scene {
+  private readonly mapData = chapterMapRaw as HubMapData;
   private player?: Player;
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
   private keys?: WasdKeys;
@@ -45,7 +42,7 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
   private cleanupEventHandlers: Array<() => void> = [];
 
   constructor() {
-    super("ElectronicsClassroomScene");
+    super("OhmdalChapter01Scene");
   }
 
   create() {
@@ -55,6 +52,12 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     this.drawRoom();
 
     this.player = new Player(this, this.mapData.spawn.x, this.mapData.spawn.y);
+    this.player.setMovementBounds({
+      minX: this.player.halfWidth,
+      maxX: this.mapData.size.width - this.player.halfWidth,
+      minY: this.player.halfHeight,
+      maxY: this.mapData.size.height - this.player.halfHeight,
+    });
     new RoxanaNpc(
       this,
       this.mapData.entities.roxana.x,
@@ -65,6 +68,11 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     this.keys = this.input.keyboard?.addKeys(
       "W,A,S,D,E,SPACE,ENTER",
     ) as WasdKeys;
+
+    this.cameras.main.setBounds(0, 0, this.mapData.size.width, this.mapData.size.height);
+    this.physics.world.setBounds(0, 0, this.mapData.size.width, this.mapData.size.height);
+    this.cameras.main.startFollow(this.player.gameObject, true, 0.08, 0.08);
+    this.cameras.main.setRoundPixels(true);
 
     this.cleanupEventHandlers = [
       gameEvents.on("dialogue:complete", () => {
@@ -94,27 +102,19 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
       this.clearPrompt();
     });
 
-    gameEvents.emit("scene:ready", { scene: "electronics_classroom" });
+    gameEvents.emit("scene:ready", { scene: "ohmdal_chapter_01" });
     gameEvents.emit("room:entered", {
       roomId: this.mapData.id,
-      sourceRoomId: "roxana_library_hub",
+      sourceRoomId: "electronics_classroom",
       firstVisit,
     });
     gameEvents.emit("analytics:track", {
-      eventName: "entered_electronics_classroom",
+      eventName: "entered_ohmdal_chapter_01",
       roomId: this.mapData.id,
       metadata: { firstVisit },
     });
     markRoomVisited(this.mapData.id);
     setLastRoom(this.mapData.id);
-
-    if (firstVisit) {
-      gameEvents.emit("narrative:beat-completed", {
-        beatId: "electronics_classroom_first_entry",
-        roomId: this.mapData.id,
-      });
-      completeNarrativeBeat("electronics_classroom_first_entry");
-    }
   }
 
   update(_time: number, delta: number) {
@@ -140,25 +140,22 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
   }
 
   private drawRoom() {
-    this.cameras.main.setBackgroundColor("#0b1712");
-
-    const hasMapArt = drawMapArtBackground(this, this.mapData);
+    this.cameras.main.setBackgroundColor("#0b151b");
     const graphics = this.add.graphics();
-    if (!hasMapArt) {
-      graphics.fillStyle(0x101c17, 1);
-      graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-    }
 
-    graphics.lineStyle(1, 0x274638, 0.36);
-    for (let x = 0; x <= GAME_WIDTH; x += TILE_SIZE) {
-      graphics.lineBetween(x, 0, x, GAME_HEIGHT);
+    graphics.fillStyle(0x111b24, 1);
+    graphics.fillRect(0, 0, this.mapData.size.width, this.mapData.size.height);
+
+    graphics.lineStyle(1, 0x263247, 0.2);
+    for (let x = 0; x <= this.mapData.size.width; x += TILE_SIZE) {
+      graphics.lineBetween(x, 0, x, this.mapData.size.height);
     }
-    for (let y = 0; y <= GAME_HEIGHT; y += TILE_SIZE) {
-      graphics.lineBetween(0, y, GAME_WIDTH, y);
+    for (let y = 0; y <= this.mapData.size.height; y += TILE_SIZE) {
+      graphics.lineBetween(0, y, this.mapData.size.width, y);
     }
 
     for (const decoration of this.mapData.decorations) {
-      graphics.fillStyle(this.colorFromHex(decoration.fill), hasMapArt ? 0.42 : 1);
+      graphics.fillStyle(this.colorFromHex(decoration.fill), 1);
       graphics.fillRect(
         decoration.x,
         decoration.y,
@@ -178,9 +175,9 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     }
 
     for (const solid of this.solids) {
-      graphics.fillStyle(this.styleColorForSolid(solid.style), hasMapArt ? 0.72 : 1);
+      graphics.fillStyle(this.styleColorForSolid(solid.style), 1);
       graphics.fillRect(solid.x, solid.y, solid.width, solid.height);
-      graphics.lineStyle(1, 0x0b120f, 0.8);
+      graphics.lineStyle(1, 0x0f1420, 0.8);
       graphics.strokeRect(solid.x, solid.y, solid.width, solid.height);
     }
   }
@@ -214,53 +211,13 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
         return;
       }
 
-      if (hasCompletedNarrativeBeat("ohmdal_automaton_first_contact")) {
-        gameEvents.emit("message:show", {
-          messageId: "electronics_classroom_ohm_revisit",
-        });
-        return;
-      }
-
       this.movementLocked = true;
       this.clearPrompt();
       gameEvents.emit("dialogue:start", {
         dialogueId,
         speakerId,
         presentation: "portrait",
-        beatId: "ohmdal_automaton_first_contact",
       });
-      return;
-    }
-
-    if (target.payload?.targetWorldId === "ohmdal") {
-      if (!hasCompletedNarrativeBeat("ohmdal_preview_memory_seen")) {
-        gameEvents.emit("memory:start", {
-          memoryId: "ohmdal_preview",
-          beatId: "ohmdal_preview_memory_seen",
-          source: "portal",
-        });
-        gameEvents.emit("analytics:track", {
-          eventName: "viewed_ohmdal_preview",
-          roomId: this.mapData.id,
-          beatId: "ohmdal_preview_memory_seen",
-        });
-        return;
-      }
-
-      gameEvents.emit("message:show", {
-        messageId: "electronics_classroom_portal_ready",
-      });
-      gameEvents.emit("narrative:beat-completed", {
-        beatId: "ohmdal_first_puzzle_handoff",
-        roomId: this.mapData.id,
-      });
-      gameEvents.emit("analytics:track", {
-        eventName: "started_puzzle_after_narrative_bridge",
-        roomId: this.mapData.id,
-        beatId: "ohmdal_first_puzzle_handoff",
-      });
-      completeNarrativeBeat("ohmdal_first_puzzle_handoff");
-      this.scene.start("OhmdalChapter01Scene");
       return;
     }
 
@@ -326,7 +283,7 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     let bestDistance = Number.POSITIVE_INFINITY;
 
     for (const interactable of this.interactables) {
-      if (!this.isPlayerNearBounds(interactable.bounds, 18)) {
+      if (!this.isPlayerNearBounds(interactable.bounds, 22)) {
         continue;
       }
 
@@ -420,15 +377,15 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
   private styleColorForSolid(style: HubSolid["style"]) {
     switch (style) {
       case "wall":
-        return 0x26372f;
+        return 0x2f3d54;
       case "shelf":
-        return 0x5b4a2f;
+        return 0x4f3d2f;
       case "furniture":
-        return 0x6c5638;
+        return 0x645341;
       case "gate":
-        return 0x315044;
+        return 0x2e4a52;
       default:
-        return 0x34483d;
+        return 0x3b4455;
     }
   }
 

@@ -23,6 +23,7 @@ export type RoxanaSceneId =
   | "hub"
   | "roxana_office"
   | "electronics_classroom"
+  | "ohmdal_chapter_01"
   | "topdown_spike"
   | "voxel_spike"
   | "electronics_threshold"
@@ -144,7 +145,8 @@ export type RoxanaGameEvents = {
       | "opened_flagship_journal"
       | "journal_stage_revealed"
       | "journal_page_turned"
-      | "journal_technical_opened";
+      | "journal_technical_opened"
+      | "entered_ohmdal_chapter_01";
     roomId?: string;
     puzzleId?: string;
     entryId?: string;

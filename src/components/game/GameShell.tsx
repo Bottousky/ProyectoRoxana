@@ -328,6 +328,8 @@ function roomLabelFor(roomId: string) {
       return "Escuela - Aula de Electronica";
     case "ohmdal_threshold":
       return "Ohmdal - Umbral";
+    case "ohmdal_chapter_01":
+      return "Ohmdal - Capitulo 1";
     case "roxana_library_hub":
     default:
       return "Escuela - Recepcion";
