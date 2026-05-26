@@ -3,6 +3,7 @@
   "tileSize": 32,
   "assetBundle": {
     "manifest": "/assets/environment/ohmdal/threshold/threshold.asset-manifest.json",
+    "previewImage": "/assets/environment/ohmdal/threshold/threshold-layered-preview.placeholder.png",
     "status": "placeholder_reference"
   },
   "size": {

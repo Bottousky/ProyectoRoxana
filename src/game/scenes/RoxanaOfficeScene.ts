@@ -2,6 +2,7 @@ import * as Phaser from "phaser";
 import officeMapRaw from "@/content/maps/roxana-office.map.json";
 import { GAME_HEIGHT, GAME_WIDTH, TILE_SIZE } from "@/game/constants";
 import { Player } from "@/game/entities/Player";
+import { drawMapArtBackground } from "@/game/systems/mapArt";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
   hasCompletedNarrativeBeat,
@@ -139,9 +140,12 @@ export class RoxanaOfficeScene extends Phaser.Scene {
   private drawOffice() {
     this.cameras.main.setBackgroundColor("#15110f");
 
+    const hasMapArt = drawMapArtBackground(this, this.mapData);
     const graphics = this.add.graphics();
-    graphics.fillStyle(0x1a1412, 1);
-    graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    if (!hasMapArt) {
+      graphics.fillStyle(0x1a1412, 1);
+      graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    }
 
     graphics.lineStyle(1, 0x3a2f28, 0.36);
     for (let x = 0; x <= GAME_WIDTH; x += TILE_SIZE) {
@@ -152,7 +156,7 @@ export class RoxanaOfficeScene extends Phaser.Scene {
     }
 
     for (const decoration of this.mapData.decorations) {
-      graphics.fillStyle(this.colorFromHex(decoration.fill), 1);
+      graphics.fillStyle(this.colorFromHex(decoration.fill), hasMapArt ? 0.42 : 1);
       graphics.fillRect(
         decoration.x,
         decoration.y,
@@ -172,7 +176,7 @@ export class RoxanaOfficeScene extends Phaser.Scene {
     }
 
     for (const solid of this.solids) {
-      graphics.fillStyle(this.styleColorForSolid(solid.style), 1);
+      graphics.fillStyle(this.styleColorForSolid(solid.style), hasMapArt ? 0.72 : 1);
       graphics.fillRect(solid.x, solid.y, solid.width, solid.height);
       graphics.lineStyle(1, 0x0d0b0a, 0.8);
       graphics.strokeRect(solid.x, solid.y, solid.width, solid.height);

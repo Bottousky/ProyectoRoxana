@@ -3,6 +3,7 @@ import classroomMapRaw from "@/content/maps/electronics-classroom.map.json";
 import { GAME_HEIGHT, GAME_WIDTH, TILE_SIZE } from "@/game/constants";
 import { Player } from "@/game/entities/Player";
 import { RoxanaNpc } from "@/game/entities/RoxanaNpc";
+import { drawMapArtBackground } from "@/game/systems/mapArt";
 import { gameEvents } from "@/game/systems/eventBus";
 import {
   completeNarrativeBeat,
@@ -141,9 +142,12 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
   private drawRoom() {
     this.cameras.main.setBackgroundColor("#0b1712");
 
+    const hasMapArt = drawMapArtBackground(this, this.mapData);
     const graphics = this.add.graphics();
-    graphics.fillStyle(0x101c17, 1);
-    graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    if (!hasMapArt) {
+      graphics.fillStyle(0x101c17, 1);
+      graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    }
 
     graphics.lineStyle(1, 0x274638, 0.36);
     for (let x = 0; x <= GAME_WIDTH; x += TILE_SIZE) {
@@ -154,7 +158,7 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     }
 
     for (const decoration of this.mapData.decorations) {
-      graphics.fillStyle(this.colorFromHex(decoration.fill), 1);
+      graphics.fillStyle(this.colorFromHex(decoration.fill), hasMapArt ? 0.42 : 1);
       graphics.fillRect(
         decoration.x,
         decoration.y,
@@ -174,7 +178,7 @@ export class ElectronicsClassroomScene extends Phaser.Scene {
     }
 
     for (const solid of this.solids) {
-      graphics.fillStyle(this.styleColorForSolid(solid.style), 1);
+      graphics.fillStyle(this.styleColorForSolid(solid.style), hasMapArt ? 0.72 : 1);
       graphics.fillRect(solid.x, solid.y, solid.width, solid.height);
       graphics.lineStyle(1, 0x0b120f, 0.8);
       graphics.strokeRect(solid.x, solid.y, solid.width, solid.height);

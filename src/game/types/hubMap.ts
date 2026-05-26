@@ -48,6 +48,7 @@ export type HubMapData = {
   tileSize: number;
   assetBundle?: {
     manifest: string;
+    previewImage?: string;
     status: "placeholder_reference" | "normalized" | "runtime";
   };
   size: {

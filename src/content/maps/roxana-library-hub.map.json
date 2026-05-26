@@ -3,6 +3,7 @@
   "tileSize": 32,
   "assetBundle": {
     "manifest": "/assets/environment/school/school-reception/school-reception.asset-manifest.json",
+    "previewImage": "/assets/environment/school/school-reception/school-reception-layered-preview.placeholder.png",
     "status": "placeholder_reference"
   },
   "size": {

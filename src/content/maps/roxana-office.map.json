@@ -3,6 +3,7 @@
   "tileSize": 32,
   "assetBundle": {
     "manifest": "/assets/environment/school/roxana-office/roxana-office.asset-manifest.json",
+    "previewImage": "/assets/environment/school/roxana-office/roxana-office-layered-preview.placeholder.png",
     "status": "placeholder_reference"
   },
   "size": {

@@ -3,6 +3,7 @@
   "tileSize": 32,
   "assetBundle": {
     "manifest": "/assets/environment/school/electronics-classroom/electronics-classroom.asset-manifest.json",
+    "previewImage": "/assets/environment/school/electronics-classroom/electronics-classroom-layered-preview.placeholder.png",
     "status": "placeholder_reference"
   },
   "size": {
