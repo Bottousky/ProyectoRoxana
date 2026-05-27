@@ -27,6 +27,6 @@ Current placeholder bundles:
   - `chapter-01-zones.json`
   - `chapter-01-scene-hooks.json`
   - `chapter-01-sprite-prompts.json`
-  - preview currently reuses `../threshold/threshold-layered-preview.placeholder.png`
+  - `chapter-01-layered-preview.placeholder.png`
 
 Do not treat generated images as final production assets unless a later spec declares their function, scale, acceptance criteria, and manifest.

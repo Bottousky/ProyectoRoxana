@@ -2,7 +2,7 @@
   "id": "ohmdal_chapter_01",
   "assetBundle": {
     "manifest": "/assets/environment/ohmdal/chapter-01/chapter-01.asset-manifest.json",
-    "previewImage": "/assets/environment/ohmdal/threshold/threshold-layered-preview.placeholder.png",
+    "previewImage": "/assets/environment/ohmdal/chapter-01/chapter-01-layered-preview.placeholder.png",
     "status": "placeholder_reference"
   },
   "tileSize": 32,

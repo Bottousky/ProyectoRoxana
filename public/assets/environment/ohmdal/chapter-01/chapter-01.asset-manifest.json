@@ -29,6 +29,6 @@
   "zones": "/assets/environment/ohmdal/chapter-01/chapter-01-zones.json",
   "sceneHooks": "/assets/environment/ohmdal/chapter-01/chapter-01-scene-hooks.json",
   "spritePrompts": "/assets/environment/ohmdal/chapter-01/chapter-01-sprite-prompts.json",
-  "preview": "/assets/environment/ohmdal/threshold/threshold-layered-preview.placeholder.png",
+  "preview": "/assets/environment/ohmdal/chapter-01/chapter-01-layered-preview.placeholder.png",
   "prompt": "/assets/environment/ohmdal/chapter-01/chapter-01.prompt.txt"
 }
