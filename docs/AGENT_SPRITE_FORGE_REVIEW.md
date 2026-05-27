@@ -75,3 +75,7 @@ Acceptance for the experiment:
 - Collision and interactable proposals are inspectable before implementation.
 - No generated asset is treated as final art.
 - The result can be discarded without changing runtime code.
+
+## Local usage baseline
+
+The active project-specific usage guide now lives in `docs/AGENT_SPRITE_FORGE_USAGE.md`.

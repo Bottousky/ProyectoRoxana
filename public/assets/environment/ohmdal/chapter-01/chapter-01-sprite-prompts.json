@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "ohmdal_chapter_01",
+  "status": "prompt_reference",
+  "prompts": [
+    {
+      "id": "service_gate",
+      "skill": "generate2dsprite",
+      "assetType": "prop",
+      "strategy": "one_by_one",
+      "prompt": "Create a single service gate prop for a top-down 2D RPG map. Clean hand-painted HD game asset style, techno-medieval bronze and dark iron, abandoned but not evil, readable silhouette, mostly front-facing top-down RPG object view. Full object visible and centered with generous margin. Background must be 100% solid flat #FF00FF magenta. No text, labels, UI, watermark, floor plane, or shadows baked into the background."
+    },
+    {
+      "id": "workshop_broken_automaton",
+      "skill": "generate2dsprite",
+      "assetType": "prop",
+      "strategy": "one_by_one",
+      "prompt": "Create a single fallen workshop automaton prop for a top-down 2D RPG map. Clean hand-painted HD game asset style matching an abandoned techno-medieval electronics world. It should read as an inspectable inert machine, not a living NPC. Full object visible and centered with generous margin. Background must be 100% solid flat #FF00FF magenta. No text, labels, UI, watermark, floor plane, or shadows baked into the background."
+    },
+    {
+      "id": "plaza_fountain_base",
+      "skill": "generate2dsprite",
+      "assetType": "prop",
+      "strategy": "one_by_one",
+      "prompt": "Create a single dry plaza fountain base prop for a top-down 2D RPG map. Clean hand-painted HD game asset style, bronze channels, stone basin, subtle conductive route motif, readable at 640x360 viewport. Full object visible and centered with generous margin. Background must be 100% solid flat #FF00FF magenta. No text, labels, UI, watermark, floor plane, or shadows baked into the background."
+    },
+    {
+      "id": "archive_gate",
+      "skill": "generate2dsprite",
+      "assetType": "prop",
+      "strategy": "one_by_one",
+      "prompt": "Create a single archive gate prop for a top-down 2D RPG map. Clean hand-painted HD game asset style, tall bronze archive doorway with old circuit-like ornamentation, collision-critical gate silhouette, not a character. Full object visible and centered with generous margin. Background must be 100% solid flat #FF00FF magenta. No text, labels, UI, watermark, floor plane, or shadows baked into the background."
+    },
+    {
+      "id": "memory_coil",
+      "skill": "generate2dsprite",
+      "assetType": "prop",
+      "strategy": "one_by_one",
+      "prompt": "Create a single memory coil pickup prop for a top-down 2D RPG map. Clean hand-painted HD game asset style, small bronze-and-light coil artifact, emotionally significant but readable as a pickup, no UI glow icon. Full object visible and centered with generous margin. Background must be 100% solid flat #FF00FF magenta. No text, labels, UI, watermark, floor plane, or shadows baked into the background."
+    }
+  ]
+}

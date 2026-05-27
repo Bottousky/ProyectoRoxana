@@ -22,6 +22,11 @@ Current placeholder bundles:
 - `chapter-01/`
   - `chapter-01.asset-manifest.json`
   - `chapter-01.prompt.txt`
+  - `chapter-01-props.json`
+  - `chapter-01-collision.json`
+  - `chapter-01-zones.json`
+  - `chapter-01-scene-hooks.json`
+  - `chapter-01-sprite-prompts.json`
   - preview currently reuses `../threshold/threshold-layered-preview.placeholder.png`
 
 Do not treat generated images as final production assets unless a later spec declares their function, scale, acceptance criteria, and manifest.

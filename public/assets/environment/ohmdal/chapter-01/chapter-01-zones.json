@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "ohmdal_chapter_01",
+  "zones": [
+    {
+      "id": "arrival_gate",
+      "kind": "arrival",
+      "bounds": { "x": 40, "y": 520, "w": 340, "h": 150 },
+      "designPurpose": "First readable landing area after the classroom portal."
+    },
+    {
+      "id": "service_patio",
+      "kind": "puzzle_zone",
+      "bounds": { "x": 460, "y": 446, "w": 274, "h": 164 },
+      "puzzleId": "ohmdal_ch1_puzzle_01",
+      "designPurpose": "Closed-return observation and first repair."
+    },
+    {
+      "id": "workshop_street",
+      "kind": "puzzle_zone",
+      "bounds": { "x": 760, "y": 352, "w": 380, "h": 220 },
+      "puzzleId": "ohmdal_ch1_puzzle_02",
+      "designPurpose": "Material path observation without formal explanation in dialogue."
+    },
+    {
+      "id": "plaza",
+      "kind": "puzzle_zone",
+      "bounds": { "x": 880, "y": 184, "w": 360, "h": 186 },
+      "puzzleId": "ohmdal_ch1_puzzle_03",
+      "designPurpose": "System-level ida y retorno restoration."
+    },
+    {
+      "id": "archive_access",
+      "kind": "chapter_closure",
+      "bounds": { "x": 1086, "y": 96, "w": 150, "h": 200 },
+      "itemId": "bobina_memoria_de_ohmdal",
+      "designPurpose": "Reward and return-to-hub closure after puzzle 3."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "ohmdal_chapter_01",
+  "mapSize": {
+    "width": 1280,
+    "height": 720
+  },
+  "collisionModel": "coarse_shapes",
+  "walkBounds": [
+    { "id": "arrival_walk", "type": "rect", "x": 40, "y": 520, "w": 340, "h": 150 },
+    { "id": "service_patio_walk", "type": "rect", "x": 460, "y": 446, "w": 274, "h": 164 },
+    { "id": "workshop_street_walk", "type": "rect", "x": 760, "y": 352, "w": 380, "h": 220 },
+    { "id": "plaza_walk", "type": "rect", "x": 880, "y": 184, "w": 360, "h": 186 },
+    { "id": "archive_walk", "type": "rect", "x": 1086, "y": 96, "w": 150, "h": 200 }
+  ],
+  "blockers": [
+    { "id": "north_wall", "type": "rect", "x": 8, "y": 8, "w": 1264, "h": 20 },
+    { "id": "west_wall", "type": "rect", "x": 8, "y": 8, "w": 20, "h": 704 },
+    { "id": "east_wall", "type": "rect", "x": 1252, "y": 8, "w": 20, "h": 704 },
+    { "id": "service_gate_base", "type": "rect", "x": 418, "y": 470, "w": 28, "h": 110 },
+    { "id": "workshop_wreck_1_base", "type": "rect", "x": 602, "y": 432, "w": 140, "h": 56 },
+    { "id": "workshop_wreck_2_base", "type": "rect", "x": 806, "y": 360, "w": 110, "h": 64 },
+    { "id": "plaza_fountain_base", "type": "rect", "x": 964, "y": 248, "w": 150, "h": 92 },
+    { "id": "archive_gate_base", "type": "rect", "x": 1142, "y": 136, "w": 52, "h": 138 }
+  ],
+  "criticalPathChecks": [
+    { "id": "spawn_to_service_patio", "from": { "x": 120, "y": 620 }, "to": { "x": 540, "y": 540 } },
+    { "id": "service_to_workshop", "from": { "x": 540, "y": 540 }, "to": { "x": 860, "y": 470 } },
+    { "id": "workshop_to_plaza", "from": { "x": 860, "y": 470 }, "to": { "x": 1040, "y": 318 } },
+    { "id": "plaza_to_archive", "from": { "x": 1040, "y": 318 }, "to": { "x": 1188, "y": 220 } }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "ohmdal_chapter_01",
+  "engineTarget": "Phaser/project-native JSON",
+  "camera": {
+    "mode": "follow_player",
+    "bounds": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "viewportReference": { "w": 640, "h": 360 }
+  },
+  "spawns": [
+    {
+      "id": "from_classroom",
+      "kind": "player_spawn",
+      "x": 120,
+      "y": 620
+    },
+    {
+      "id": "ohm_guide",
+      "kind": "npc_spawn_marker",
+      "actorId": "ohm_automaton",
+      "x": 164,
+      "y": 580
+    }
+  ],
+  "interactables": [
+    { "id": "return_hub", "kind": "exit", "zoneId": "arrival_gate" },
+    { "id": "ohm_chapter_intro", "kind": "dialogue", "zoneId": "arrival_gate" },
+    { "id": "puzzle_node_01", "kind": "puzzle", "zoneId": "service_patio", "puzzleId": "ohmdal_ch1_puzzle_01" },
+    { "id": "puzzle_node_02", "kind": "puzzle", "zoneId": "workshop_street", "puzzleId": "ohmdal_ch1_puzzle_02" },
+    { "id": "puzzle_node_03", "kind": "puzzle", "zoneId": "plaza", "puzzleId": "ohmdal_ch1_puzzle_03" },
+    { "id": "archive_gate_interact", "kind": "gate", "zoneId": "archive_access" },
+    { "id": "memory_coil_pickup", "kind": "pickup", "zoneId": "archive_access", "itemId": "bobina_memoria_de_ohmdal" }
+  ],
+  "runtimeNotes": [
+    "Scene hooks are metadata only; actor art belongs in generate2dsprite, not generate2dmap.",
+    "Do not draw UI labels, arrows, spawn markers or collision markers into map images."
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "ohmdal_chapter_01",
+  "status": "placeholder_reference",
+  "source": {
+    "tool": "agent-sprite-forge",
+    "mapMode": "scene_mode",
+    "visualModel": "layered_raster",
+    "runtimeObjectModel": "y_sorted_props_and_interactive_scene_objects",
+    "visualAssetSource": "procedural_placeholder",
+    "notes": "Prop metadata baseline for a later image_gen production pass."
+  },
+  "props": [
+    {
+      "id": "arrival_bronze_return_line",
+      "zoneId": "arrival_gate",
+      "assetStrategy": "one_by_one",
+      "image": "/assets/environment/ohmdal/chapter-01/props/arrival_bronze_return_line/prop.placeholder.png",
+      "x": 336,
+      "y": 620,
+      "w": 280,
+      "h": 28,
+      "sortY": 620,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "visual_path_only",
+      "sourceStatus": "placeholder_reference"
+    },
+    {
+      "id": "service_gate",
+      "zoneId": "service_patio",
+      "assetStrategy": "one_by_one",
+      "image": "/assets/environment/ohmdal/chapter-01/props/service_gate/prop.placeholder.png",
+      "x": 432,
+      "y": 580,
+      "w": 84,
+      "h": 126,
+      "sortY": 580,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "blocker_base",
+      "sourceStatus": "placeholder_reference"
+    },
+    {
+      "id": "workshop_broken_automaton",
+      "zoneId": "workshop_street",
+      "assetStrategy": "one_by_one",
+      "image": "/assets/environment/ohmdal/chapter-01/props/workshop_broken_automaton/prop.placeholder.png",
+      "x": 850,
+      "y": 450,
+      "w": 104,
+      "h": 68,
+      "sortY": 450,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "inspectable_blocker",
+      "sourceStatus": "placeholder_reference"
+    },
+    {
+      "id": "workshop_wreckage_cluster",
+      "zoneId": "workshop_street",
+      "assetStrategy": "prop_pack_2x2_compact_only",
+      "image": "/assets/environment/ohmdal/chapter-01/props/workshop_wreckage_cluster/prop.placeholder.png",
+      "x": 672,
+      "y": 488,
+      "w": 150,
+      "h": 64,
+      "sortY": 488,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "blocker_base",
+      "sourceStatus": "placeholder_reference"
+    },
+    {
+      "id": "plaza_fountain_base",
+      "zoneId": "plaza",
+      "assetStrategy": "one_by_one",
+      "image": "/assets/environment/ohmdal/chapter-01/props/plaza_fountain_base/prop.placeholder.png",
+      "x": 1040,
+      "y": 340,
+      "w": 168,
+      "h": 104,
+      "sortY": 340,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "blocker_base",
+      "sourceStatus": "placeholder_reference"
+    },
+    {
+      "id": "archive_gate",
+      "zoneId": "archive_access",
+      "assetStrategy": "one_by_one",
+      "image": "/assets/environment/ohmdal/chapter-01/props/archive_gate/prop.placeholder.png",
+      "x": 1168,
+      "y": 274,
+      "w": 72,
+      "h": 154,
+      "sortY": 274,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "gated_exit_blocker",
+      "sourceStatus": "placeholder_reference"
+    },
+    {
+      "id": "memory_coil",
+      "zoneId": "archive_access",
+      "assetStrategy": "one_by_one",
+      "image": "/assets/environment/ohmdal/chapter-01/props/memory_coil/prop.placeholder.png",
+      "x": 1188,
+      "y": 238,
+      "w": 54,
+      "h": 48,
+      "sortY": 238,
+      "anchor": "center-bottom",
+      "layer": "props",
+      "collisionRole": "pickup_trigger_visual",
+      "sourceStatus": "placeholder_reference"
+    }
+  ],
+  "spriteProductionPlan": {
+    "largeIdentityProps": [
+      "service_gate",
+      "workshop_broken_automaton",
+      "plaza_fountain_base",
+      "archive_gate",
+      "memory_coil"
+    ],
+    "compactPackCandidates": [
+      "workshop_wreckage_cluster"
+    ],
+    "forbiddenPackCandidates": [
+      "archive_gate",
+      "service_gate",
+      "arrival_bronze_return_line"
+    ]
+  }
+}

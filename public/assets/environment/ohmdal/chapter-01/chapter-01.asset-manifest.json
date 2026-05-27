@@ -1,21 +1,34 @@
 {
-  "id": "ohmdal_chapter_01",
+  "schemaVersion": 1,
+  "id": "ohmdal-chapter-01-placeholder-bundle-v1",
+  "sceneId": "ohmdal_chapter_01",
+  "kind": "layeredRasterMapBundle",
   "status": "placeholder_reference",
-  "viewport": {
-    "width": 640,
-    "height": 360
+  "source": {
+    "tool": "agent-sprite-forge",
+    "mapMode": "scene_mode",
+    "visualModel": "layered_raster",
+    "runtimeObjectModel": "y_sorted_props_and_interactive_scene_objects",
+    "collisionModel": "coarse_shapes_and_trigger_zones",
+    "engineTarget": "Phaser/project-native JSON",
+    "visualAssetSource": "procedural_placeholder",
+    "notes": "Baseline created by spec 026; not final art."
   },
-  "world": {
+  "mapSize": {
     "width": 1280,
     "height": 720,
     "grid": 32
   },
-  "layers": [
-    "ground",
-    "paths",
-    "props",
-    "atmosphere"
-  ],
-  "previewImage": "/assets/environment/ohmdal/threshold/threshold-layered-preview.placeholder.png",
-  "note": "Placeholder de referencia visual para runtime. No es arte final."
+  "viewportReference": {
+    "width": 640,
+    "height": 360
+  },
+  "baseImage": null,
+  "props": "/assets/environment/ohmdal/chapter-01/chapter-01-props.json",
+  "collision": "/assets/environment/ohmdal/chapter-01/chapter-01-collision.json",
+  "zones": "/assets/environment/ohmdal/chapter-01/chapter-01-zones.json",
+  "sceneHooks": "/assets/environment/ohmdal/chapter-01/chapter-01-scene-hooks.json",
+  "spritePrompts": "/assets/environment/ohmdal/chapter-01/chapter-01-sprite-prompts.json",
+  "preview": "/assets/environment/ohmdal/threshold/threshold-layered-preview.placeholder.png",
+  "prompt": "/assets/environment/ohmdal/chapter-01/chapter-01.prompt.txt"
 }
