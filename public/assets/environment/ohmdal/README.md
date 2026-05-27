@@ -19,5 +19,9 @@ Current placeholder bundles:
   - `threshold-zones.json`
   - `threshold.asset-manifest.json`
   - `props/*/prop.placeholder.png`
+- `chapter-01/`
+  - `chapter-01.asset-manifest.json`
+  - `chapter-01.prompt.txt`
+  - preview currently reuses `../threshold/threshold-layered-preview.placeholder.png`
 
 Do not treat generated images as final production assets unless a later spec declares their function, scale, acceptance criteria, and manifest.

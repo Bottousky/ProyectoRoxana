@@ -1,0 +1,21 @@
+{
+  "id": "ohmdal_chapter_01",
+  "status": "placeholder_reference",
+  "viewport": {
+    "width": 640,
+    "height": 360
+  },
+  "world": {
+    "width": 1280,
+    "height": 720,
+    "grid": 32
+  },
+  "layers": [
+    "ground",
+    "paths",
+    "props",
+    "atmosphere"
+  ],
+  "previewImage": "/assets/environment/ohmdal/threshold/threshold-layered-preview.placeholder.png",
+  "note": "Placeholder de referencia visual para runtime. No es arte final."
+}

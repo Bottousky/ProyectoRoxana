@@ -1,0 +1,11 @@
+Generate2DMap placeholder brief for Proyecto Roxana (Spec 025):
+
+- Scene: Ohmdal chapter 1 (arrival gate, patio, workshop street, plaza, archive gate)
+- Gameplay world size: 1280x720
+- Target viewport reference: 640x360
+- Design grid: 32
+- Camera follow expected
+- Narrative tone: abandoned techno-medieval district with subtle hope
+- No UI text embedded in image
+- Deliverable class: placeholder_reference only (not final art)
+- Include rough collision and interactable suggestions in side metadata

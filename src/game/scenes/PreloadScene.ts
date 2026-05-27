@@ -1,5 +1,6 @@
 import * as Phaser from "phaser";
 import classroomMapRaw from "@/content/maps/electronics-classroom.map.json";
+import ohmdalChapterMapRaw from "@/content/maps/ohmdal-chapter-01.map.json";
 import ohmdalThresholdMapRaw from "@/content/maps/ohmdal-threshold.map.json";
 import hubMapRaw from "@/content/maps/roxana-library-hub.map.json";
 import officeMapRaw from "@/content/maps/roxana-office.map.json";
@@ -18,6 +19,7 @@ export class PreloadScene extends Phaser.Scene {
       officeMapRaw as HubMapData,
       classroomMapRaw as HubMapData,
       ohmdalThresholdMapRaw as HubMapData,
+      ohmdalChapterMapRaw as HubMapData,
     ]);
   }
 
