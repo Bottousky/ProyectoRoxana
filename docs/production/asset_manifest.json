@@ -1,0 +1,104 @@
+{
+  "project": "Proyecto Roxana",
+  "unit": "Ohmdal Unidad 1 - La corriente no es magia",
+  "version": "0.1",
+  "engine_target": "Phaser",
+  "assets": [
+    {
+      "id": "MAP_ROXANA_HALL",
+      "type": "map",
+      "skill": "$generate2dmap",
+      "priority": "high",
+      "scene": "RoxanaHallScene",
+      "status": "todo"
+    },
+    {
+      "id": "MAP_ROXANA_OFFICE",
+      "type": "map",
+      "skill": "$generate2dmap",
+      "priority": "high",
+      "scene": "RoxanaOfficeScene",
+      "status": "todo"
+    },
+    {
+      "id": "MAP_ELECTRONICS_CLASS",
+      "type": "map",
+      "skill": "$generate2dmap",
+      "priority": "high",
+      "scene": "ElectronicsClassScene",
+      "status": "todo"
+    },
+    {
+      "id": "MAP_OHMDAL_PLAZA_OFF",
+      "type": "map",
+      "skill": "$generate2dmap",
+      "priority": "high",
+      "scene": "OhmdalPlazaScene",
+      "status": "todo"
+    },
+    {
+      "id": "MAP_LUMEN_WORKSHOP",
+      "type": "map",
+      "skill": "$generate2dmap",
+      "priority": "high",
+      "scene": "LumenWorkshopScene",
+      "status": "todo"
+    },
+    {
+      "id": "MAP_GATE_OF_OHM",
+      "type": "map",
+      "skill": "$generate2dmap",
+      "priority": "high",
+      "scene": "GateOfOhmScene",
+      "status": "todo"
+    },
+    {
+      "id": "SPR_PLAYER_PLACEHOLDER",
+      "type": "sprite",
+      "skill": "$generate2dsprite",
+      "priority": "medium",
+      "scene": "Multiple",
+      "status": "todo"
+    },
+    {
+      "id": "SPR_OHM",
+      "type": "sprite",
+      "skill": "$generate2dsprite",
+      "priority": "high",
+      "scene": "OhmdalPlazaScene",
+      "status": "todo"
+    },
+    {
+      "id": "SPR_EDDA",
+      "type": "sprite",
+      "skill": "$generate2dsprite",
+      "priority": "high",
+      "scene": "OhmdalPlazaScene",
+      "status": "todo"
+    },
+    {
+      "id": "SPR_LUMEN",
+      "type": "sprite",
+      "skill": "$generate2dsprite",
+      "priority": "high",
+      "scene": "LumenWorkshopScene",
+      "status": "todo"
+    },
+    {
+      "id": "PROP_BRAKE_STONES",
+      "type": "prop_pack",
+      "skill": "$generate2dsprite",
+      "priority": "high",
+      "scene": "LumenWorkshopScene",
+      "status": "todo"
+    },
+    {
+      "id": "PROP_TRIANGLE_VIR",
+      "type": "prop_pack_ui",
+      "skill": "$generate2dsprite",
+      "priority": "high",
+      "scene": "Multiple",
+      "status": "todo"
+    }
+  ]
+}
